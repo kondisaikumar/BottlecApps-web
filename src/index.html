@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="manifest" href="/manifest.json">
+  <meta charset="utf-8">
+  <meta name="apple-itunes-app" content="app-id=1439459256">
+  <meta name="google-play-app" content="app-id=com.cta.lukas">
+  <title>Lukas Liquor Superstore</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="android-touch-icon" href="android-icon.png" />
+  <link href="assets/fonts/webkit.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <app-root></app-root>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-137994865-1', 'auto');
+  </script>
+
+</body>
+
+<script type="text/javascript">
+  function myFunction() {
+    var x = document.getElementById("dropMenu");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  $("#mobMenu").click(function () {
+    $("#dropMenu").addClass("show").removeClass("hide");
+  });
+
+  function mysecFunction() {
+    document.getElementById("dropMenu").style.display = "block";
+  }
+
+  function rotateFunction() {
+    $("#rotate").toggleClass("down");
+  }
+
+</script>
+
+</html>

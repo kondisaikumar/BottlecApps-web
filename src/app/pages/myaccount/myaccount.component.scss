@@ -1,0 +1,322 @@
+@import "~src/variable.scss";
+
+.bottle-panel-container {
+  border: solid 1px #e5e5e5 !important;
+  border-radius: 2px !important;
+  margin-bottom: -6px !important;
+  list-style: none;
+}
+
+h4.left-panel-title {
+  margin: 0px;
+  padding: 5px 0px;
+  text-transform: uppercase;
+  a {
+    padding: 10px 20px;
+    color: #222;
+    background-color: #f8f8f8;
+    display: block;
+    text-transform: uppercase;
+    font-size: 14px;
+    &:hover, &:focus {
+      text-decoration: none;
+      background-color: #f8f8f8;
+      outline: none;
+      text-decoration: none;
+      background-color: #f8f8f8;
+    }
+  }
+}
+
+ul.panel-group {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul.left-panel-body {
+  background-color: #fff;
+  border-top: solid 1px #e5e5e5;
+  padding: 0px;
+  margin: 0px;
+  li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: block;
+    font-size: 14px;
+    a {
+      text-decoration: none;
+      color: #222;
+      font-size: 14px;
+      padding: 15px 20px;
+      display: block;
+      text-align: left;
+      &:hover, &:focus, &.active {
+        text-decoration: none;
+        color: #222;
+        font-size: 14px;
+        background-color: #fde8e9;
+        color: #f11b2e;
+        padding: 15px 20px;
+        display: block;
+      }
+    }
+  }
+}
+
+ul.checkbox-list {
+  background-color: #fff;
+  border-top: solid 1px #e5e5e5;
+  padding: 0px;
+  margin: 0px;
+  li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: block;
+    font-size: 14px;
+    label {
+      text-decoration: none;
+      color: #222;
+      font-size: 14px;
+      margin: 15px 20px;
+      display: block;
+      text-align: left;
+    }
+  }
+}
+
+.left-panel-section {
+  background-color: #f8f8f8;
+}
+
+ul.search-history {
+  background-color: #fff;
+  border-top: solid 1px #e5e5e5;
+  padding: 0px;
+  margin: 0px;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 12px;
+  li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: inline-flex;
+    a {
+      text-decoration: none;
+      color: #222;
+      font-size: 14px;
+      background-color: $lukas-color;
+      color: #fff;
+      padding: 5px 10px;
+      display: block;
+      margin-bottom: 5px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.product-panel-thumbnail {
+  border: solid 1px #e5e5e5;
+  background-color: #fff;
+  border-radius: 3px;
+  .product-section {
+    width: 100%;
+    display: flex;
+    border-bottom: solid 1px #e5e5e5;
+    padding: 10px;
+  }
+  .like-img, .cart-img {
+    width: 40px;
+    height: auto;
+  }
+  .product-img {
+    width: 109px;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+  }
+}
+
+.price-details {
+  padding: 5px 10px;
+  .product-price {
+    font-weight: bolder;
+    color: $lukas-color;
+    font-size: 22px;
+    display: block;
+  }
+  .product-name {
+    color: #222;
+    font-size: 16px;
+    display: block;
+  }
+  .product-caption {
+    color: #222;
+    font-size: 12px;
+    display: block;
+  }
+  .product-rating {
+    color: #ddd;
+    font-size: 12px;
+  }
+}
+
+h4.left-panel-title a.bottles-brand {
+  color: $lukas-color;
+  &:hover {
+    color: $lukas-color;
+  }
+}
+
+.bottles-brand {
+  color: $lukas-color;
+}
+
+.myac-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.custom-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.custom-checkbox {
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox {
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.profile span.img_class img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    -moz-border-radius: 50%;
+    float: left;
+    margin-right: 30px;
+    border: solid 1px #ccc;
+    color: #222;
+    font-size: 24px;
+    text-align: center;
+}
+
+.page-navigation {
+    width: auto;
+    margin: 0 auto;
+    display: table;
+}
+
+@media only screen and (max-width: 1024px) {
+    ul.myac-panel {
+      margin-left: 0px;
+      padding-left: 0px;
+      list-style: none;
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      margin-bottom: 10px;
+      li {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        display: table-cell;
+      }
+    }
+
+    h4.left-panel-title a {
+      padding: 1px 5px 5px 5px !important;
+      text-align: center;
+      font-size: 12px !important;
+      font-family: poppinsregular !important;
+      height: 70px;
+    }
+
+    .myac-icon {
+      margin-right: 0px;
+      display: block;
+      text-align: center;
+      margin-bottom: 10px;
+      margin-top: 5px;
+      .icon-recipt-date {
+        font-style: 17px;
+      }
+    }
+
+    ul#myAccountm {
+        /*display: table;*/
+        border-top: solid 0px transparent;
+        background-color: transparent;
+        text-align: center;
+        width: 100%;
+
+        li {
+            display: table-cell;
+            text-align: center;
+            border: solid 1px #f9f9f9;
+            /*width: 100%;*/
+            a {
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+    }
+}

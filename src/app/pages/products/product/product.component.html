@@ -1,0 +1,50 @@
+<div class="Main_bottlesection">
+  <div class="item_img circle">
+    <div class="img_div">
+
+      <div class="margin_bottom">
+        <div class="sale-tag" *ngIf="item?.OfferType === 'SALE' || item?.OfferType === 'Flash Sale' || item?.OfferType === 'CLUB'">
+          <img [src]="item?.OfferIcon" class="img-responsive">
+        </div>
+
+        <i class="icon icon-favorites" (click)="favoriteProductUpdate(true)" *ngIf="item?.IsFavorite===false; else favActive"></i>
+        <ng-template #favActive>
+          <i class="icon icon-favorites active" (click)="favoriteProductUpdate(false)"></i>
+        </ng-template>
+        <a routerLink="/product-details/{{item.PID}}"><img class="second_img" src="{{item?.ProductImg}}" /></a>
+        <i class="icon icon-remove-from-my-cart active" title="Out of Stock" *ngIf="item?.Inventory === 0; else showCart"></i>
+        <ng-template #showCart>
+          <i class="icon icon-add-to-my-cart" (click)="addToCart(item)" *ngIf="item?.InCart === 0; else cartActive"></i>
+          <ng-template #cartActive>
+            <i class="icon icon-remove-cart active" (click)="removeFromCart(item)"></i>          
+          </ng-template>
+        </ng-template>
+      </div>
+      <div class="second_content" routerLink="/product-details/{{item.PID}}">
+        <div class="row">
+          <div class="col-md-6" *ngIf="item?.PriceDisplay !== item?.OfferPriceDisplay">
+            <div class="strike_text" *ngIf="item?.PriceDisplay !== item?.OfferPriceDisplay">{{item?.PriceDisplay}}</div>
+          </div>
+          <div class="col-md-6">
+            <p class="price">{{item?.OfferPriceDisplay}}</p>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-md-12"><h5 class="productname">{{item?.ProductName}}</h5></div>
+          <div class="col-md-12"><p class="product_size">
+            <span>{{item?.Size}}</span>
+          </p></div>
+          <div class="ptop15">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <p class="rating_star">
+            <app-rating [rate]='item?.Rating'></app-rating> </p>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <p><span class="first">{{item?.ReviewCount}}</span>
+            <span class="reviews"> reviews</span> </p>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

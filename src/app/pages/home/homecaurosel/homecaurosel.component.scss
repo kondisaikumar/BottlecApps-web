@@ -1,0 +1,186 @@
+@import "~src/variable.scss";
+.carousel {
+  
+}
+.carousel-block {
+  
+  height: auto;
+  .carousel-img {
+    height: auto;
+    width: 100%;
+  }
+  a {
+    &.left,
+    &.right {
+      height: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: 1599px) and (max-width: 2080px) {
+  .carousel-block {
+    .carousel-img {
+      height: auto;
+      width: 100%;
+      background-size: cover !important;
+    }
+    a {
+      &.left,
+      &.right {
+        height: 100%;
+      }
+    }
+  }
+}
+
+a.left.carousel-control,
+a.right.carousel-control {
+  top: 45%;
+  margin: 15px;
+}
+
+.carousel-control.right,
+.carousel-control.left,
+a.carousel-control {
+  background-image: none;
+}
+
+@media only screen and (max-width: 480px) {
+  .search-block .searchby .search-btn .btn {
+    top: 0px !important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .carousel-control img {
+    width: 50%;
+  }
+  .searchby {
+    width: 100% !important;
+    margin-bottom: 0px;
+    display: block !important;
+    float: left;
+    position: relative;
+    z-index: 9;
+  }
+  .input-group .form-control {
+    width: 100% !important;
+    height: 38px !important;
+    position: absolute;
+    padding-right: 40px;
+    z-index: -1;
+  }
+  .input-group button.btn {
+    margin: 0px !important;
+    float: right;
+  }
+  .search-btn .icon {
+    color: #fff !important;
+  }
+
+  ul.nav-tabs li.active {
+    color: $lukas-color;
+    opacity: 1 !important;
+  }
+
+  ul.nav-tabs li.active:after {
+    content: " ";
+    position: absolute;
+    left: 30%;
+    opacity: 1;
+    margin: 0 auto;
+    bottom: -30px;
+    border: 18px solid transparent;
+    border-bottom-color: #fff;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    z-index: 9999;
+  }
+
+  .m-menu-tabs {
+    ul.nav-tabs {
+      display: table;
+      table-layout: fixed;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+      border-bottom: solid 1px transparent;
+      li {
+        display: table-cell;
+        list-style: none;
+        padding: 0px;
+        width: 25%;
+        text-align: center;
+        opacity: 0.5;
+        /*              margin: 0 15px;
+              cursor: pointer;
+              background-color: $lukas-color;
+              padding: 3px 0px;
+              border-radius: 50%;
+              height: 60px;
+              width: 60px;*/
+        a {
+          background-color: transparent;
+          border: 0px solid transparent !important;
+          border-bottom-color: transparent;
+          padding: 0px;
+          cursor: pointer;
+          .icon {
+            font-size: 50px;
+            color: $lukas-color;
+            cursor: pointer;
+          }
+        }
+        &:hover {
+          /*background-color: $lukas-color !important;*/
+          border: 0px solid transparent !important;
+          opacity: 1;
+          .icon {
+            font-size: 50px;
+            color: $lukas-color;
+          }
+        }
+        .active {
+          background-color: transparent !important;
+          border: 1px solid transparent !important;
+          opacity: 1 !important;
+          .icon {
+            font-size: 50px;
+            opacity: 1 !important;
+            color: $lukas-color;
+          }
+          &:after {
+            content: " ";
+            position: absolute;
+            left: 0%;
+            opacity: 1;
+            margin: 0 auto;
+            bottom: 0px;
+            border: 18px solid $lukas-color;
+            border-bottom-color: $lukas-color;
+            -ms-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            z-index: 9999;
+          }
+        }
+      }
+    }
+    .m-tab-section {
+      width: 100%;
+      box-shadow: 0px -5px 25px rgba(0, 0, 0, 0.5);
+      background-color: #fff;
+      padding: 15px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      .m-tab-content {
+      }
+    }
+  }
+}
+
+/*.carousel-inner>.item.active, .carousel-inner>.item.next.left, .carousel-inner>.item.prev.right {
+    transition: transform .6s ease-in-out;
+    transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out;
+}*/

@@ -1,0 +1,45 @@
+@import "~src/variable.scss";
+
+.about-us {
+    h4{
+        font-family: $poppins-bold;
+    }
+    h5{
+        font-family: $poppins-bold;
+    }
+    p{
+        font-family: $poppins-regular;
+        font-size: 14px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 2.14;
+        letter-spacing: 0.4px;
+        /* text-align: justify; */
+        color: #444444;
+        text-transform: capitalize;
+    }
+
+    .font_family_Montserrat-SemiBold h5{
+        font-family:$montserrat-bold;
+        font-size: 12px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #333333;
+    }
+
+    .information address{
+        font-family:$montserrat-bold;
+        font-size: 12px;
+
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #333333;
+    }
+
+}

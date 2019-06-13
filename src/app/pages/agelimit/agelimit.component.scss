@@ -1,0 +1,172 @@
+@import "~src/variable.scss";
+
+#mask {
+    position: absolute; 
+    left: 0;
+    top: 0;
+    z-index: 9000;
+    background-color: #000;
+    display: none;
+  }
+  .modal-body.text-center {
+    border: 1px solid rgba(0,0,0,.1) !important;
+   background: #fff !important;
+   border-radius: 8px;
+   padding-top: 40px;
+   }
+  .modal-content{
+  box-shadow: none !important;
+  border:none !important;  
+  background: none !important;
+    
+  }
+  #boxes .window {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 440px;
+    display: none;
+    z-index: 9999;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+  }
+  
+  #boxes #dialog {
+    width: 750px;
+    height: auto;
+    padding: 10px;
+    background-color: #f0f0f1;
+    font-family: $montserrat-regular;
+    font-size: 15pt;
+    margin: 0 auto;
+  }
+  
+  #popupfoot {
+    font-size: 16pt;
+    position: absolute;
+    bottom: 0px;
+    width: 250px;
+    left: 250px;
+  }
+
+  .modal-body p.font{
+  font-family: $montserrat-regular;
+  font-size: 12px;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #222222;
+  }
+  .modal-body h4.bold{
+    font-family: $montserrat-bold;
+    font-size: 16px;
+    font-stretch: normal;
+    line-height: 1.13;
+    letter-spacing: normal;
+    text-align: center;
+    color: #222222;
+    padding: 30px 31px;
+  }
+  #boxes #dialog{
+    transform: translateY(25%);
+    border-radius:0;
+  }
+  .modal-footer{
+      border-top: 0;
+  }
+  .modal-footer p{
+      text-align: center;
+      font-family: $montserrat-regular;
+      font-size: 12px;
+      font-stretch: normal;
+      line-height: 2;
+  }
+  .modal-header {
+    min-height: 16.428571429px;
+    padding: 15px;
+    border-bottom: 0;
+}
+
+  .modal-body h2.popins_bold{
+    font-family: $poppins-bold;
+    /*font-size: 2.8em;*/
+    font-stretch: normal;
+    line-height: 0.38;
+    letter-spacing: normal;
+    text-align: center;
+    color: $lukas-color;
+    padding-bottom: 50px;
+    padding-top: 40px;
+  }
+
+  .modal-body h2.popins_bold-2{
+    font-family: $poppins-bold;
+    font-size: 48px;
+    font-stretch: normal;
+    line-height: 0.38;
+    letter-spacing: normal;
+    text-align: center;
+    color: $lukas-color;
+    padding-bottom: 0px;
+  }
+
+  .modal-body button.novalue{
+      background: #d7d7d7 !important;
+      color:#fff;
+      padding: 10px 25px;
+      box-shadow: $boxshadow-regular;
+      font-family: $montserrat-bold;
+      font-size: 11.2px;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #ffffff;
+      opacity: 1;
+  }
+  .modal-body button.close,
+  .modal-footer button.close{
+    background-color: $lukas-color !important;
+    box-shadow: $boxshadow-active;
+    font-family: $montserrat-bold;
+    font-size: 11.2px;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    padding:10px 30px;
+    opacity: 1;
+  }
+  @media only screen and (max-width: 1024px) {
+    .modal-body h2.popins_bold {
+      font-size: 2em;
+    }
+  }
+  @media screen and (min-width:320px) and (max-width:767px){
+    .modal-body h2.popins_bold {
+      line-height: 1.2em;
+    }
+
+  }
+ 
+  #dialog{
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  /* - - - - - - - - icon block - - - - - - - - - */
+
+  .popicon-block {
+    font-size: 10em;
+    color: #ddd;
+  }
+
+  .btncenter-block {
+    width: 160px;
+    margin: 0 auto;
+  }
+  .modal-age{ font-size: 0.9em !important; text-shadow: none !important;}

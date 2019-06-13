@@ -1,0 +1,124 @@
+@import "~src/variable.scss";
+
+.parallax {
+  background-image: url("https://liquorapps.com/Images/EventImgLarge/443bbe4a-afe8-49e5-810c-5b0e74c3e879.png");
+  min-height: 200px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  h4, a, a:hover {
+  	color: #fff;
+  }
+}
+
+.contact-section {
+	margin-top: -70px;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 30px;
+	/*padding: 15px;*/
+	background-color: #fff;
+	height: 100%;
+	display: flex;
+	box-shadow: 1px 15px 30px rgba(0,0,0,.2);
+	input, textarea, select {
+		border-radius: 0px;
+	}
+	p, .icon, a, a:hover {
+		color: #fff;
+	}
+	p.line {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 14px;
+	}
+	p span.icon {
+		margin-right: 10px;
+	}
+	.contactform {
+		background-color: #fff;
+		padding-top: 15px;
+		label {
+			color: #999;
+		}
+	}
+}
+
+	.no-resize {
+		resize: none !important;
+	}
+
+	.mb20 {
+		margin-bottom: 20px;
+	}
+
+@media screen and (min-width:320px) and (max-width:768px) {
+	.contact-section {
+		margin-top: -70px;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		margin-bottom: 30px;
+		/*padding: 15px;*/
+		background-color: #fff;
+		height: 100%;
+		display: block;
+		box-shadow: 1px 15px 30px rgba(0,0,0,.2);
+		.contactform {
+			padding-bottom: 15px;
+		}
+	}
+	.contact-address-section {
+		margin-bottom: 30px;
+		height: 50vh !important;
+	}
+
+	.parallax {
+		margin-top: 100px;
+	}
+
+	.no-resize {
+		resize: none !important;
+	}
+}
+
+@media screen and (min-width:320px) and (max-width:1024px) { 
+	.contact-address-section {
+		height: 50vh !important;
+	}
+}
+
+.contact-address-section {
+	/*background-color: $lukas-color;*/
+	height: 100%;
+    display: block;
+    min-height: 380px;
+    /*padding: 15px;*/
+    height: 100vh;
+}
+
+button.contact{
+    background-color: $lukas-color;
+    font-size: 12.7px;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #ffffff;
+    padding: 10px 20px 8px 20px;
+    border-radius: 0px;
+    text-align: center;
+    border: $lukas-color;
+  }
+  button.contact:focus{
+      border:$lukas-color;
+      outline: none;
+  }
+
+.contact-map {
+	height: 100vh;
+	display: contents;
+}
+
+.contact-textarea {
+	height: 320px;
+}

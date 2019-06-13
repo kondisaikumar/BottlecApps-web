@@ -1,0 +1,44 @@
+@import "~src/variable.scss";
+
+.coupon-tile {
+  margin-top: 20px;
+  background-position: bottom;
+  height: 100%;
+  h4, span.highlight {
+    color: $lukas-color;
+  }
+  .img-container {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    height: auto;
+    width: 100%;
+    background-color: #ddd;
+  }
+  .thumbnail {
+      padding: 0px;
+      border: 1px solid rgba(204,204,204,0.12);
+      border-bottom: 0px solid #ccc;
+      min-height: 295px;
+      max-height: 420px;
+      /*height: 295px;*/
+      .caption {
+      padding: 15px;
+      }
+    }
+    .coupon-table {
+      width: 100%;
+      font-family: poppinsregular;
+    }
+}
+
+.no-coupons-container {
+    width: 25%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 1024px) {
+    .no-coupons-container {
+        width: 100%;
+        margin: 0 auto 10px auto;
+    }
+}

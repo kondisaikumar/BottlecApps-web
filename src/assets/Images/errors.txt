@@ -1,0 +1,65 @@
+[7/7/2018, 11:19:09 AM] layer "+": Expected Either a default asset specification or a layer asset specification but "+" found.
+[7/7/2018, 11:19:09 AM] layer "+": Expected Either a default asset specification or a layer asset specification but "+" found.
+[7/7/2018, 11:19:09 AM] layer "+": Expected Either a default asset specification or a layer asset specification but "+" found.
+[7/7/2018, 11:19:09 AM] layer "download-bg.png": Duplicate path: download-bg.png
+[7/7/2018, 11:19:09 AM] layer "android.png": Duplicate path: android.png
+[7/7/2018, 11:19:09 AM] layer "ios.png": Duplicate path: ios.png
+[7/7/2018, 11:19:09 AM] layer "logo-black.png": Duplicate path: logo-black.png
+[7/7/2018, 11:19:09 AM] layer "logo-black.png": Duplicate path: logo-black.png
+[7/7/2018, 11:19:09 AM] layer "logo-black.png": Duplicate path: logo-black.png
+[7/7/2018, 11:19:09 AM] layer "logo-black.png": Duplicate path: logo-black.png
+[7/7/2018, 11:19:09 AM] layer "logo-black.png": Duplicate path: logo-black.png
+[7/7/2018, 11:19:09 AM] layer "facebook.png": Duplicate path: facebook.png
+[7/7/2018, 11:19:09 AM] layer "twitter.png": Duplicate path: twitter.png
+[7/7/2018, 11:19:09 AM] layer "linkedin.png": Duplicate path: linkedin.png
+[7/7/2018, 11:19:09 AM] layer "youtube.png": Duplicate path: youtube.png
+[7/7/2018, 11:19:09 AM] layer "Insta.png": Duplicate path: Insta.png
+[7/7/2018, 11:19:09 AM] layer "facebook.png": Duplicate path: facebook.png
+[7/7/2018, 11:19:09 AM] layer "twitter.png": Duplicate path: twitter.png
+[7/7/2018, 11:19:09 AM] layer "linkedin.png": Duplicate path: linkedin.png
+[7/7/2018, 11:19:09 AM] layer "youtube.png": Duplicate path: youtube.png
+[7/7/2018, 11:19:09 AM] layer "Insta.png": Duplicate path: Insta.png
+[7/7/2018, 11:19:09 AM] layer "facebook.png": Duplicate path: facebook.png
+[7/7/2018, 11:19:09 AM] layer "twitter.png": Duplicate path: twitter.png
+[7/7/2018, 11:19:09 AM] layer "linkedin.png": Duplicate path: linkedin.png
+[7/7/2018, 11:19:09 AM] layer "youtube.png": Duplicate path: youtube.png
+[7/7/2018, 11:19:09 AM] layer "Insta.png": Duplicate path: Insta.png
+[7/7/2018, 11:19:09 AM] layer "facebook.png": Duplicate path: facebook.png
+[7/7/2018, 11:19:09 AM] layer "twitter.png": Duplicate path: twitter.png
+[7/7/2018, 11:19:09 AM] layer "linkedin.png": Duplicate path: linkedin.png
+[7/7/2018, 11:19:09 AM] layer "youtube.png": Duplicate path: youtube.png
+[7/7/2018, 11:19:09 AM] layer "Insta.png": Duplicate path: Insta.png
+[7/7/2018, 11:19:09 AM] layer "facebook.png": Duplicate path: facebook.png
+[7/7/2018, 11:19:09 AM] layer "twitter.png": Duplicate path: twitter.png
+[7/7/2018, 11:19:09 AM] layer "linkedin.png": Duplicate path: linkedin.png
+[7/7/2018, 11:19:09 AM] layer "youtube.png": Duplicate path: youtube.png
+[7/7/2018, 11:19:09 AM] layer "Insta.png": Duplicate path: Insta.png
+[7/7/2018, 11:19:09 AM] layer "logo-black.png": Duplicate path: logo-black.png
+[7/7/2018, 11:19:09 AM] layer "facebook.png": Duplicate path: facebook.png
+[7/7/2018, 11:19:09 AM] layer "twitter.png": Duplicate path: twitter.png
+[7/7/2018, 11:19:09 AM] layer "linkedin.png": Duplicate path: linkedin.png
+[7/7/2018, 11:19:09 AM] layer "youtube.png": Duplicate path: youtube.png
+[7/7/2018, 11:19:09 AM] layer "Insta.png": Duplicate path: Insta.png
+[7/7/2018, 11:19:09 AM] layer "logo-black.png": Duplicate path: logo-black.png
+[7/7/2018, 11:19:09 AM] layer "facebook.png": Duplicate path: facebook.png
+[7/7/2018, 11:19:09 AM] layer "twitter.png": Duplicate path: twitter.png
+[7/7/2018, 11:19:09 AM] layer "linkedin.png": Duplicate path: linkedin.png
+[7/7/2018, 11:19:09 AM] layer "youtube.png": Duplicate path: youtube.png
+[7/7/2018, 11:19:09 AM] layer "Insta.png": Duplicate path: Insta.png
+[7/7/2018, 11:19:09 AM] layer "logo-black.png": Duplicate path: logo-black.png
+[7/7/2018, 11:19:09 AM] layer "facebook.png": Duplicate path: facebook.png
+[7/7/2018, 11:19:09 AM] layer "twitter.png": Duplicate path: twitter.png
+[7/7/2018, 11:19:09 AM] layer "linkedin.png": Duplicate path: linkedin.png
+[7/7/2018, 11:19:09 AM] layer "youtube.png": Duplicate path: youtube.png
+[7/7/2018, 11:19:09 AM] layer "Insta.png": Duplicate path: Insta.png
+[7/7/2018, 11:19:09 AM] layer "logo-black.png": Duplicate path: logo-black.png
+[7/7/2018, 11:19:09 AM] layer "facebook.png": Duplicate path: facebook.png
+[7/7/2018, 11:19:09 AM] layer "twitter.png": Duplicate path: twitter.png
+[7/7/2018, 11:19:09 AM] layer "linkedin.png": Duplicate path: linkedin.png
+[7/7/2018, 11:19:09 AM] layer "youtube.png": Duplicate path: youtube.png
+[7/7/2018, 11:19:09 AM] layer "Insta.png": Duplicate path: Insta.png
+[7/7/2018, 11:19:09 AM] layer "Johnsmith@email.com": Unsupported extension: com
+[7/7/2018, 11:19:09 AM] layer "favorites.png": Duplicate path: favorites.png
+[7/7/2018, 11:19:09 AM] layer "+0 (123) 456-789": Expected Either a default asset specification or a layer asset specification but "+" found.
+[7/7/2018, 11:19:09 AM] layer "hero.png": Duplicate path: hero.png
+[7/7/2018, 11:19:09 AM] layer "Lorem ipsum dolor sit amet, ": Expected end of input but "," found.

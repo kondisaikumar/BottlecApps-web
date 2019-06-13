@@ -1,0 +1,196 @@
+<div class="container">
+  <div class="row">
+    <div class="Search_div col-md-12 col-sm-12 col-lg-12 col-xs-12">
+      <h4>Search Results</h4>
+      <!-- <input type="text" placeholder="Search Results"> -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a [routerLink]="['/home']">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a>Search Categories</a>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<section class="m_bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
+        <!-- Filter Search Left Menu Start -->
+        <div class="panel-group filter-panel" id="selectedFiltersAccordion" role="tablist" aria-multiselectable="true">
+            <div class="panel bottle-panel-container">
+              <div class="left-panel-section" role="tab" id="myFilterHeading">
+                <h4 class="panel-title left-panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#selectedFiltersAccordion" href="#myFilters" aria-expanded="true"
+                    aria-controls="myFilter">
+                    Filter <span class="fa fa-chevron-down pull-right"></span>
+                  </a>
+                </h4>
+              </div>
+              <ul id="myFilters" class="panel-collapse collapse in search-history" role="tabpanel" aria-labelledby="myFilterHeading">
+                <li *ngFor="let filter of selectedFilters"><a (click)="removeFilter(filter)"> {{filter.value}} <span
+                      class="fa fa-close"></span></a></li>
+              </ul>
+            </div>
+        </div>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"> 
+          <div class="panel bottle-panel-container">
+            <div class="left-panel-section" role="tab" id="myCategoryHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myCategory"
+                  aria-expanded="false" aria-controls="myCategory">
+                  Category <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myCategory" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myTypeHeading">
+              <li><a (click)="onCategorySelectionChange(category)" [ngClass]="{'active' : category.isSelected === true}"
+                  *ngFor="let category of categoryList">{{category.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container">
+            <div class="left-panel-section" role="tab" id="myTypeHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myType"
+                  aria-expanded="false" aria-controls="myType">
+                  Type <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myType" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myTypeHeading">
+              <li><a (click)="onTypeSelectionChange(type)" [ngClass]="{'active' : type.isSelected === true}" *ngFor="let type of allFilterOptions?.type">{{type.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container"  *ngIf="allVarietals?.length > 0">
+            <div class="left-panel-section" role="tab" id="myVarietalHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myVarietal"
+                  aria-expanded="false" aria-controls="myVarietal">
+                  Varietal <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myVarietal" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myVarietalHeading">
+              <li><a (click)="onSelectionChange(varietal)" [ngClass]="{'active' : varietal.isSelected === true}" *ngFor="let varietal of allVarietals">{{varietal.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container">
+            <div class="left-panel-section" role="tab" id="mySizeHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#mySize"
+                  aria-expanded="false" aria-controls="mySize">
+                  Size <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="mySize" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="mySizeHeading">
+              <li><a (click)="onSelectionChange(size)" [ngClass]="{'active' : size.isSelected === true}" *ngFor="let size of allFilterOptions?.size">{{size.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container" *ngIf="allFilterOptions?.countries.length > 0">
+            <div class="left-panel-section" role="tab" id="myCountryHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myCountry"
+                  aria-expanded="false" aria-controls="myCountry">
+                  Country <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myCountry" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myCountryHeading">
+              <li><a (click)="onCountrySelectionChange(country)" [ngClass]="{'active' : country.isSelected === true}" *ngFor="let country of allFilterOptions?.countries">{{country.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container" *ngIf="allFilterOptions?.countries.length > 0">
+            <div class="left-panel-section" role="tab" id="myRegionHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myRegion"
+                  aria-expanded="false" aria-controls="myRegion">
+                  Region <span class="fa fa-chevron-down pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myRegion" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myRegionHeading">
+              <li><a (click)="onSelectionChange(region)" [ngClass]="{'active' : region.isSelected === true}" *ngFor="let region of allRegions">{{region.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container">
+            <div class="left-panel-section" role="tab" id="PriceHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myPrice"
+                  aria-expanded="false" aria-controls="myPrice">
+                  price <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myPrice" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="PriceHeading">
+              <li><a (click)="onSelectionChange(price)" [ngClass]="{'active' : price.isSelected === true}" *ngFor="let price of allFilterOptions?.price">{{price.value}}</a></li>
+            </ul>
+          </div>
+          <div class="bottle-panel-container">
+            <div class="left-panel-section">
+              <h4 class="left-panel-title">
+                <a (click)="clearSearch()" class="bottles-brand">
+                  Clear Search</a>
+              </h4>
+            </div>
+          </div>
+        </div>
+        <!-- Filter Search Left Menu End -->
+      </div>
+      <div class="col-md-9 col-sm-9 col-lg-9 col-xs-12">
+        <div class="row margin_bottom_35" *ngIf="productsList?.length > 0">
+
+          <div class="col-md-4 col-sm-12">
+            <p class="text_transform">
+              Showing {{fromProductNo}}-{{(fromProductNo - 1) + productsList.length}} of {{totalProducts}} Products
+            </p>
+          </div>
+          <div class="col-md-6 col-sm-8">
+            <div class="page-navigation" *ngIf="totalProducts > 0">
+              <ngb-pagination [collectionSize]="totalProducts" (pageChange)="onPageChange($event)" [(page)]="page" [pageSize]="selectedPageSize" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-4">
+            <div class="select_box">
+
+              <select #selectedvalue class="selectBox" [(ngModel)]="selectedPageSize" (change)="onPageSizeChange()">
+                <option>Page Size</option>
+                <option *ngFor="let size of PageSize">
+                  {{size}}
+                </option>
+              </select>
+
+              <select *ngIf="false">
+                <option>DEFAULT SORTING</option>
+                <option *ngFor="let type of SortBy">
+                  {{type}}
+                </option>
+              </select>
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="Main_bottlesection">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mbottom15" *ngFor="let product of productsList">
+              <app-product [item]="product"></app-product>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-xs-12">
+              <div class="f-page-navigation" *ngIf="totalProducts > 0">
+                <ngb-pagination [collectionSize]="totalProducts" (pageChange)="onPageChange($event)" [(page)]="page" [pageSize]="selectedPageSize" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

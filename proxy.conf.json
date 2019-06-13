@@ -1,0 +1,42 @@
+{
+    "/certservices": {
+        "target": "https://certservices.elementexpress.com/",
+        "secure": false,
+        "pathRewrite": {
+            "^/certservices": ""
+        },
+        "changeOrigin": true
+    },
+    "/certtransaction": {
+        "target": "https://certtransaction.elementexpress.com/",
+        "secure": false,
+        "pathRewrite": {
+            "^/certtransaction": ""
+        },
+        "changeOrigin": true
+    },
+    "/certreporting": {
+        "target": "https://certreporting.elementexpress.com/",
+        "secure": false,
+        "pathRewrite": {
+            "^/certreporting": ""
+        },
+        "changeOrigin": true
+    },
+    "/hostedpayments": {
+        "target": "https://certtransaction.hostedpayments.com/?TransactionSetupID=",
+        "secure": false,
+        "pathRewrite": {
+            "^/hostedpayments": ""
+        },
+        "changeOrigin": true
+    },
+    "/return_URL": {
+        "target": "https://staging.liquorapps.com/Store/Vantiv",
+        "secure": false,
+        "pathRewrite": {
+            "^/return_URL": ""
+        },
+        "changeOrigin": true
+    }
+}

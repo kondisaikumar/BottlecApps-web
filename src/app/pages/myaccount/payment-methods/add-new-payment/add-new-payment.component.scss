@@ -1,0 +1,101 @@
+@import "~src/variable.scss";
+
+.new-payment-method-section {
+    padding: 20px 0px;
+    .form-group label.country {
+    margin-bottom: 0px;
+    }
+    .saveaddress {
+      margin-top: 33px;
+      font-family: $poppins-regular;
+    }
+        h4 {
+          font-family: $poppins-bold;
+          font-size: 14px;
+        }
+        button.novalue{
+        background: #d7d7d7 !important;
+        color:#fff;
+        padding: 10px 25px;
+        box-shadow: 0px 10px 20px 0 rgba(135, 135, 135, 0.3);
+        font-family: $poppins-bold;
+        font-size: 11.2px;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ffffff;
+        opacity: 1;
+      }
+      
+      button.close{
+        background-color: $lukas-color !important;
+        box-shadow: 0px 10px 20px 0 rgba(236, 28, 36, 0.3);
+        font-family: $poppins-bold;
+        font-size: 11.2px;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ffffff;
+        padding:10px 30px;
+        opacity: 1;
+      }
+    .new-payment-icon {
+      font-size: 44px;
+      padding-right: 6px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+    .cards-icons-container a {
+      border: solid 2px #ccc;
+      display: inline-flex;
+      color: #ccc;
+      border-radius: 10px;
+      height: 50px;
+      margin: 5px 5px 5px 0px;
+      float: left;
+      padding: 5px 5px 5px 5px;
+      &:hover, &:focus, &.active {
+        border: solid 2px $lukas-color;
+        color: #222;
+        border-radius: 10px;
+      }
+    }
+    .form-control {
+      border-radius: 0px;
+      height: 45px;
+      border: solid 1px #e6e6e6;
+    }
+    form label {
+    font-family: $poppins-regular;
+      span {
+        color: $lukas-color;
+      }
+      width: 90%;
+    }
+    .button-container {
+      width: 97%;
+    }
+    .img-disabled {
+        opacity:0.1 !important;
+        width: 35px;
+        height: auto;
+        margin-right: 2px;
+    }
+
+    .cards {
+      margin-top: 0px !important;
+      text-align: right;
+      margin-right: 38px;
+      ul {
+        padding-left: 0;
+        li {
+          display: inline-block;
+          list-style-type: none;
+          margin-right: 5px;
+          float: right;
+        }
+      }
+    }
+  }

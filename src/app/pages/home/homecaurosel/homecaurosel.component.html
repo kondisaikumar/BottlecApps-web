@@ -1,0 +1,73 @@
+<div class="visible-xs hidden-sm hidden-md hidden-lg"> 
+  <div class="container">
+    <div class="row">
+      <div class="input-group searchby hidden-xs hidden-sm hidden-md hidden-lg">
+        <app-search-bar></app-search-bar>
+      </div>
+
+      <div class="m-menu-tabs">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li (click)="showProducts(1, 'beer')" role="presentation" class="">
+            <a aria-controls="beer" role="tab" data-toggle="tab">
+              <!-- <img src="../assets/Images/beer-m.png" class="img-responsive"> -->
+              <i class="icon icon-beer"></i>
+            </a>
+          </li>
+          <li (click)="showProducts(2, 'liquor')" role="presentation">
+            <a aria-controls="liquor" role="tab" data-toggle="tab">
+              <!-- <img src="../assets/Images/liquor-m.png" class="img-responsive"> -->
+              <i class="icon icon-liquor"></i>
+            </a>
+          </li>
+          <li (click)="showProducts(3, 'wine')" role="presentation">
+            <a aria-controls="wine" role="tab" data-toggle="tab">
+              <!-- <img src="../assets/Images/wine-m.png" class="img-responsive"> -->
+              <i class="icon icon-wine"></i>
+            </a>
+          </li>
+          <li (click)="showProducts(4, 'mixers-more')" role="presentation">
+            <a aria-controls="mixer & more" role="tab" data-toggle="tab">
+              <!-- <img src="../assets/Images/mixer-more.png" class="img-responsive"> -->
+              <i class="icon icon-mixer"></i>
+            </a>
+          </li>
+        </ul>
+
+        <div class="tab-content m-tab-section" *ngIf="isShowFilters">
+          <app-filter-menu [filters]="categoryFilters" (filterApply)="onApplyFilter()"></app-filter-menu>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div id="myCarousel" class="carousel slide row">
+    <!-- <ol class="carousel-indicators">
+      <li data-target="#myCarousel"   [ngClass]="{'active' : i == 0}" *ngFor="let event of eventList; let i = index"></li>
+    </ol> -->
+
+    <div class="carousel-inner" role="listbox">
+      <div class="item active" *ngIf="!(eventList?.length > 0)">
+        <img src="../../../../assets/Images/default-carousel-img.jpg" alt="" class="carousel-img">
+      </div>
+      <div class="item" [ngClass]="{'active' : i == 0}" *ngFor="let event of eventList; let i = index">
+        <a routerLink="/event-details/{{event.EventId}}">
+          <img src="{{event.EventLargeImage}}" alt="{{event.EventName}}" class="carousel-img">
+        </a>
+      </div>
+        <!-- Controls -->
+        <a class="left carousel-control" *ngIf="eventList?.length > 1" href="#myCarousel" role="button" data-slide="prev">
+          <!-- <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> -->
+          <img src="src../../../../assets/Images/left-arrow.png" aria-hidden="true" class="pull-left">
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" *ngIf="eventList?.length > 1" href="#myCarousel" role="button" data-slide="next">
+          <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
+          <img src="src../../../../assets/Images/right-arrow.png" aria-hidden="true" class="pull-right">
+          <span class="sr-only">Next</span>
+        </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,139 @@
+@import "~src/variable.scss";
+
+.reviews {
+	width: 100%;
+	margin-bottom: 40px;
+    display: flex;
+    .review-edit {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    	.edit-icon {
+	    	color: #fff;
+		    font-size: 16px;
+		    position: absolute;
+		    background-color: $lukas-color;
+		    border-radius: 50%;
+		    text-align: center;
+		    padding: 10px;
+		    right: -20px;
+		    top: -55px;
+	    }
+    }
+	.user-review-dp {
+		width: 54px;
+		height: 54px;
+		border-radius: 50%;
+		-o-border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		background-color: #d0d0d0;
+		color: #fff;
+		cursor: pointer;
+		float: left;
+		margin-top: 1%;
+
+		img {
+			width: 54px;
+			height: 54px;
+			border-radius: 50%;
+		}
+	}
+	.user-review-content {
+		letter-spacing: 0.4px;
+		font-family: poppinssemiregular;
+	    margin-left: 15px;
+	    border: solid 1px #eee;
+	    float: right;
+	    width: 90%;
+	    padding: 15px;
+			.title {
+				font-size: 14px;
+				color: #222;
+				font-weight: 700;
+				font-family: $poppins-regular;
+
+			}
+			.caption {
+				margin-top: 10px;
+				font-size: 14px;
+				color: #777;
+				font-weight: normal !important;
+				font-family: poppinssemiregular;
+				margin-right: 70px;
+			}
+			.name_date {
+				font-family: poppinssemiregular;
+				font-size: 13px;
+				margin-bottom: 10px;
+			}
+	}
+
+	.rating-stars {
+		float: right;
+	    position: relative;
+	    top: -12px;
+	    right: 20px;
+	}
+}
+
+.your_rating h5,form.common_width label{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12.3px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #777777 ;
+}
+
+.write-review {
+    padding: 20px 50px !important;
+    margin: 0px !important;
+    p {
+        font-size: 16px !important;
+    }
+    .review_title {
+        font-size: 28px !important;
+        line-height: normal !important;
+        padding-top: 10px;
+    }
+    .add_review  {
+        padding: 10px 0px;
+        h4 {
+            font-size: 22px !important;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            }
+        p {
+            font-size: 16px !important;
+        }
+    }
+    .review-form-right {
+            margin-top: 20px !important;
+            padding-left: 0 !important;
+        }
+}
+
+@media only screen and (max-width: 1024px) {
+	.write-review {
+	    padding: 20px 20px !important;
+	    margin: 0px !important;
+	}
+	.user-review-content {
+		letter-spacing: 0.4px;
+		font-family: poppinssemiregular;
+	    margin-left: 15px;
+	    border: solid 1px #eee;
+	    float: right;
+	    width: 100% !important;
+	    padding: 15px;
+	    margin-top: 10px;
+	}
+
+	.product_content ul li{
+		margin-right: 0;
+	}
+}

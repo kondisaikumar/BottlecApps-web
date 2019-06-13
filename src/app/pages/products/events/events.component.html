@@ -1,0 +1,59 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="Searchrelated_div col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h4>Events</h4>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+          <li class="breadcrumb-item active"><a>Events</a></li>
+        </ol>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+          <div class="event-tiles" *ngFor="let event of storeGetHomeData?.EventList">
+            <div class="details_img col-md-8 col-sm-8 col-lg-8 col-xs-12 animated fadeInLeft">
+              <a routerLink="/event-details/{{event?.EventId}}">
+                <img src='{{event?.EventImage}}' class="img-responsive" />
+              </a>
+            </div>
+
+            <div class="details_content col-md-4 col-sm-4 col-lg-4 col-xs-12 animated fadeInRight">
+              <div>
+                <div class="event-details-section">
+                  <div class="detailed-events-section">
+                    <div class="bottle-caps-red event-details-date text-center">
+                      <div class="date-style">{{event?.EventDateDisplayFirst}}</div>
+                      <br><strong>{{event?.EventDateDisplaySecond}}</strong>
+                    </div>
+                    <h6 class="event-details-heading">{{event?.EventName}}</h6>
+                  </div>
+                </div>
+                <hr>
+              </div>
+
+              <div class="col-md-12">
+                <ul>
+                  <li class="IngredientText"> <span class="fa fa-dollar bottle-caps-red event-icon"></span> <span class="event-para">{{event?.EventPrice
+                      !== 0 ? event?.EventPriceDisplay : "FREE"}}</span>
+                  </li>
+                  <li class="IngredientText"> <span class="fa fa-history bottle-caps-red event-icon"></span>
+                    <span class="event-para">{{event?.EventStartEndDateDisplay}}
+                      <br> {{event?.EventStartEndTimeDisplay}}</span>
+                    <span class="pull-right">
+                      <a href="https://www.google.com/maps/dir//{{event?.StoreLatitude}},{{event?.StoreLongitude}}/data=!4m2!4m1!3e0"
+                        target="_blank">
+                        <!-- <img src="../assets/Images/navigate-png.png"> -->
+                        <i class="icon icon-navigate"></i>
+                      </a>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

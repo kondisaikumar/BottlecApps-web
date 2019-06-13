@@ -1,0 +1,242 @@
+<header id="menu" class="hidden-xs hidden-sm visible-lg visible-md desktop-menu">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="header_div row">
+                <!-- Main Logo Starts Here -->
+                <div class="navbar-header">
+                    <a class="navbar-brand lukas-logo">
+                        <img src="assets/Images/logo.png" class="img-responsive" [routerLink]="['/']" alt="Lukas">
+                    </a>
+                </div>
+                <!-- Main Logo Ends Her -->
+
+                <!-- User Login icon Starts Here -->
+                <ul class="navbar nav navbar-nav float_right user-profile-block">
+                    <li *ngIf="!isActive">
+                        <!-- <span class="arrowup"></span> -->
+                        <div class="header_icon username" [routerLink]="['/login']">
+                            <i class="icon icon-profile usericondp"></i>
+                            <!-- <img src="assets/Images/profile.png" alt="default" class="icon img-responsive userdp"> -->
+                        </div>
+                    </li>
+                    <li *ngIf="isActive" class="dropdown text_small">
+                        <div class="header_icon dropdown-toggle " [ngClass]="{'active': isActive}" data-toggle="dropdown">
+                            <img *ngIf="profileFirstLetter === ''; else showProfileName" [src]="profilePic" class="img-responsive useralpha-icon">
+                            <ng-template #showProfileName><span class="text-dp">{{profileFirstLetter | uppercase}}</span></ng-template>
+                        </div>
+
+                        <ul class="dropdown-menu user-menu" *ngIf="isActive">
+                            <li [routerLink]="['/myaccount/myorders']">
+                                <a>
+                                    <!-- <img class="beer" src="assets/Images/Orders.png"> --><i class="beer icon icon-recipt-date"></i> My Orders
+                                </a>
+                            </li>
+                            <li [routerLink]="['/myaccount']">
+                                <a>
+                                    <!-- <img class="beer" src="assets/Images/account.png"> --><i class="beer icon icon-account"></i> My Account
+                                </a>
+                            </li>
+
+                            <li class="star_color" [routerLink]="['/myaccount/favorites']">
+                                <a>
+                                    <!-- <i aria-hidden="true" class="fa fa-star"></i> --><i class="beer icon icon-active-rating"></i>
+                                    Favorites
+                                </a>
+
+                            </li>
+
+                            <li class="">
+                                <a (click)="onSignOut()">
+                                    <!-- <img class="beer" src="assets/Images/logout.png"> --><i class="beer icon icon-logout"></i> Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li [routerLink]="['/cart']">
+                        <div class="cart-block">
+                            <div class="header_icon">
+                                <!-- <img src="assets/Images/cart.png" alt="Battlecapse" class="icon"> -->
+                                <i class="icon icon-no-items"></i>
+                                <span class="round-circle">{{cartItemCount}}</span>
+                            </div>
+                            <div class="cart-captions">
+                                <!-- <a>Shopping Cart</a> -->
+                                <!-- <span class="cart"> {{cartItemCount}} Item (s) - $578.14</span> -->
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown text_small store-dropmenu" *ngIf="storeList?.length > 1" (click)="openMultiLocationDialog()">
+                        <div class="cart-block">
+                            <div class="header_icon">
+                                <i class="icon icon-distance"></i>
+                            </div>
+                        </div>
+                        <ul class="dropdown-menu user-menu store-menu">
+                            <li>
+                                <h6 class="">{{storeDetails?.Address1}},</h6>
+                                <small class="text-muted" *ngIf="storeDetails?.Address2"> {{storeDetails?.Address2}},</small>
+                                <small class="text-muted"> {{storeDetails?.City}}, {{storeDetails?.State}}
+                                    {{storeDetails?.Zip}}</small>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- User Login icon Ends Here -->
+
+                <!-- Main Menu Starts Here -->
+                <app-menu></app-menu>
+                <!-- Main Menu Ends Her -->
+            </div>
+        </div>
+        <app-progress-bar></app-progress-bar>
+    </nav>
+</header>
+
+<!-- M Header -->
+<header id="menu" class="hidden-md hidden-lg visible-xs visible-sm m-header">
+    <nav>
+        <div class="navbar-header">
+            <button class="pull-left m-menu" type="button" id="nav-icon4"> <!-- <span class="fa fa-bars"> </span> --> 
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a class="navbar-brand lukas-logo">
+                <img src="assets/Images/logo.png" class="img-responsive" [routerLink]="['/']" alt="Lukas">
+            </a>
+        </div>
+        <!-- User Login icon Starts Here -->
+        <div class="pull-right">
+            <div class="pull-left tab-search-bar hidden-xs hidden-lg">
+                <app-search-bar></app-search-bar>
+            </div>
+            <ul class="navbar nav navbar-nav float_right user-profile-block">
+                <li *ngIf="!isActive">
+                    <!-- <span class="arrowup"></span> -->
+                    <div class="header_icon username" [routerLink]="['/login']">
+                        <i class="icon icon-profile usericondp"></i>
+                        <!-- <img src="assets/Images/profile.png" alt="default" class="icon img-responsive userdp"> -->
+                    </div>
+                </li>
+                <li *ngIf="isActive" class="dropdown text_small" id="mobMenu">
+                    <div class="header_icon dropdown-toggle " [ngClass]="{'active': isActive}" data-toggle="dropdown">
+                        <a href="#" onclick="mysecFunction()" class="profile_dp">
+                            <img *ngIf="profileFirstLetter === ''; else showProfileName" [src]="profilePic" class="img-responsive useralpha-icon">
+                            <ng-template #showProfileName><span class="text-dp">{{profileFirstLetter | uppercase}}</span></ng-template>
+                        </a>
+                    </div>
+
+                    <ul class="dropdown-menu user-menu user-m-menu" *ngIf="isActive"  id="dropMenu">
+                        <li [routerLink]="['/myaccount/myorders']" onclick="myFunction()">
+                            <a>
+                                <!-- <img class="beer" src="assets/Images/Orders.png"> --><i class="beer icon-recipt-date"></i> My Orders
+                            </a>
+                        </li>
+                        <li [routerLink]="['/myaccount']" onclick="myFunction()">
+                            <a>
+                                <!-- <img class="beer" src="assets/Images/account.png"> --><i class="beer icon icon-account"></i> My Account
+                            </a>
+                        </li>
+
+                        <li class="star_color" [routerLink]="['/myaccount/favorites']" onclick="myFunction()">
+                            <a>
+                                <!-- <i aria-hidden="true" class="fa fa-star"></i> --><i class="beer icon icon-active-rating"></i>
+                                Favorites
+                            </a>
+
+                        </li>
+
+                        <li class="">
+                            <a (click)="onSignOut()" onclick="myFunction()">
+                                <!-- <img class="beer" src="assets/Images/logout.png"> --><i class="beer icon icon-logout"></i> Log Out
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li [routerLink]="['/cart']">
+                    <div class="cart-block">
+                        <div class="header_icon">
+                            <!-- <img src="assets/Images/cart.png" alt="Battlecapse" class="icon"> -->
+                            <i class="icon icon-no-items"></i>
+                            <span class="round-circle">{{cartItemCount}}</span>
+                        </div>
+                        <div class="cart-captions">
+                            <!-- <a>Shopping Cart</a> -->
+                            <!-- <span class="cart"> {{cartItemCount}} Item (s) - $578.14</span> -->
+                        </div>
+                    </div>
+                </li>
+    <!--             <li class="dropdown text_small search-dropmenu">
+                    <div class="cart-block">
+                        <div class="header_icon">
+                            <i class="icon icon-search search-icon"></i>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu user-menu search-menu">
+                        <li>
+                            <div class="input-group searchby">
+                                <input type="text" class="form-control" name="search" [(ngModel)]="searchText" placeholder="Find Your Drink...">
+                                <div class="search-btn">
+                                    <button type="button" class="btn btn-primaray" (click)="searchByText()">
+                                        
+                                        <i class="icon icon-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li> -->
+                <li class="dropdown text_small store-dropmenu" *ngIf="storeList?.length > 1"  (click)="openMultiLocationDialog()">
+                    <div class="cart-block">
+                        <div class="header_icon">
+                            <i class="icon icon-distance"></i>
+                        </div>
+                    </div>
+                    <ul class="dropdown-menu user-menu store-menu visible-lg hidden-xs hidden-md hidden-sm">
+                        <li>
+                            <h6 class="">{{storeDetails?.Address1}},</h6>
+                            <small class="text-muted"> {{storeDetails?.City}}, {{storeDetails?.State}}
+                                {{storeDetails?.Zip}}</small>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 visible-xs hidden-sm hidden-md hidden-lg searchbar-mobile-all">
+            <app-search-bar></app-search-bar>
+        </div>
+        <!-- User Login icon Ends Here -->
+        <!-- Mobile Main Menu UI Start -->
+            <div class="col-xs-12">
+                <div id="hide-menu" class="hide-menu">
+                    <ul class="msidenav">
+                      <li>
+                        <a [routerLink]="['/feature-products']">Featured Products
+                        </a>
+                    </li>
+                      <li>
+                        <a [routerLink]="['/recipes']">Recipes
+                        </a>
+                    </li>
+                      <li>
+                        <a [routerLink]="['/coupons']">Coupons
+                        </a>
+                    </li>
+                      <li>
+                        <a [routerLink]="['/events']">Events
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+            <app-progress-bar></app-progress-bar>
+        <!-- Mobile Main Menu UI End -->
+    </nav>
+</header>
+
+<!-- M Header End -->
+
+<!-- Mutli Store Select -->
+<app-multi-store [stores]="storeList" [currentStore]="currentStoreId" (storeChange)="onStoreChange($event)"></app-multi-store>
+<button id="openMultiLocationModal" #openMultiLocationModal [hidden]="true" data-toggle="modal" data-target="#multiLocationDialog"></button>
+<!-- Mutli Store Select End  -->

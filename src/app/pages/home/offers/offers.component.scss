@@ -1,0 +1,106 @@
+@import "~src/variable.scss";
+h4.partners{ 
+    font-family: poppinsbold;
+      font-size: 15.6px;
+      font-stretch: normal;
+      letter-spacing: normal;
+      text-transform: uppercase;
+      text-align: left;
+      color: rgba(51, 51, 51, 0.5);
+      clear: left;
+      margin-top: 10px;
+      display: inline-block;
+  }
+  .plogo{ padding: 2px;}
+section.bgr_img{
+    background-image: url("/assets/Images/bg-offers.jpg");
+    background-repeat: no-repeat;
+    height: 330px;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0 0px;
+    background-size: cover;
+}
+.bgr_img .display_center h4{
+    font-family: $montserrat-bold;
+    font-size: 18px;
+    font-stretch: normal;
+    line-height: 1.22;
+    /* letter-spacing: 1.4px; */
+    text-align: left;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px 0px 5px 0px;
+} 
+
+.display_center a {
+    margin-right: 25px;
+    float: left;
+    margin-top: 0px;
+}
+
+.display_center h2.offer{
+    font-family: $montserrat-bold;
+    font-size: 36px;
+    font-stretch: normal;
+    line-height: 1.11;
+    letter-spacing: 1.8px;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center !important;
+    background: rgba(0,0,0,0.3);
+      }
+  
+      .display_center {
+        transform: translateY(20%);
+        text-align: center;
+        display: flex;
+        padding-top: 4%;
+      }
+.barcode-container {
+    border-radius: 25px;
+    -o-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    padding: 25px;
+    margin: 15px;
+    background-color: #fff;
+    width: 174px;
+}
+@media screen and (max-width: 767px) {
+    section.bgr_img{
+        height: 70vh !important;
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        margin: 20px 0 0px;
+        padding-top: 25px;
+        background-size: cover;
+            h4, h2 {
+                text-align: center !important;
+            }
+    }
+    .barcode-container {
+        display: inline-block;
+    }
+    .display_center h2.offer {
+        text-align: center !important;
+        font-size: 26px;
+        padding-top: 0px;
+        margin-top: 0px;
+        padding-bottom: 10px;
+    }
+    .display_center a {
+        margin-right: 10px;
+        width: 46%;
+    }
+    .app-links-container {
+        width: 70% !important;
+        margin: 0 auto;
+    }
+    .display_center {
+        display: inline;
+    }
+}

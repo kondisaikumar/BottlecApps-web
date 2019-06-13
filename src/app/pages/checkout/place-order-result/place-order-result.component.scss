@@ -1,0 +1,78 @@
+@import "~src/variable.scss";
+
+.success-failed-order-section {
+    margin: 15% auto 10% auto;
+    display: block;
+    text-align: center;
+    .order-details-section {
+        h2 {
+            font-family: $poppins-bold;
+            font-size: 32px;
+            color: #333;
+            display: block;
+            padding-top: 5px;
+            text-align: center;
+            letter-spacing: 1px;
+            margin-top: 0px;
+        }
+        h4 {
+            font-family: $poppins-regular;
+            font-size: 20px;
+            color: #333;
+            display: block;
+            padding-top: 5px;
+            text-align: center;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+        }
+    }
+    .success-order-section {
+        h2 {
+            font-family: $montserrat-bold;
+            font-size: 38px;
+            color: #027923;
+            display: block;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            letter-spacing: 0.6px;
+        }
+        h4 {
+            font-family: $poppins-regular;
+            font-size: 18px;
+            color: #333;
+            display: block;
+            padding-top: 5px;
+            letter-spacing: 1px;
+        }
+    }
+    .failed-order-section {
+        h2 {
+            font-family: $montserrat-bold;
+            font-size: 38px;
+            color: #ed0000;
+            display: block;
+            padding-top: 15px;
+            letter-spacing: 0.6px;
+        }
+        h4 {
+            font-family: $poppins-regular;
+            font-size: 18px;
+            color: #333;
+            display: block;
+            padding-top: 5px;
+            letter-spacing: 1px;
+        }
+    }
+
+    button.continue-shop {
+        font-family: $poppins-regular !important;
+        outline: none;
+        background-color: $lukas-color;
+        color: #fff !important;
+        border-color: $lukas-color;
+        padding: 10px 50px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        box-shadow: $boxshadow-active;
+    }
+}

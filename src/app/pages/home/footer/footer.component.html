@@ -1,0 +1,207 @@
+<footer>
+    <div class="container" *ngIf="storeDetails">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 item_img footer_image">
+                <div class="margin_left">
+                    <address class="storelocation" *ngIf="storeDetails">
+                        <h4 class="f-h4">{{storeDetails?.StoreName}}</h4>
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="f-image">
+                                    <!-- <img class="location" src="assets/Images/location.png"> -->
+                                    <i class="icon icon-distance location"></i>
+                                </div>
+                                <div class="address-captions">
+                                    <a href="https://www.google.com/maps/place/{{storeDetails?.Latitude}},{{storeDetails?.Longitude}}"
+                                        target="_blank">
+                                        {{storeDetails?.Address1}},
+                                        <span *ngIf="storeDetails?.Address2"> {{storeDetails?.Address2}}, </span>
+                                        <span> {{storeDetails?.City}}, {{storeDetails?.State}} {{storeDetails?.Zip}}
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="f-image">
+                                    <!-- <img class="img-responsive" src="assets/Images/contact.png"> -->
+                                    <i class="icon icon-footer-contact"></i>
+                                </div>
+                                <div class="address-captions">
+                                    <span> <a href="tel:{{storeDetails?.ContactNo}}">{{storeDetails?.ContactNo}}</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="f-image">
+                                    <!-- <img class="img-responsive" src="assets/Images/email.png"> -->
+                                    <i class="icon icon-footer-email"></i>
+                                </div>
+                                <div class="address-captions">
+                                    <span><a href="mailto:{{storeDetails?.StoreEmail}}">{{storeDetails?.StoreEmail}}</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </address>
+
+                </div>
+            </div>
+
+            <div class="about col-lg-3 col-md-6 col-sm-6 col-xs-6 item_img aboutus">
+                <h4 class="font_size">About</h4>
+                <ul class="list-unstyled clear-margins">
+                    <li>
+                        <a [routerLink]="['/aboutus']">About Us</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/privacy-policy']">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/terms-conditions']">Terms and Conditions</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/']">FAQs</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/contactus']">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="information col-lg-3 col-md-6 col-sm-6 col-xs-12 item_img hours">
+                <h4 class="font_size">Hours</h4>
+                <ul class="list-unstyled clear-margins">
+                    <li *ngFor="let time of storeDetails?.ListStoreTime">
+                        <span>{{time.DayID}}</span> {{time.StoreOpenTime}} - {{time.StoreCloseTime}}
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 item_img payments">
+                <h4 class="font_size Subscribe">Payment options</h4>
+                <div class="cards">
+                    <ul class="pull-left">
+                        <li>
+                            <img alt="Discover" title="Discover" src="../assets/Images/discover-card.jpg" width="57" height="36" border="0" />
+                        </li>
+                        <li>
+                            <img alt="Master" title="Master" src="../assets/Images/mastercard_logo_.gif" width="57" height="36" border="0" />
+                        </li>
+                        <li>
+                            <img style="padding-top: 5px;" alt="Visa" title="Visa" src="../assets/Images/new_visa_.gif" width="57" height="26" border="0" />
+                        </li>
+                        <li>
+                            <img alt="Amex" title="Amex" src="../assets/Images/american_express_logo_.gif" width="43" height="36" border="0" />
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="clearfix"></div>
+                <div *ngIf="partners==='true'">
+                <!-- Partners  -->
+                <h4 class="partners">Our Partners</h4>
+                <div class="cards">
+                    <ul class="pull-left">
+                        <li>
+                            <a href="https://www.vivino.com" target="_blank"><img alt="Vivino" title="Vivino" src="../assets/Images/partners/logo-vivino.png" border="0" class="plogo" /></a>
+                        </li>
+                        <li>
+                                <a href="http://twistbartendingservice.com/" target="_blank"><img alt="With A Twist" title="With A Twist" src="../assets/Images/partners/logo-twist.png" border="0" class="plogo" /></a>
+                        </li>
+                        <li>
+                                <a href="https://www.thumbtack.com/-Denver-CO/service/2909160" target="_blank"><img alt="Mix &amp; Shoot" title="Mix &amp; Shoot" src="../assets/Images/partners/logo-shoot.png" border="0" class="plogo" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- <div class="row hidden-md hidden-lg visible-xs visible-sm">
+            <div class="col-xs-12 col-sm-6 item_img payments item_img payments-m">
+                <h4 class="font_size Subscribe">Payment options</h4>
+                <div class="cards">
+                    <ul class="pull-left">
+                        <li>
+                            <img alt="Discover" title="Discover" src="../assets/Images/discover-card.jpg" width="57" height="36" border="0" />
+                        </li>
+                        <li>
+                            <img alt="Master" title="Master" src="../assets/Images/mastercard_logo_.gif" width="57" height="36" border="0" />
+                        </li>
+                        <li>
+                            <img style="padding-top: 5px;" alt="Visa" title="Visa" src="../assets/Images/new_visa_.gif" width="57" height="26" border="0" />
+                        </li>
+                        <li>
+                            <img alt="Amex" title="Amex" src="../assets/Images/american_express_logo_.gif" width="43" height="36" border="0" />
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div> -->
+        
+    </div>
+    <div class="pull-right hidden">
+        <a href="" id="return-to-top" class="scrollTop">
+            <i><img src="../assets/Images/goto-top-png.svg" width="50" height="50"></i>
+        </a>
+    </div>
+</footer>
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+                <div class="copyright">
+                    <p class="made_with">Made With
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                        &
+                        <!-- <img class="beer" src="assets/Images/drink.png"> -->
+                        <i class="icon icon-drink beer"></i>
+                        <span class="allrights"> 2018. All rights reserved</span>
+                    </p>
+
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-lg-4 col-xs-6">
+                <ul class="social-network social-circle">
+                    <li>
+                        <a href="https://www.facebook.com/LukasLiquorSuperstore" target="_blank" class="icoFacebook" title="Facebook">
+                            <img src="assets/Images/facebook.png">
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a class="icoTwitter" title="Twitter">
+                            <img src="assets/Images/twitter.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="icoLinkedin" title="Linkedin">
+                            <img src="assets/Images/linkedin.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="youtube" title="Youtube">
+                            <img src="assets/Images/youtube.png">
+                        </a>
+                    </li> -->
+
+                    <li>
+                        <a href="https://www.instagram.com/LukasLiquorSuperstore/" target="_blank" class="instagram" title="Instagram">
+                            <img src="assets/Images/Insta.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="design text_center">
+                    <span>Powered By </span> 
+                    <a href="http://www.bottlecapps.com/" target="_blank"><img src="assets/Images/powered-by.png" alt="Battlecapse" class="first_imge"> </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

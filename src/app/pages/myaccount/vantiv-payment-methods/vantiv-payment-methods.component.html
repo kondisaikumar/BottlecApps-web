@@ -1,0 +1,41 @@
+<div class=" col-lg-9 col-md-9 col-sm-9 col-xs-12">
+  <div class="add-new-address">
+      <a routerLink="../add-new-card" class="bottles-brand">
+          <h4 class="address-heading"><span class="fa fa-map-marker bottle-brand"></span> Add New Payment Method</h4>
+      </a>
+      <div class="address-table-tile" *ngFor="let paymentProfile of vantivPaymentProfiles">
+          <table class="table table-responsive">
+              <tbody>
+                  <tr>
+                      <td>
+                          <span class="text-muted text-uppercase">
+                          </span>
+                      </td>
+                      <td class="text-right">
+                          <div class="dropdown dropdown-favorite">
+                              <a class="text-muted" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true"
+                                  aria-expanded="false">
+                                  <span class="fa fa-ellipsis-v more-icon"></span><span class="icon icon-ellipsis-vert more-icon"></span></a>
+
+                              <ul class="dropdown-menu dropdown-favorite-open" aria-labelledby="dLabel">
+                                  <li><a (click)="deletePaymentMethod(paymentProfile)">Delete</a></li>
+                              </ul>
+                          </div>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td class="address-container-section">
+                          <img *ngIf="paymentProfile?.PaymentBrand === 'Discover'" alt="Discover" title="Discover" src="../../assets/Images/discover_logo_.gif" width="57" height="36" border="0" />
+                          <img *ngIf="paymentProfile?.PaymentBrand === 'MasterCard' || paymentProfile?.PaymentBrand === 'Mastercard'" alt="Master" title="Master" src="../../assets/Images/mastercard_logo_.gif" width="57" height="36" border="0" />
+                          <img *ngIf="paymentProfile?.PaymentBrand === 'Visa'" style="padding-top: 5px;" alt="Visa" title="Visa" src="../../assets/Images/new_visa_.gif" width="57" height="26" border="0" />
+                          <img *ngIf="paymentProfile?.PaymentBrand === 'AmericanExpress' || paymentProfile?.PaymentBrand === 'Amex'" alt="Amex" title="Amex" src="../../assets/Images/american_express_logo_.gif" width="43" height="36" border="0" />
+                      </td>
+                      <td class="address-container-section">
+                          <h6>{{paymentProfile?.TruncatedCardNumber}}</h6>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

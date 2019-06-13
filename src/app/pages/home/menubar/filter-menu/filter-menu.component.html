@@ -1,0 +1,66 @@
+<div>
+  <div class="dropdownlist">
+    <div class="row">
+      <div [ngClass]="allVarietals && allVarietals.length > 0 ? 'col-md-6 col-xs-6' : 'col-md-12 col-xs-12'">
+        <span class="text-uppercase text-white d-block">TYPE</span>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <input type="checkbox" [(ngModel)]="isCheckAllTypes" id="allTypes{{filters.CategoryId}}"
+            (change)="selectAllTypes(isCheckAllTypes)" /> <span class="checkmark"></span> <label for="allTypes{{filters.CategoryId}}" [ngClass]="{'active': isCheckAllTypes}"> All </label>
+          </li>
+          <li class="nav-item" *ngFor="let type of allFilters?.type">
+            <input [(ngModel)]="type.isSelected" (change)="onTypeSelected(type)" type="checkbox" name="{{type.value}}" id="{{type.value}}" (change)="onTypeSelectionChange(type)"/>
+            <span class="checkmark"></span> <label for="{{type.value}}" [ngClass]="{'active': type.isSelected}"> {{type.value}} </label>
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="false" [ngClass]="allVarietals && allVarietals.length > 0 ? 'col-md-6 col-xs-6' : 'col-md-6 col-xs-6'">
+        <ul class="nav flex-column">
+          <span class="text-uppercase text-white d-block">SIZE</span>
+          <li class="nav-item">
+            <input type="checkbox" [(ngModel)]="isCheckAllSizes"
+            (change)="selectAllSizes(isCheckAllSizes)"/> <span class="checkmark"></span><label> All </label>
+          </li>
+          <li class="nav-item" *ngFor="let size of allFilters?.size">
+              <input [(ngModel)]="size.isSelected" type="checkbox" name="{{size.value}}" id="{{size.value}}"/>
+              <span class="checkmark"></span> <label for="{{size.value}}"> {{size.value}} </label>
+            </li>
+        </ul>
+      </div>
+
+      <div class="col-md-6 col-xs-6" *ngIf="allVarietals && allVarietals.length > 0">
+        <ul class="nav flex-column">
+          <span class="text-uppercase text-white d-block">VARIETAL</span>
+          <li class="nav-item">
+            <input type="checkbox" [(ngModel)]="isCheckAllVarietals" id="allVarietals{{filters.CategoryId}}"
+            (change)="selectAllVarietals(isCheckAllVarietals)"/> <span class="checkmark"></span> <label for="allVarietals{{filters.CategoryId}}" [ngClass]="{'active': isCheckAllVarietals}"> All </label>
+          </li>
+          <li class="nav-item" *ngFor="let varietal of allVarietals">
+              <input [(ngModel)]="varietal.isSelected" (change)="onVarietalSelected(varietal)"  type="checkbox" name="{{varietal.value}}" id="{{varietal.value}}"/>
+              <span class="checkmark"></span> <label for="{{varietal.value}}" [ngClass]="{'active': varietal.isSelected}"> {{varietal.value}} </label>
+            </li>
+        </ul>
+      </div>
+
+      <div *ngIf="false" [ngClass]="allVarietals && allVarietals.length > 0 ? 'col-md-3 col-xs-6' : 'col-md-4 col-xs-6'">
+        <ul class="nav flex-column">
+          <span class="text-uppercase text-white d-block">PRICE</span>
+          <li class="nav-item">
+            <input type="checkbox" [(ngModel)]="isCheckAllPrices"
+            (change)="selectAllPrices(isCheckAllPrices)"/> <span class="checkmark"></span> <label> All </label>
+          </li>
+          <li class="nav-item" *ngFor="let range of allFilters?.price">
+              <input [(ngModel)]="range.isSelected" type="checkbox" name="{{range.value}}" id="{{range.value}}"/>
+              <span class="checkmark"></span> <label for="{{range.value}}"> {{range.value}} </label>
+            </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <div class="btn_right">
+    <button class="btn btn-default clear" (click)="clearAll()">Clear All</button>
+    <button class="btn btn-default filer_go" (click)="applyFilter()" >Filter & Go</button>
+  </div>
+</div>

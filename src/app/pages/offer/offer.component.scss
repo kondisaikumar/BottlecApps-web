@@ -1,0 +1,28 @@
+@import "~src/variable.scss";
+
+.about-us {
+    h4{
+        font-family: $poppins-bold;
+    }
+    h5{
+        font-family: $poppins-bold;
+    }
+    table.price-list tr td
+    { 
+        border:solid 1px #ccc !important; padding: 5px;
+        text-align: center;
+    }
+    table.price-list tr th
+    { 
+        background: #fff; border:solid 1px #ccc !important;
+        text-align: center;
+    }
+    tr:nth-child(even) 
+    {
+        background-color: #efebed;
+    }
+    tr:nth-child(odd) 
+    {
+        background-color: #f0f0f0;
+    }
+}

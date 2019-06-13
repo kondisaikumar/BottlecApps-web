@@ -1,0 +1,80 @@
+@import "~src/variable.scss";
+
+.active-star i.fa-star{
+    color: $lukas-color;
+}
+.strike_text{
+    text-decoration: line-through;
+    font-family:$montserrat-bold;
+    font-size: 17px !important;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #c2c4ca;
+    float: left;
+    padding-right: 35px;
+   
+}
+
+.limit-per-user {
+    color: #ff0000;
+    font-size: 10px;
+}
+.sale-tag {
+    position: relative;
+    img {
+        position: absolute;
+        right: 0px;
+        top: -5px;
+        border-top-right-radius: 10px;
+    }
+}
+
+/* iPhone 2G-4S in portrait & landscape */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+  .Main_bottlesection img{
+    width:35px !important;
+  }
+  .margin_bottom img.second_img{ height: 100px !important;}
+  i.icon-favor{ font-size: 20px !important;}
+  i.icon-add-to-my-cart{ font-size: 24px;}
+  .margin_bottom{ height: 40%; min-height: 56%;}
+  .second_content{ height: 73% !important;}
+  .img_div{ margin-bottom: 0px !important; height: 210px !important;}
+}
+
+/* iPhone 2G-4S in landscape */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : landscape) {
+  .Main_bottlesection img{
+    width:35px !important;
+  }
+  .margin_bottom img.second_img{ height: 100px !important;}
+  i.icon-favor{ font-size: 20px !important;}
+  i.icon-add-to-my-cart{ font-size: 24px;}
+  .margin_bottom{ height: 40%; min-height: 56%;}
+  .second_content{ height: 73% !important;}
+  .img_div{ margin-bottom: 0px !important; height: 210px !important;}
+  .margin-bottom-20{margin-bottom:45px !important;}
+}
+
+/* iPhone 2G-4S in portrait */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait) {
+  .Main_bottlesection img{
+    width:35px !important;
+  }
+  .margin_bottom img.second_img{ height: 100px !important;}
+  i.icon-favor{ font-size: 20px !important;}
+  i.icon-add-to-my-cart{ font-size: 24px;}
+  .margin_bottom{ height: 40%; min-height: 56%;}
+  .second_content{ height: 73% !important; float: left; margin-bottom:10px;}
+  .img_div{ margin-bottom: 0px !important; height: 210px !important;}
+}

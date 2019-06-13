@@ -1,0 +1,62 @@
+<div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="float_right hidden-xs hidden-sm visible-md visible-lg">
+        <button class="btn btn-profile" routerLink="../profile-edit">
+            <!-- <img src='assets/Images/Edit.png' /> -->
+            <span class="icon-radius"><i class="icon icon-ediit"></i></span> <span class="visible-lg hidden-xs hidden-md hidden-sm editbtn">Edit Profile</span>
+        </button>
+    </div>
+    <div class="border_bottom hidden-xs hidden-sm visible-lg visible-md">
+        <div class="profile">
+            <div class="col-xs-12 col-md-2 col-sm-2 col-lg-2">
+                <span class="img_class">
+                    <img *ngIf="profileFirstLetter === ''; else showProfileName" [src]="profilePic" class="img-responsive useralpha-icon">
+                    <ng-template #showProfileName><span class="text-dp">{{profileFirstLetter | uppercase}}</span></ng-template>
+                </span>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <h4 class="margin_top">{{profile?.FirstName}} {{profile?.LastName}}</h4>
+                <h5 class="email">{{profile?.EmailId}}</h5>
+            </div>
+        </div>
+    </div>
+    <!-- Profile Edit Mobile UI Start -->
+    <div class="border_bottom hidden-lg hidden-md visible-xs visible-sm text-center">
+        <div class="profile">
+            <div class="row">
+                <div class="float_right hidden-md hidden-lg visible-sm visible-xs">
+                    <button class="btn btn-profile" routerLink="../profile-edit">
+                        <!-- <img src='assets/Images/Edit.png' /> -->
+                            <span class="icon-radius"><i class="icon icon-ediit"></i></span>
+                    </button>
+                </div>
+                <div class="col-xs-12 col-md-2 col-sm-2 col-lg-4">
+                    <span class="img_class">
+                        <img *ngIf="profileFirstLetter === ''; else showProfileName" [src]="profilePic" class="img-responsive useralpha-icon">
+                        <ng-template #showProfileName><span class="text-dp">{{profileFirstLetter | uppercase}}</span></ng-template>
+                    </span>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                    <h4 class="margin_top">{{profile?.FirstName}} {{profile?.LastName}}</h4>
+                    <h5 class="email">{{profile?.EmailId}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Profile Edit Mobile UI End -->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="profileset-container">
+            <h4 class="mobile_number">Mobile Number</h4>
+            <h5 class="contact">{{profile?.ContactNo}}</h5>
+        </div>
+        <div class="profileset-container">
+            <h5 class="mobile_number">Gender</h5>
+            <h5 class="contact">{{profile?.Gender === 'M' ? 'Male' : (profile?.Gender === 'F' ? 'Female' : '' )}}</h5>
+        </div>
+
+        <div class="profileset-container">
+            <h5 class="mobile_number">Date Of Birth</h5>
+            <h5 class="contact">{{profile?.DOBDt | date:'MM/dd/yyyy'}}</h5>
+        </div>
+    </div>
+
+</div>

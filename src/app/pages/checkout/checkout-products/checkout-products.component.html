@@ -1,0 +1,143 @@
+<div class="row">
+  <div class="order-details-panel">
+    <table class="first-table" *ngFor="let cartItem of cartDetails?.ListCartItem">
+      <tbody>
+        <tr>
+          <td width="16%" class="img-block">
+            <div class="checkout-product-details">
+              <img class="prod-img img-responsive" src="{{cartItem?.ProductImage}}">
+            </div>
+          </td>
+          <td width="70%">
+            <div class="checkout-product-details checkout-info">
+              <h4>{{cartItem?.ProductName}}</h4>
+              <h6>{{cartItem?.PriceDisplay}}</h6>
+              <p>Quantity: {{cartItem?.QuantityOrdered}} | {{cartItem?.UnitSize}}</p>
+              <p>SKU: {{cartItem?.SKU}} | UPC: {{cartItem?.UPC}}</p>
+            </div>
+          </td>
+          <td width="16%" class="text-right totalprice-right">
+            <div class="checkout-product-details"><h5>{{cartItem?.ItemTotalDisplay}}</h5></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="summary-container">
+      <tbody>
+        <tr>
+          <td class="summary-block">
+            <h5>Summary</h5>
+          </td>
+          <td>
+            <table>
+              <tr>
+                <td></td>
+                <td>
+                  <h5>Sub Total</h5>
+                </td>
+                <td class="text-right">
+                  <h4>{{cartDetails?.SubTotalDisplay}}</h4>
+                </td>
+              </tr>
+              <tr class="tip">
+                <td width="25px"> 
+                  <a *ngIf="cartDetails?.ListDiscount?.length > 0" class="exapand-icon" (click)="isExpand = !isExpand"> <span class="fa" [ngClass]="isExpand ? 'fa-minus-circle' : 'fa-plus-circle'"></span> </a> 
+                </td>
+                <td>
+                  <h5>Savings</h5>
+                </td>
+                <td class="text-right">
+                  <h4>{{cartDetails?.TotalSavingsDisplay}}</h4>
+                </td>
+              </tr>
+              <tr *ngIf="cartDetails?.ListDiscount?.length > 0" >
+                <!-- <td></td> -->
+                <td colspan="3"  *ngIf="isExpand">
+                  <table class="exapnded-table">
+                    <tr *ngFor="let discount of cartDetails?.ListDiscount">
+                      <td><small class="text-muted">{{discount?.DiscountTitle}}</small></td>
+                      <td class="text-right"><small class="text-muted">{{discount?.DiscountAmountDisplay}}</small></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr *ngFor="let charge of listCharges">
+                <td></td>
+                <td>
+                  <h5>{{charge?.ChargeTitle}}</h5>
+                </td>
+                <td class="text-right">
+                  <h4>{{charge?.ChargeAmountDisplay}}</h4>
+                </td>
+              </tr>            
+              <tr *ngIf="cartDetails?.OrderTypeId !== 1 && cartDetails?.ListTipForDriver.length > 0" class="tip">
+                <td width="25px">
+                  <a class="exapand-icon" (click)="isTipExpand = !isTipExpand"><span class="fa" [ngClass]="isTipExpand ? 'fa-minus-circle' : 'fa-plus-circle'"></span></a>
+                </td>
+                <td>
+                  <h5>Tip</h5>
+                </td>
+                <td class="text-right">
+                  <h4>{{tipAmount}}</h4>
+                </td>
+              </tr>
+              <tr>
+                <!-- <td></td> -->
+                <td colspan="2" *ngIf="isTipExpand" class="tipdown" colspan="3">
+                  <table class="exapnded-table">
+                    <tr *ngFor="let tip of cartDetails?.ListTipForDriver">
+                      <td>
+                        <div class="radiobox m-radio">
+                            <small class="text-muted">
+                                  <input type="radio" name="tip" (change)="onTipSelected($event, tip)" [checked]="tip?.IsDeafault === true"> {{tip?.Percentage !== 0 ? tip?.TipAmountDisplay + '(' + tip?.Percentage + ')%' : 'Other'}}
+                                  <span class="checkmark"></span>
+                            </small>
+                        </div>
+                        <div class="tip-container" *ngIf="tip?.Percentage === 0 && tip?.IsDeafault === true">
+                          <input type="text" [(ngModel)]="tip.TipAmount">
+                          <i (click)="onTipSelected($event, tip)" class="icon icon-selected"></i>
+                        </div>
+                      </td>
+                      <td class="text-right"><small class="text-muted"> </small></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="coupon-panel">
+    <form>
+      <i class="icon icon-coupon"></i><!-- <img src="../assets/Images/coupon.png"> -->
+      <input type="text" name="coupun" [disabled]="isCouponApplied" (keydown.Enter)="applyCoupon()" placeholder="Apply Coupon" [(ngModel)]="couponCode" class="form-control coupon">
+      <i (click)="applyCoupon()" class="icon icon-selected"></i> <i (click)="clearCoupon()" class="icon icon-cancel2"></i>
+    </form>
+  </div>
+  <div class="coupon-panel">
+    <table>
+      <tbody>
+        <tr *ngIf="cartDetails?.Remark">
+          <td class="text-left">
+            <p class="bottles-brand">{{cartDetails?.Remark}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td class="text-left text-uppercase">
+            <h3>Total</h3>
+          </td>
+          <td class="text-right">
+            <h3>{{cartDetails?.TotalValueDisplay}}</h3>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="btn_right buttons-container">
+    <button type="cancel" class="btn btn-default novalue" (click)="onCancelOrder()" >Cancel</button>
+    <button type="checkout" [disabled]="(cartDetails?.OrderTypeId === 2 && cartDetails?.DeliveryAddress?.Remark !== '' && cartDetails?.CartDeliverySolution?.DeliverySolutionRemark !== '') || isCheckoutSubmitted" class="btn btn-default" 
+    [ngClass]= "cartDetails?.OrderTypeId === 2 && cartDetails?.DeliveryAddress?.Remark !== '' && cartDetails?.CartDeliverySolution?.DeliverySolutionRemark !== '' ? 'novalue' : 'close'" (click)="onCheckout()">Checkout</button>
+  </div>
+</div>

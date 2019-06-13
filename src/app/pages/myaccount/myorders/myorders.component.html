@@ -1,0 +1,45 @@
+<style>
+  @media only screen and (max-width: 800px) {
+
+    table.res_table td:nth-of-type(1):before {
+      content: "";
+    }
+
+    table.res_table td:nth-of-type(2):before {
+      content: "";
+    }
+
+    table.res_table td:nth-of-type(3):before {
+      content: "";
+    }
+
+    table.res_table td:nth-of-type(4):before {
+      content: "";
+    }
+
+  }
+</style>
+<div class="col-md-12">
+  <div class="row">
+    <div class="Searchrelated_div Searchrelated_div-bot col-md-12 col-sm-12 col-lg-12 col-xs-12">
+      <h5>My Orders</h5>
+    </div>
+  </div>
+</div>
+<section>
+  <div class="col-md-12">
+    <div class="col-xs-12">
+      <div class="row">
+          <div class="page-navigation" style="display: block;">
+            <div class="f-page-navigation" *ngIf="myOrdersList?.OrderCount > 0">
+              <ngb-pagination [collectionSize]="myOrdersList?.OrderCount" (pageChange)="onPageChange($event)" [(page)]="page"
+                [pageSize]="myOrdersList?.PageSize" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row" *ngFor="let myorder of myOrdersList?.ListOrder">
+      <app-order [order]="myorder" (canceled)="onOrderCancelled()"></app-order>
+    </div>
+  </div>
+</section>

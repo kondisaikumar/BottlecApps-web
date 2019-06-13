@@ -1,0 +1,110 @@
+@import "~src/variable.scss";
+
+.Searchrelated_noborder h4{
+    /* width: 50%; */
+    /* height: 20px; */
+    padding-left: 12px;
+    border: none;
+    float: left;
+    border-left: 5px solid $lukas-color;
+    font-family: $poppins-bold;
+    font-size: 30px;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #191919; 
+}
+.button_feature {
+    margin-top:10px;
+    text-align: right;
+}
+.button_feature button{
+    border-radius: 20px;
+    padding:4px 25px;
+    border-color: #9a9a9a;
+    color: #9a9a9a;
+    font-family: $poppins-regular !important;
+    font-size: 12px !important;
+    margin-right:8px;
+    background: transparent;
+}
+.button_feature button:focus, .button_feature button:hover, .button_feature button.active{
+    font-family: $poppins-regular !important;
+    outline: none;
+    background-color: $lukas-color;
+    color: #fff !important;
+    border-color: $lukas-color;
+    padding:4px 25px;
+    margin-right:8px;
+    /* box-shadow: 3px 6px $lukas-color; */
+    box-shadow: $boxshadow-active;
+}
+
+.bottom{
+    float: left;
+    width: 100%;
+    margin-bottom: 20px; 
+}
+
+.btn-container button.btn {
+    width: 130px;
+    text-align: center;
+    outline: none;
+      background-color: $lukas-color;
+      color: #fff;
+      border-color: $lukas-color;
+      margin-right: 8px;
+      border-radius: 5px;
+      box-shadow: $boxshadow-active;
+    &:hover, &:focus {
+    width: 130px;
+    text-align: center;
+      outline: none;
+      background-color: $lukas-color;
+      color: #fff;
+      border-color: $lukas-color;
+      border-radius: 5px;
+      box-shadow: $boxshadow-active;
+    }
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px !important;
+}
+
+.no-products-available {
+  width: 25%;
+  margin: 0px auto 30px auto;
+  .no_products{
+    height: 240px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  
+  .button_feature button {
+        border-radius: 20px;
+        padding:4px 15px !important;
+        border-color: #9a9a9a;
+        color: #9a9a9a;
+        font-family: $poppins-regular !important;
+        font-size: 12px !important;
+        margin-right:8px;
+        background: transparent;
+    }
+
+    .button_feature button:focus, .button_feature button:hover, .button_feature button.active {
+        font-family: $poppins-regular !important;
+        outline: none;
+        background-color: $lukas-color;
+        color: #fff !important;
+        border-color: $lukas-color;
+        padding:4px 15px !important;
+        margin-right:8px;
+        /* box-shadow: 3px 6px $lukas-color; */
+        box-shadow: $boxshadow-active;
+    }
+
+}

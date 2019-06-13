@@ -1,0 +1,63 @@
+@import "~src/variable.scss";
+
+.form-control {
+    border-radius: 0px;
+    height: 45px;
+    border: solid 1px #e6e6e6;
+  }
+  form label {
+    span {
+      color: $lukas-color;
+    }
+    width: 90%;
+  }
+  .button-container {
+    width: 90%;
+  }
+
+  .btn_right button.novalue{
+    background: #d7d7d7 !important;
+    color:#fff;
+    padding: 10px 25px;
+    box-shadow: 0px 10px 20px 0 rgba(135, 135, 135, 0.3);
+    font-family: $poppins-regular;
+    font-size: 11.2px;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    opacity: 1;
+  }
+  
+  .btn_right button.close{
+    background-color: $lukas-color !important;
+    box-shadow: 0px 10px 20px 0 rgba(236, 28, 36, 0.3);
+    font-family: $poppins-regular;
+    font-size: 11.2px;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    padding:10px 30px;
+    opacity: 1;
+  }
+
+  .edit-address {
+    h4 {
+      font-family: $poppins-bold;
+    }
+    .form-control {
+      border-radius: 0px;
+      height: 45px;
+      border: solid 1px #e6e6e6;
+    }
+    form label {
+    font-family: $poppins-regular;
+      span {
+        color: $lukas-color;
+      }
+      width: 90%;
+    }
+  }

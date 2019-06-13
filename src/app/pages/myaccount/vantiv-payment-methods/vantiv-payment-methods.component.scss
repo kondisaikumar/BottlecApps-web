@@ -1,0 +1,70 @@
+@import "~src/variable.scss";
+
+  .add-new-address a {
+    h4.address-heading {
+      background-color: #f4f4f4;
+      padding: 10px 20px 10px 20px;
+      color: $lukas-color;
+    }
+    &.bottles-brand {
+      text-decoration: none;
+      color: $lukas-color;
+      &:hover {
+        text-decoration: none;
+        color: $lukas-color;
+      }
+    }
+  }
+  
+  .address-table-tile {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    border: solid 1px #f4f4f4;
+    padding: 10px 15px 5px 15px;
+    margin-bottom: 20px;
+    tr {
+      td {
+        border-top: 0px solid #ddd;
+        padding: 15px;
+      }
+      &:first-child td {
+        padding-bottom: 0px;
+        border-top: 0px;
+      }
+      td .more-icon {
+        font-size: 18px;
+        font-weight: normal;
+        position: absolute;
+        right: 10px;
+        &:hover {
+          color: $lukas-color;
+        }
+      }
+    }
+  }
+  
+  .add-new-address .address-container-section {
+    border-top: 0px solid transparent;
+    h5 {
+      font-size: 20px;
+    }
+  }
+  
+  .bottles-brand {
+    color: $lukas-color;
+    &:hover {
+      color: $lukas-color;
+      text-decoration: none;
+    }
+  }
+  
+  .dropdown-favorite {
+    position: absolute !important;
+    right: 30px;
+  }
+  
+  .dropdown-favorite-open {
+    position: relative !important;
+    left: 0px !important;
+  }

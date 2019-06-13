@@ -1,0 +1,276 @@
+@import "~src/variable.scss";
+
+.checkout-section{
+  margin-top: 15px;
+  .checkout-table {
+    border: dashed 2px #ccc;
+    background-color: #fcfcfc;
+    padding: 15px 25px 20px 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    min-height: 156px;
+    a.link {
+      font-size: 16px;
+      color: $lukas-color;
+      text-decoration: none;
+      color: #222;
+      &:hover, &:focus, &.active {
+        font-size: 16px;
+        color: $lukas-color;
+        text-decoration: none;
+        color: $lukas-color;
+      }
+    }
+  }
+  .dateinput {
+    background: transparent !important;
+    outline: none;
+    box-shadow: none;
+    border: solid 0px transparent;
+    width: auto;
+  }
+}
+
+.checkout-table .check-icon-checkout-container {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+
+.check-icon-checkout-container .checkout-icon-style, .checkout-icon-style {
+  font-size: 40px;
+  color: $lukas-color;
+}
+
+.checkout-table .location-icon-container, .location-icon-container {
+  position: absolute;
+  left: 40%;
+  top: 20%;
+}
+
+.location-icon-container {
+  .icon-1 {
+    font-size: 50px;
+    position: relative;
+    color: #d7d7d7;
+  }
+  .icon-2 {
+    font-size: 26px;
+    position: absolute;
+    top: 10px;
+    left: 17px;
+    color: #d7d7d7;
+  }
+}
+
+.checkout-section .checkout-table a.link:hover, .checkout-section .add-new-checkout-address a.link:hover {
+  .location-icon-container {
+    .icon-1, .icon-2 {
+      color: $lukas-color;
+    }
+  }
+  .new-address-add tr td h4 {
+    color: $lukas-color;
+  }
+}
+
+table.new-address-add {
+  width: 100%;
+}
+
+.new-address-add h4 {
+  margin-top: 60px;
+  color: #d7d7d7;
+}
+
+.checkout-section {
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  .delivery-options {
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+      &:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+      }
+    }
+    input {
+      &:checked + .slider {
+        background-color: #2196F3;
+      }
+      &:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+      &:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+    }
+    .slider.round {
+      border-radius: 34px;
+      &:before {
+        border-radius: 50%;
+      }
+    }
+    .input-container {
+      display: -ms-flexbox;
+      display: flex;
+      width: 100%;
+      margin-bottom: 15px;
+      border-bottom: solid 1px #ccc;
+    }
+  }
+  .coupon-panel .input-container {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .delivery-options .input-icon, .coupon-panel .input-icon {
+    padding: 10px;
+    background: transparent;
+    color: white;
+    text-align: center;
+    border-bottom: solid 1px #ccc;
+    color: #979797;
+    margin-bottom: -1px;
+  }
+  .delivery-options .input-field, .coupon-panel .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    background: transparent;
+    border: 0px;
+    border-bottom: solid 1px #ccc;
+  }
+  .delivery-options .input-field:focus, .coupon-panel .input-field:focus {
+    border: 0px solid transparent;
+    border-bottom: solid 1px #ccc;
+  }
+  .delivery-options .btn {
+    background-color: transparent;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+}
+
+/* New Layout Checkout */
+
+.checkout-tile {
+  min-height: 90px;
+  border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border: solid 1px #ccc;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+  padding: 15px;
+  margin-bottom: 15px;
+  .checkout-icon-style {
+      font-size: 30px;
+      color: $lukas-color;
+      float: left;
+      /*margin: 1% 30px 10px 10px;*/
+      margin: 0px;
+      padding: 0px;
+      line-height: 0;
+    }
+    .checkout-content {
+      margin-left: 40px;
+      font-family: $poppins-regular;
+    }
+    .more-icon {
+      cursor: pointer;
+      font-size: 18px;
+    }
+}
+
+  .dropdown-favorite {
+      position: absolute !important;
+      right: 30px;
+  }
+
+  .dropdown-favorite-open {
+      position: relative !important;
+      left: 0px !important;
+  }
+
+.add-new-checkout-address .location-icon-container{
+    .icon-1 {
+      font-size: 50px;
+      position: relative;
+      color: #d7d7d7;
+    }
+    .icon-2 {
+      font-size: 26px;
+      position: absolute;
+      top: 5px;
+      left: 3px;
+      color: #d7d7d7;
+    }
+}
+
+.add-address-new {
+  margin-bottom: 15px;
+  a {
+    border: dashed 1px #acacac;
+    color: #acacac;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    background-color: transparent;
+    font-family: $poppins-regular;
+    &:hover, &:focus, &.active {
+      border: dashed 1px $lukas-color;
+      color: $lukas-color;
+      outline: 0px;
+      text-decoration: none;
+      font-family: $poppins-regular;
+    }
+  }
+}
+
+.bottles-brand {
+  color: $lukas-color;
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .dateinput {
+      background: transparent !important;
+      outline: none;
+      box-shadow: none;
+      border: solid 0px transparent;
+      width: 100% !important;
+    }
+  }

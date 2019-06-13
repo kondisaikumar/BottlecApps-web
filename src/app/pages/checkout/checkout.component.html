@@ -1,0 +1,31 @@
+<section>
+  <div class="container pbottom30">
+    <div class="row" *ngIf="!isOrderPlaced">
+      <div class="Searchrelated_div col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h4>Checkout</h4>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+          <li class="breadcrumb-item"><a [routerLink]="['/cart']">Cart</a></li>
+          <li class="breadcrumb-item active"><a>Checkout</a></li>
+        </ol>
+      </div>
+
+      <div class=" col-lg-7 col-md-7 col-sm-7 col-xs-12">
+        <app-checkout-pickup *ngIf="cartDetails?.OrderTypeId === 1; else delivery"></app-checkout-pickup>
+        <ng-template #delivery>
+          <app-checkout-delivery></app-checkout-delivery>
+        </ng-template>
+        <app-checkout-payment-method></app-checkout-payment-method>
+      </div>
+      <div class=" col-lg-5 col-md-5 col-sm-5 col-xs-12">
+        <app-checkout-products (orderplace)="onOrderPlace($event)"></app-checkout-products>
+      </div>
+    </div>
+    <div class="row" *ngIf="isOrderPlaced">
+      <app-place-order-result [orderNumber]="orderNumber"></app-place-order-result>
+    </div>
+    <div *ngIf="orderInProgress">
+      <app-preloader></app-preloader>
+    </div>
+  </div>
+</section>

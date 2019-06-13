@@ -1,0 +1,190 @@
+<div class="container">
+    <div class="row">
+        <div class="Search_div col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <h4>Product</h4><!-- <input type="text" placeholder="Product"> -->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+                <li class="breadcrumb-item active"><a href="#">Product Details</a></li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<section class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                <div class="product_img">
+                    <div class="favorite-container">
+                        <div class="favorite-selection" *ngIf="productDetails">
+                            <i class="icon icon-favorites pro-detail" (click)="favoriteProductUpdate(true)" *ngIf="productDetails?.Product?.IsFavorite===false; else favActive"></i>
+                            <ng-template #favActive>
+                                <i class="icon icon-favorites pro-detail active" (click)="favoriteProductUpdate(false)"></i>
+                            </ng-template>
+                        </div>
+                    </div>
+                    <img class="second_img img-responsive" src="{{productDetails?.Product?.ProductImg}}" />
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                <div class="product_content">
+                    <h3>{{productDetails?.Product?.ProductName}}</h3>
+                    <div>
+                        <ul>
+                            <li *ngIf="productDetails?.Category">
+                                <a> {{productDetails?.Category}}
+                                </a>
+                            </li>
+                            <li *ngIf="productDetails?.Type">
+                                <a>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    {{productDetails?.Type}}
+                                </a>
+                            </li>
+                            <li *ngIf="productDetails?.Varietal">
+                                <a>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    {{productDetails?.Varietal}}
+                                </a>
+                            </li>
+                            <li *ngIf="productDetails?.Region">
+                                <a>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    {{productDetails?.Region}}
+                                </a>
+                            </li>
+                            <li *ngIf="productDetails?.Country">
+                                <a>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    {{productDetails?.Country}}
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="customers_review">
+                        <p class="strike_text" *ngIf="productDetails?.Product?.PriceDisplay !== productDetails?.Product?.OfferPriceDisplay">{{productDetails?.Product?.PriceDisplay}}</p>
+                        <span>{{productDetails?.Product?.OfferPriceDisplay}}</span>
+                        <ul class="float_right">
+                            <li>
+                                <app-rating [rate]='rating'></app-rating>
+                                <small class="review-caption">({{productDetails?.ReviewTotalCount}}
+                                    Customer reviews)</small>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="padding_bottom">
+                        <span class="size_bottle">{{productDetails?.Product?.Size}}</span>
+                        <span class="float_right">SKU: {{productDetails?.Product?.SKU}} | UPC:
+                            {{productDetails?.Product?.UPC}}</span>
+                    </div>
+                    <p class="font_size">
+                        {{productDetails?.ProductDescription}}
+                    </p>
+                </div>
+                <!-- <h4 class="size1">Size</h4>  -->
+                <div class="row">
+                    <div class="size">
+
+                        <div class="margin_top col-md-12 col-sm-12 col-lg-8 col-xs-12">
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12">
+                                    <label class="sizelabel">Qty</label>
+                                </div>
+                                <div class="col-md-4 col-xs-5">
+                                    <div class="select-bg">
+                                        <select [disabled]="productDetails?.Product?.Inventory === 0 || productDetails?.Product?.InCart > 0"  
+                                                class="selectsize form-control" 
+                                                [(ngModel)]="qty">
+                                                <option *ngFor="let qty of getQty(productDetails?.Product)">{{qty}}</option>
+                                        </select>
+                                    </div>
+                                    <span class="limit-per-user" *ngIf="productDetails?.Product?.DealInventoryMessage">{{productDetails?.Product?.DealInventoryMessage}}</span>
+                                </div>
+                                <div class="col-md-5 col-xs-7">
+                                    <button *ngIf="productDetails?.Product?.Inventory > 0 && productDetails?.Product?.InCart === 0" class="btn btn-default addtocart" (click)="addToCart()">Add to Cart</button>
+                                    <button *ngIf="productDetails?.Product?.InCart > 0" class="btn btn-default addtocart" (click)="removeFromCart()">Remove from Cart</button>
+                                    <button *ngIf="productDetails?.Product?.Inventory === 0" [disabled]="true" class="btn btn-default addtocart disabled">Out Of Stock</button>                                    
+                                </div>
+                            </div>
+                            <!-- <button  class="dec_circle">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </button>
+                            <span class="value">5</span>
+                            <button  class="dec_circle">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button> -->
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section *ngIf="productsList">
+    <div class="container">
+        <div class="row">
+
+            <ng-container>
+                <div class="related_product">
+
+                    <div class="Searchrelated_div col-md-10 col-sm-10 col-lg-10 col-xs-12 no-b-border">
+                        <!-- <input type="text" placeholder="Related Product"> -->
+                        <h4>Related Products</h4>
+                    </div>
+
+                    <div class="col-md-2 col-sm-2 col-lg-2 hidden-xs hidden-sm visible-md visible-lg">
+                        <a class="view_more" (click)="getProductList()">
+                            <span>View More</span>
+                        </a>
+                    </div>
+                </div>
+            </ng-container>
+            <div class="Main_bottlesection">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12" *ngFor="let product of productsList | slice:0:4">
+                    <app-product [item]="product"></app-product>
+                </div>
+                <div class="col-xs-12 hidden-md hidden-lg visible-xs visible-xs">
+                        <a class="view_more pull-right" (click)="getProductList()">
+                            <span>View More</span>
+                        </a><br>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="total_border write-review">
+            <h4 class="review_title">Reviews</h4>
+            <p *ngIf="userReviews?.length === 0 && productDetails?.UserReview?.UserId === 0" class="no-reviews">There
+                are no customer reviews yet.</p>
+
+                <div>
+                    <app-product-review [review]="review" (edit)="onEdit($event)" *ngFor="let review of userReviews | slice:0:1">
+                    </app-product-review>
+                    <div class="all-reviews-block">
+                        <div id="demo" class="collapse">
+                            <app-product-review [review]="review" (edit)="onEdit($event)" *ngFor="let review of userReviews | slice:1">
+                            </app-product-review>
+                        </div>
+                        <a href="#demo" onclick="rotateFunction()" (click)="getMoreReviews()" class="more-reviews fa fa-angle-down arotate" data-toggle="collapse"
+                            id="rotate"> </a>
+                    </div>
+                </div>
+            <div *ngIf="productDetails?.UserReview?.UserId === 0 && !reviewAdded">
+                <app-product-add-review [productId]="productDetails?.Product?.PID" (addReview)="onAddReview()"></app-product-add-review>
+            </div>
+            <div *ngIf="productDetails?.UserReview?.UserId !== 0 && isEdit">
+                <app-product-edit-review [productId]="productDetails?.Product?.PID" [edit]="isEdit" [review]="review" (updateReview)="onUpdateReview()"></app-product-edit-review>
+            </div>
+        </div>
+    </div>
+</section>

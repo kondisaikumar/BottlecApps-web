@@ -1,0 +1,67 @@
+<section>
+  <div class="container">
+    <div class="Search_div ">
+      <h4>Event Details</h4><!-- <input type="text" placeholder="Event Details"> -->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+
+        <li class="breadcrumb-item active"><a>Event Details</a></li>
+      </ol>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+          <div class="event-details-tile">
+              <div class="details_img col-md-8 col-sm-8 col-lg-8 col-xs-12 animated fadeInLeft">
+                <img src='{{eventDetails?.EventImage}}' class="img-responsive" />
+              </div>
+
+              <div class="details_content col-md-4 col-sm-4 col-lg-4 col-xs-12 animated fadeInRight">
+                <div>
+                  <div class="event-details-section">
+                    <div class="detailed-events-section">
+                        <div class="bottle-caps-red event-details-date text-center">
+                          <div class="date-style">{{eventDetails?.EventDateDisplayFirst}}</div>
+                          <br><strong>{{eventDetails?.EventDateDisplaySecond}}</strong>
+                        </div>
+                        <h6 class="event-details-heading">{{eventDetails?.EventName}}</h6>
+                    </div>
+                  </div>
+                  <hr>
+                </div>
+
+                <div class="col-md-12">
+                  <ul>
+                    <li class="IngredientText"> <span class="fa fa-dollar bottle-caps-red event-icon"></span> <span class="event-para">{{eventDetails?.EventPrice !== 0 ? eventDetails?.EventPriceDisplay : "FREE"}}</span>
+                    </li>
+                    <li class="IngredientText"> <span class="fa fa-history bottle-caps-red event-icon"></span> <span class="event-para">{{eventDetails?.EventStartEndDateDisplay}}
+                        <br>{{eventDetails?.EventStartEndTimeDisplay}}</span>
+                    </li>
+                    <li class="IngredientText"> <span class="fa fa-map-marker bottle-caps-red event-icon"></span> <span class="event-para">{{eventDetails?.Address1}}
+                        <br>{{eventDetails?.City}}, {{eventDetails?.State}} {{eventDetails?.Zip}}</span>
+                        <span class="pull-right">
+                          <a href="https://www.google.com/maps/dir//{{eventDetails?.StoreLatitude}},{{eventDetails?.StoreLongitude}}/data=!4m2!4m1!3e0"
+                            target="_blank">
+                            <!-- <img src="../assets/Images/navigate-png.png"> -->
+                            <i class="icon icon-navigate"></i>
+                          </a>
+                        </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" col-md-12 col-sm-12 col-lg-12 col-xs-12">
+      <div class="row">
+          <div class="Searchrelated_div no-b-border">
+            <h4>Description</h4>
+          </div>
+          <div class="instruction_text" [innerHTML]="eventDetails?.EventDescription"></div>
+      </div>
+    </div>
+  </div>
+  <br>
+</section>

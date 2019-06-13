@@ -1,0 +1,314 @@
+@import "~src/variable.scss";
+
+.order-details-panel {
+  background-color: #f7f7f7;
+  padding: 15px 25px;
+  table {
+    width: 100%;
+    .prod-img {
+      /*width: 60px;*/
+      height: 70px;
+      border-radius: 5px;
+      border: solid 1px #ccc;
+      padding: 5px 15px;
+      margin-top: -3px;
+      margin-right: 5px;
+    }
+    td.img-block {
+      padding-top: 10px;
+      padding-bottom: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      vertical-align: top;
+    }
+    &.first-table {
+      border-bottom: solid 1px #ccc;
+      h4 {
+        margin-bottom: 0px;
+      }
+      h6 {
+        font-size: 16px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+        color: $lukas-color;
+        font-family: $poppins-bold;
+      }
+      p {
+        font-size: 14px;
+        margin-bottom: 5px;
+        font-family: $poppins-regular;
+      }
+      .totalprice-right {
+        margin: 0px;
+        padding: 0px;
+        vertical-align: bottom;
+        font-family: $poppins-bold;
+        p {
+          margin-top: 10px;
+          margin-bottom: 30px;
+          font-weight: bold;
+          font-size: 13px;
+          font-family: $poppins-regular;
+        }
+        h5 {
+          font-size: 20px;
+          color: $lukas-color;
+          font-family: $poppins-bold;
+        }
+      }
+    }
+    td.summary-block {
+      width: 90px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      vertical-align: top;
+      h5 {
+        margin: 0px;
+        font-family: $poppins-bold;
+      }
+    }
+    &.summary-container {
+      margin-top: 10px;
+    }
+  }
+}
+
+.icon-selected {
+  cursor: pointer;
+}
+
+.coupon-panel {
+  text-align: center;
+  border-top: solid 1px #efefef;
+  border-bottom: solid 1px #efefef;
+  display: table;
+  width: 100%;
+  background-color: #f7f7f7;
+  padding: 10px 25px;
+  position: relative;
+  input.coupon {
+    width: 75%;
+    background-color: transparent;
+    outline: none;
+    border: 0px solid transparent;
+    float: right;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: $poppins-regular;
+  }
+  .icon-coupon {
+    position: relative;
+    top: 1px;
+    font-size: 22px;
+    color: #ccc;
+    float: left;
+  }
+  .icon-selected {
+    position: absolute;
+    top: 15px;
+    font-size: 21px;
+    color: $lukas-color;
+    right: 55px;
+    cursor: pointer;
+  }
+  .icon-cancel2 {
+    position: absolute;
+    top: 19px;
+    font-size: 16px;
+    color: #ccc;
+    right: 25px;
+    cursor: pointer;
+    &:hover {
+      color: $lukas-color;
+    }
+  }
+  table {
+    width: 100%;
+  }
+}
+
+.submit-button-panel {
+  border-top: solid 1px #efefef;
+  border-bottom: solid 1px #efefef;
+  display: table;
+  width: 70%;
+  background-color: transparent;
+  padding: 10px 25px;
+  float: right;
+}
+
+.summary-container {
+  a.exapand-icon {
+    font-size: 0.8em !important;
+    position: relative;
+    top: 0px;
+    color: #222;
+    padding-left: 10px;
+    padding-right: 3px;
+  }
+  table {
+    td p {
+      margin-bottom: 0px !important;
+    }
+    &.exapnded-table {
+      margin-bottom: 10px;
+      width: 93%;
+      margin-left: 30px;
+    }
+  }
+  h4, h5 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+}
+
+.bottles-brand {
+  color: $lukas-color;
+  &:hover {
+    color: $lukas-color;
+    text-decoration: none;
+  }
+}
+
+.payment-option-select {
+  a {
+    &.pay-opt-1, .pay-or-store {
+      font-size: 20px;
+      color: $lukas-color;
+    }
+    color: #222;
+    &:hover, &.active {
+      color: $lukas-color;
+      text-decoration: none;
+    }
+  }
+  border-bottom: solid 1px #ccc;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  .pay-or-store {
+    font-size: 20px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    color: #222;
+    background-color: #ccc;
+    padding: 15px;
+    position: relative;
+    left: 45%;
+    top: 7px;
+  }
+}
+
+
+.btn_right {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  button.novalue{
+    background: #d7d7d7 !important;
+    color:#fff;
+    padding: 10px 25px;
+    box-shadow: 0px 10px 20px 0 rgba(135, 135, 135, 0.3);
+    font-family: $montserrat-bold;
+    font-size: 11.2px;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    opacity: 1;
+  }
+  
+  button.close{
+    background-color: $lukas-color !important;
+    box-shadow: 0px 10px 20px 0 rgba(236, 28, 36, 0.3);
+    font-family: $montserrat-bold;
+    font-size: 11.2px;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    padding:10px 30px;
+    opacity: 1;
+  }
+}
+td .checkout-product-details {
+          padding-top: 10px !important;
+          padding-bottom: 10px !important;
+        }
+.text-muted, .td-para, .payment-method table td, p {
+  font-family: $poppins-regular;
+}
+
+.payment-method table th {
+  font-family: $poppins-bold;
+}
+.text-muted{ color: #191818;}
+.tip{ background: #f1f1f1; height: 40px;}
+.tip span{ font-size: 1.4em; padding-right: 3px;}
+.tipdown{ background: #fff; padding: 10px;}
+
+
+@media only screen and (max-width: 1024px) {
+    .order-details-panel {
+      padding: 15px !important;
+        table {
+          .prod-img {
+              padding: 5px 10px !important;
+          }
+        }
+    }
+    .checkout-info {
+      margin-left: 5px;
+    }
+
+    .m-radio {
+      float: left;
+        .checkmark {
+              top: 0px !important;
+        }
+    }
+
+    .tip-container {
+      input {
+        width: 60px;
+        float: left;
+        height: 25px;
+        margin-left: 5px;
+        margin-right: 3px;
+        margin-top: -4px;
+      }
+      .icon {
+        font-size: 20px;
+        color: $lukas-color;
+        position: relative;
+        top: -5px;
+      }
+  }
+}
+.m-radio {
+  float: left;
+  .checkmark {
+    margin-top: -2px;
+  }
+}
+.tip-container {
+    input {
+      width: 60px;
+      float: left;
+      height: 25px;
+      margin-left: 5px;
+      margin-right: 3px;
+      margin-top: 0px;
+    }
+    .icon {
+      font-size: 20px;
+      color: $lukas-color;
+      position: relative;
+      top: -1px;
+    }
+}
+.pright10{ padding-right:10px;}

@@ -1,0 +1,133 @@
+<section class="m_bottom">
+    <div class="container">
+
+        <div class="Searchrelated_div col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <!-- <input type="text" placeholder="My Account"> --><h4>My Account</h4>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a [routerLink]="['/home']">Home</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    <a>Account</a>
+                </li>
+            </ol>
+        </div>
+
+<!-- My Account Left Menu Start -->
+
+        <div class="col-md-12 col-sm-12 col-lg-3 col-xs-12">
+            <div class="visible-md visible-lg hidden-xs hidden-sm">
+              <ul class="panel-group myac-panel" id="accordion" role="tablist" aria-multiselectable="true">
+                    
+                    <li class="panel bottle-panel-container">
+                      <div class="left-panel-section">
+                        <h4 class="left-panel-title">
+                          <a routerLink="./myorders">
+                            <span class="bottles-brand myac-icon icon icon-recipt-date"></span> My Orders <span class="fa fa-chevron-right pull-right hidden-xs hidden-sm visible-lg hidden-md"></span>
+                          </a>
+                        </h4>
+                      </div>
+                    </li>
+                    
+                      <li class="panel bottle-panel-container">
+                        <div class="left-panel-section" role="tab" id="myAccountHeading">
+                          <h4 class="panel-title left-panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myAccount" aria-expanded="false" aria-controls="myAccount">
+                              <span class="icon icon-account bottles-brand myac-icon"></span> My Account <span class="fa fa-chevron-down pull-right hidden-xs hidden-sm visible-lg visible-md"></span>
+                              <span *ngIf="false" class="fa fa-chevron-up pull-right hidden-xs hidden-sm visible-lg hidden-md"></span>
+                            </a>
+                          </h4>
+                        </div>
+                            <ul id="myAccount" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myAccountHeading">
+                              <li (click)="onOptionSelected('profile')"><a routerLink="./profile" [ngClass]="{'active': selectedOption === 'profile'}">Profile Information</a></li>
+                              <li (click)="onOptionSelected('address')"><a routerLink="./manage-addresses" [ngClass]="{'active': selectedOption === 'address'}">Manage Addresses</a></li>
+                              <li (click)="onOptionSelected('payment')"><a [ngClass]="{'active': selectedOption === 'payment'}">Payment Methods</a></li>
+                          </ul>
+                      </li>
+
+                    <li class="panel bottle-panel-container">
+                      <div class="left-panel-section">
+                        <h4 class="left-panel-title">
+                          <a routerLink="./favorites">
+                            <span class="icon icon-active-rating bottles-brand myac-icon"></span> Favorites  <span class="fa fa-chevron-right pull-right hidden-xs hidden-sm visible-lg hidden-md"></span>
+                          </a>
+                        </h4>
+                      </div>
+                    </li>
+
+                    <li class="bottle-panel-container">
+                        <div class="left-panel-section">
+                            <h4 class="left-panel-title">
+                                <a href="#" class=""><span class="icon icon-logout myac-icon bottles-brand"></span> Logout</a>
+                            </h4>
+                        </div>
+                    </li>
+              </ul>
+            </div>
+            <!-- Mobile My Account Menu Top Panel Start -->
+            <div class="visible-xs visible-sm hidden-md hidden-lg">
+              <div class="row">  
+                <ul class="panel-group myac-panel" id="accordion" role="tablist" aria-multiselectable="true">
+                      
+                      <li class="panel bottle-panel-container">
+                        <div class="left-panel-section">
+                          <h4 class="left-panel-title">
+                            <a routerLink="./myorders">
+                              <span class="bottles-brand myac-icon icon icon-recipt-date"></span>Orders <span class="fa fa-chevron-right pull-right hidden-xs hidden-sm visible-lg hidden-md"></span>
+                            </a>
+                          </h4>
+                        </div>
+                      </li>
+                      
+                        <li class="panel bottle-panel-container">
+                          <div class="left-panel-section" role="tab" id="myAccountHeading">
+                            <h4 class="panel-title left-panel-title">
+                              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myAccountm" aria-expanded="false" aria-controls="myAccountm">
+                                <span class="fa fa-user bottles-brand myac-icon"></span>Account <span class="fa fa-chevron-down pull-right hidden-xs hidden-sm visible-lg hidden-md"></span>
+                                <span *ngIf="false" class="fa fa-chevron-up pull-right hidden-xs hidden-sm visible-lg hidden-md"></span>
+                              </a>
+                            </h4>
+                          </div>
+                        </li>
+
+                      <li class="panel bottle-panel-container">
+                        <div class="left-panel-section">
+                          <h4 class="left-panel-title">
+                            <a routerLink="./favorites">
+                              <span class="fa fa-star bottles-brand myac-icon"></span> Favorites  <span class="fa fa-chevron-right pull-right hidden-xs hidden-sm visible-lg hidden-md"></span>
+                            </a>
+                          </h4>
+                        </div>
+                      </li>
+
+                      <li class="bottle-panel-container">
+                          <div class="left-panel-section">
+                              <h4 class="left-panel-title">
+                                  <a href="#" class=""><span class="fa fa-sign-out myac-icon bottles-brand"></span> Logout</a>
+                              </h4>
+                          </div>
+                      </li>
+                </ul>
+              </div>
+              <ul id="myAccountm" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myAccountHeading">
+                  <li (click)="onOptionSelected('profile')"><a routerLink="./profile" [ngClass]="{'active': selectedOption === 'profile'}">Profile Information</a></li>
+                  <li (click)="onOptionSelected('address')"><a routerLink="./manage-addresses" [ngClass]="{'active': selectedOption === 'address'}">Manage Addresses</a></li>
+                  <li (click)="onOptionSelected('payment')"><a routerLink="./payment-methods" [ngClass]="{'active': selectedOption === 'payment'}">Payment Methods</a></li>
+              </ul>
+            </div>
+            <!-- Mobile My Account Menu Top Panel Start -->
+        </div>
+<!-- My Account Left Menu End -->
+
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+            <router-outlet></router-outlet>
+        </div>
+
+    
+
+    </div>
+
+</section>
+
+
+

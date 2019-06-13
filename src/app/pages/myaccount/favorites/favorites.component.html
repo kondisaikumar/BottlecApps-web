@@ -1,0 +1,73 @@
+<div class="col-md-12">
+  <div class="row">
+    <div class="bottom">
+      <div class=" col-lg-5 col-md-12 col-sm-12 col-xs-12 Searchrelated_div Searchrelated_div-bot slideInUP wow delay-05s  animated">
+        <h5>Favorites</h5>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 btn-container">
+      <div class="row margin-bottom-20">
+        <div class="col-md-6">
+          <button class="btn btn-default" (click)="showPreviousProducts()" *ngIf="isPrevious">Previous Page</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-default pull-right" *ngIf="isNext" (click)="showMoreProducts()">Next Page</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+      <div class="Main_bottlesection">
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" *ngFor="let item of productsList">
+            <div class="Main_bottlesection">
+              <div class="item_img circle">
+                <div class="img_div">
+
+                  <div class="margin_bottom">
+                    <img class="firimg" (click)="favoriteProductUpdate(item, true)" src="assets/Images/favorites.png"
+                      *ngIf="item?.IsFavorite===false; else favActive" />
+                    <ng-template #favActive>
+                      <img class="firimg" (click)="favoriteProductUpdate(item, false)" src="assets/Images/favorites-active.png">
+                    </ng-template>
+                    <a routerLink="/product-details/{{item.PID}}"><img class="second_img" src="{{item?.ProductImg}}" /></a>
+                    <img class="third_img" (click)="addToCart(item)" src="assets/Images/add-cart.png" *ngIf="item?.InCart===0; else cartActive" />
+                    <ng-template #cartActive>
+                      <img class="third_img" (click)="removeFromCart(item)" src="assets/Images/add-cart-active.png" />
+                    </ng-template>
+
+                  </div>
+                  <div class="second_content">
+                    <div class="">
+                      <p class="price">{{item?.OfferPriceDisplay}}</p>
+                      <h5 class="productname">{{item?.ProductName}} - {{item?.PID}}</h5>
+                      <p class="product_size">
+                        <span>{{item?.Size}}</span>
+                      </p>
+                      <p class="rating_star">
+                        <app-rating [rate]='item?.Rating'></app-rating>
+                        <span class="first">{{item?.ReviewCount}}</span>
+                        <span class="reviews"> reviews</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 btn-container">
+      <div class="">
+        <div class="col-md-6">
+          <button class="btn btn-default" (click)="showPreviousProducts()" *ngIf="isPrevious">Previous Page</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-default pull-right" *ngIf="isNext" (click)="showMoreProducts()">Next Page</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

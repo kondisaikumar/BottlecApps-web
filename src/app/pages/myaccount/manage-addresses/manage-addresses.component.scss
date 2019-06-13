@@ -1,0 +1,104 @@
+@import "~src/variable.scss";
+
+.add-new-address a {
+    h4.address-heading {
+      background-color: #f4f4f4;
+      padding: 10px 20px 10px 20px;
+      color: $lukas-color;
+      span {
+          font-size: 24px;
+          margin-right: 5px;
+      }
+    }
+    &.bottles-brand {
+      text-decoration: none;
+      color: $lukas-color;
+      &:hover {
+        text-decoration: none;
+        color: $lukas-color;
+      }
+    }
+  }
+  
+  .address-table-tile {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    border: solid 1px #f4f4f4;
+    padding: 10px 15px 5px 15px;
+    margin-bottom: 20px;
+    min-height: 90px;
+    tr {
+      td {
+        border-top: 0px solid #ddd;
+        padding: 5px 15px;
+        .more-icon {
+          font-size: 18px !important;
+          font-weight: normal;
+          position: absolute;
+          right: 10px !important;
+          cursor: pointer;
+          &:hover {
+            color: $lukas-color;
+          }
+      }
+      &:first-child td {
+        padding-bottom: 0px;
+        border-top: 0px;
+        } 
+      }
+    }
+  }
+  
+  .add-new-address .address-container-section {
+    border-top: 0px solid transparent;
+    h5 {
+      font-size: 20px;
+      font-family: $poppins-bold;
+    }
+    p {
+      font-family: $poppins-regular;
+      font-size: 14px;
+    }
+    h6 {
+      font-family: $poppins-regular;
+      font-size: 14px;
+    }
+  }
+  
+  .bottles-brand {
+    color: $lukas-color;
+    &:hover {
+      color: $lukas-color;
+      text-decoration: none;
+    }
+  }
+  
+  .dropdown-favorite {
+    position: absolute !important;
+    right: 30px;
+  }
+  
+  .dropdown-favorite-open {
+    position: relative !important;
+    left: 0px !important;
+  }
+
+p {
+      font-family: $poppins-regular;
+      font-size: 14px;
+  }
+
+  span.fa.fa-ellipsis-v.more-icon {
+    font-size: 18px !important;
+    right: 10px !important;
+  }
+
+.address-table-tile {
+  .table-responsive {
+        border: 1px solid transparent;
+        span.text-muted small {
+          font-size: 12px !important;
+        }
+  }
+}

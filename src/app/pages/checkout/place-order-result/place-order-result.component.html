@@ -1,0 +1,15 @@
+<div class="success-failed-order-section">
+  <div class="success-order-section" *ngIf="orderNumber  !== ''">
+    <h2>Congratulations!</h2>
+    <h4>Order successfully placed</h4>
+  </div>
+  <div class="failed-order-section" *ngIf="orderNumber === ''">
+    <h2>Failed!</h2>
+    <h4>Unable To Complete Order</h4>
+  </div>
+  <div class="order-details-section" *ngIf="orderNumber  !== ''">
+    <h4>Your Order ID</h4>
+    <h2>{{orderNumber}}</h2>
+  </div>
+  <button class="btn continue-shop" (click)="onContinueShoping()">Continue Shopping</button>
+</div>

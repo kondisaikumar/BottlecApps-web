@@ -1,0 +1,106 @@
+<div class="about-us">
+  <div class="parallax">
+    <div class="container">
+      <div class="Searchrelated_div col-md-12 col-sm-12 col-lg-12 col-xs-12">
+        <h4>Contact Us</h4>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+          <li class="breadcrumb-item active"><a>Contact Us</a></li>
+        </ol>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <form [formGroup]=formContactUs (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="contact-section">
+        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 contactform">
+          <img class="mb20" src="../assets/Images/logo.png" width="180">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="text-uppercase">Name  <span>*</span></label>
+                <input type="text" formControlName="name" class="form-control">
+                <div *ngIf="submitted && f.name.errors" class="alert alert-danger">
+                  <div *ngIf="f.name.errors.required">Name is required.</div>
+                  <div *ngIf="f.name.errors.maxlength">Name should not be more than 40 characters</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="text-uppercase">E-Mail <span>*</span> </label>
+                  <input type="text" formControlName="email" class="form-control">
+                  <div *ngIf="submitted && f.email.errors" class="alert alert-danger">
+                    <div *ngIf="f.email.errors.required">E-Mail is required.</div>
+                    <div *ngIf="f.email.errors.email">E-Mail must be a valid email address</div>
+                    <div *ngIf="f.email.errors.maxlength">E-Mail should not be more than 40 characters</div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="text-uppercase">Phone <span>*</span> </label>
+                  <input type="text" formControlName="phone" appPhoneMask class="form-control" id="phone-number">
+                  <div *ngIf="submitted && f.email.errors" class="alert alert-danger">
+                    <div *ngIf="f.phone.errors.required">Phone is required.</div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="text-uppercase">Subject  <span>*</span></label>
+                <input type="textarea" formControlName="subject" class="form-control">
+                <div *ngIf="submitted && f.subject.errors" class="alert alert-danger">
+                  <div *ngIf="f.subject.errors.required">Subject is required.</div>
+                  <div *ngIf="f.subject.errors.maxlength">Subject should not be more than 1000 characters</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group"><br>
+                <label class="text-uppercase">MESSAGE</label>
+                <!-- <input type="text" name="name" class="form-control"> -->
+                <textarea formControlName="message" class="form-control no-resize contact-textarea"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <button type="submit" class="btn btn-brand contact">Send</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+          <div class="row">
+            <div class="contact-address-section">
+              <div class="contact-map">
+                <iframe *ngIf="mapURL" [src]="mapURL" width="100%" height="100%" frameborder="0" style="border:0"
+                  allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 hidden">
+        <div class="row">
+          <div class="contact-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30450.055707493928!2d78.3587207751071!3d17.44741093471787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93ddadd565cd%3A0xb0ea84e8a712b1d3!2sTechmatic+Systems!5e0!3m2!1sen!2sin!4v1551765856885"
+              width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

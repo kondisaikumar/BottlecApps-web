@@ -1,0 +1,36 @@
+<section>
+  <div class="container">
+
+    <div class="Search_div ">
+      <h4>Recipe Details</h4> <!-- <input type="text" placeholder="Recipe Details">-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+        <li class="breadcrumb-item active"><a [routerLink]="['/recipes']">Recipes</a></li>
+        <li class="breadcrumb-item active"><a>Recipe Details</a></li>
+      </ol>
+    </div>
+
+    <div class="details_img col-md-8 col-sm-8 col-lg-8 col-xs-12 animated fadeInLeft">
+      <img class="img-responsive" src='{{recipe?.DetailImage}}' />
+    </div>
+
+    <div class="details_content col-md-4 col-sm-4 col-lg-4 col-xs-12 animated fadeInRight">
+      <h4 class="recipe_name">{{recipe?.Title}}</h4>
+      <ul>
+        <h4 class="ingredients">Ingredients</h4>
+        <div class="IngredientText recipe-ingredients" [innerHtml]="recipe?.IngredientText">
+        </div>
+
+      </ul>
+    </div>
+
+    <div class=" col-md-12 col-sm-12 col-lg-12 col-xs-12">
+      <div class="Searchrelated_div no-b-border">
+        <h5>Instructions</h5>
+      </div>
+
+      <div style="font-size: 14px;" class="instruction_text" [innerHtml]="recipe?.InstructionText"> </div>
+      <br>
+    </div>
+  </div>
+</section>

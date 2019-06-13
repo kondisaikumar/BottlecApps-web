@@ -1,0 +1,35 @@
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <h4 class="font_size"><span class="border">CREA</span><span>TE A NEW ACCOUNT</span></h4>
+    <!-- <h6 class="padding_top">Create your own bottlecapps account</h6> -->
+    <form [formGroup]=formSignUp (ngSubmit)="onSignUp()">
+        <div class="form-group">
+            <label for="email" class="email">EMAIL ADDRESS
+                <span class="mandatory">*</span>
+            </label>
+            <input type="email" class="form-control border_radius" formControlName="semail" placeholder="Your email">
+            <div *ngIf="submitted && f.semail.errors" class="alert alert-danger">
+                <div *ngIf="f.semail.errors.required">E-Mail is required.</div>
+                <div *ngIf="f.semail.errors.email">E-Mail must be a valid email address</div>
+              </div>
+        </div>
+        <div class="form-group">
+            <label for="pwd" class="password">PASSWORD
+                <span class="mandatory">*</span>
+            </label>
+            <input type="password" class="form-control border_radius" formControlName="spassword" placeholder="Password">
+            <div *ngIf="submitted && f.spassword.errors" class="alert alert-danger">
+                <div *ngIf="f.spassword.errors.required">Password is required.</div>
+                <div *ngIf="f.spassword.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+        </div>
+        <button type="submit" class="btn submit">SIGN UP</button>
+
+    </form>
+    <h4 class="font_size">
+        <span class="border">SIGN</span>
+        <span> UP TODAY AND YOU'LL BE ABLE TO </span>
+    </h4>
+    <h6 class="color_text">Speed your way through the checkout</h6>
+    <h6 class="color_text">Track your orders easily</h6>
+    <h6 class="color_text">Keep a record of all purchases</h6>
+</div>

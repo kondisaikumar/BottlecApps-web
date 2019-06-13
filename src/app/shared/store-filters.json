@@ -1,0 +1,871 @@
+{
+    "IsRecipes": true,
+    "IsCouponAvailable": true,
+    "StoreFilters": [
+        {
+            "CategoryId": 1,
+            "CategoryName": "Beer",
+            "ProductImageDefault": "http://liquorapps.com/Images/category_def/C_Beer.png",
+            "CategoryBanner": "http://liquorapps.com/images/appmenu/beer.jpg",
+            "CategoryIcon": "http://liquorapps.com/images/appmenu/beer_icon.png",
+            "CategoryWebIcon": "http://liquorapps.com/images/appmenu/beer_web.png",
+            "ListSize": [
+                {
+                    "SizeId": 16,
+                    "UnitSize": "4-Pack 12 Oz"
+                },
+                {
+                    "SizeId": 17,
+                    "UnitSize": "6-Pack 12 Oz"
+                },
+                {
+                    "SizeId": 18,
+                    "UnitSize": "12-Pack 12 Oz"
+                },
+                {
+                    "SizeId": 19,
+                    "UnitSize": "20-Pack 12 Oz"
+                },
+                {
+                    "SizeId": 20,
+                    "UnitSize": "24-Pack 12 Oz"
+                },
+                {
+                    "SizeId": 21,
+                    "UnitSize": "18-Pack 12 Oz"
+                },
+                {
+                    "SizeId": 22,
+                    "UnitSize": "30-Pack 12 Oz"
+                },
+                {
+                    "SizeId": 23,
+                    "UnitSize": "Singles/Others "
+                },
+                {
+                    "SizeId": 25,
+                    "UnitSize": "1/2 BBL"
+                },
+                {
+                    "SizeId": 26,
+                    "UnitSize": "1/4 BBL"
+                },
+                {
+                    "SizeId": 27,
+                    "UnitSize": "1/6 BBL"
+                },
+                {
+                    "SizeId": 28,
+                    "UnitSize": "330 ML"
+                },
+                {
+                    "SizeId": 29,
+                    "UnitSize": "650 ML"
+                },
+                {
+                    "SizeId": 43,
+                    "UnitSize": "12 Oz"
+                },
+                {
+                    "SizeId": 44,
+                    "UnitSize": "16 Oz"
+                }
+            ],
+            "ListType": [
+                {
+                    "TypeId": 18,
+                    "TypeName": "Imports & Microbrews",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 19,
+                    "TypeName": "Malt Beverage",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 20,
+                    "TypeName": "Domestic",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 24,
+                    "TypeName": "Craft Beer",
+                    "ListVarietal": [
+                        {
+                            "VarietalId": 38,
+                            "VarietalName": "Ales"
+                        },
+                        {
+                            "VarietalId": 39,
+                            "VarietalName": "Bocks"
+                        },
+                        {
+                            "VarietalId": 40,
+                            "VarietalName": "Browns & Ambers"
+                        },
+                        {
+                            "VarietalId": 41,
+                            "VarietalName": "Ciders"
+                        },
+                        {
+                            "VarietalId": 42,
+                            "VarietalName": "Gluten-Free"
+                        },
+                        {
+                            "VarietalId": 43,
+                            "VarietalName": "IPA"
+                        },
+                        {
+                            "VarietalId": 44,
+                            "VarietalName": "Lagers & Pilsners"
+                        },
+                        {
+                            "VarietalId": 45,
+                            "VarietalName": "Others"
+                        },
+                        {
+                            "VarietalId": 46,
+                            "VarietalName": "Pale Ales"
+                        },
+                        {
+                            "VarietalId": 47,
+                            "VarietalName": "Sour"
+                        },
+                        {
+                            "VarietalId": 48,
+                            "VarietalName": "Stouts & Porters"
+                        },
+                        {
+                            "VarietalId": 49,
+                            "VarietalName": "Wheats & Shandys"
+                        }
+                    ]
+                },
+                {
+                    "TypeId": 25,
+                    "TypeName": "Kegs",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 26,
+                    "TypeName": "Kegs-Accessories",
+                    "ListVarietal": []
+                }
+            ],
+            "IsInstock": true,
+            "IsClubPrice": true,
+            "ListCountries": []
+        },
+        {
+            "CategoryId": 2,
+            "CategoryName": "Liquor",
+            "ProductImageDefault": "http://liquorapps.com/Images/category_def/liquor.jpg",
+            "CategoryBanner": "http://liquorapps.com/images/appmenu/liquor.jpg",
+            "CategoryIcon": "http://liquorapps.com/images/appmenu/liquor_icon.png",
+            "CategoryWebIcon": "http://liquorapps.com/images/appmenu/liquor_web.png",
+            "ListSize": [
+                {
+                    "SizeId": 9,
+                    "UnitSize": "50 ML"
+                },
+                {
+                    "SizeId": 10,
+                    "UnitSize": "200 ML"
+                },
+                {
+                    "SizeId": 11,
+                    "UnitSize": "375 ML"
+                },
+                {
+                    "SizeId": 12,
+                    "UnitSize": "750 ML"
+                },
+                {
+                    "SizeId": 13,
+                    "UnitSize": "1 L"
+                },
+                {
+                    "SizeId": 14,
+                    "UnitSize": "1.75 L"
+                },
+                {
+                    "SizeId": 15,
+                    "UnitSize": "Other "
+                }
+            ],
+            "ListType": [
+                {
+                    "TypeId": 8,
+                    "TypeName": "Cognac/Brandy",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 9,
+                    "TypeName": "Cordials/Liqueurs",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 10,
+                    "TypeName": "Gin",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 11,
+                    "TypeName": "Pre-Mixed Cocktails",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 12,
+                    "TypeName": "Rum",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 13,
+                    "TypeName": "Sake",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 14,
+                    "TypeName": "Scotch/Whisky",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 15,
+                    "TypeName": "Tequila",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 16,
+                    "TypeName": "Vodka",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 17,
+                    "TypeName": "Whiskey",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 22,
+                    "TypeName": "Other",
+                    "ListVarietal": []
+                }
+            ],
+            "IsInstock": true,
+            "IsClubPrice": true,
+            "ListCountries": []
+        },
+        {
+            "CategoryId": 3,
+            "CategoryName": "Wine",
+            "ProductImageDefault": "http://liquorapps.com/Images/category_def/wine.jpg",
+            "CategoryBanner": "http://liquorapps.com/images/appmenu/wine.jpg",
+            "CategoryIcon": "http://liquorapps.com/images/appmenu/wine_icon.png",
+            "CategoryWebIcon": "http://liquorapps.com/images/appmenu/wine_web.png",
+            "ListSize": [
+                {
+                    "SizeId": 1,
+                    "UnitSize": "187 ML"
+                },
+                {
+                    "SizeId": 2,
+                    "UnitSize": "375 ML"
+                },
+                {
+                    "SizeId": 3,
+                    "UnitSize": "500 ML"
+                },
+                {
+                    "SizeId": 4,
+                    "UnitSize": "750 ML"
+                },
+                {
+                    "SizeId": 5,
+                    "UnitSize": "1 L"
+                },
+                {
+                    "SizeId": 6,
+                    "UnitSize": "1.5 L"
+                },
+                {
+                    "SizeId": 7,
+                    "UnitSize": "3 L"
+                },
+                {
+                    "SizeId": 8,
+                    "UnitSize": "Other "
+                },
+                {
+                    "SizeId": 24,
+                    "UnitSize": "5 L"
+                }
+            ],
+            "ListType": [
+                {
+                    "TypeId": 1,
+                    "TypeName": "White",
+                    "ListVarietal": [
+                        {
+                            "VarietalId": 10,
+                            "VarietalName": "Other White"
+                        },
+                        {
+                            "VarietalId": 11,
+                            "VarietalName": "Chardonnay"
+                        },
+                        {
+                            "VarietalId": 12,
+                            "VarietalName": "Sauvignon Blanc"
+                        },
+                        {
+                            "VarietalId": 13,
+                            "VarietalName": "Pinot Gris/Pinot Grigio"
+                        },
+                        {
+                            "VarietalId": 14,
+                            "VarietalName": "Riesling"
+                        }
+                    ]
+                },
+                {
+                    "TypeId": 2,
+                    "TypeName": "Red",
+                    "ListVarietal": [
+                        {
+                            "VarietalId": 1,
+                            "VarietalName": "Cabernet Sauvignon"
+                        },
+                        {
+                            "VarietalId": 2,
+                            "VarietalName": "Pinot Noir"
+                        },
+                        {
+                            "VarietalId": 3,
+                            "VarietalName": "Other Red"
+                        },
+                        {
+                            "VarietalId": 4,
+                            "VarietalName": "Malbec"
+                        },
+                        {
+                            "VarietalId": 5,
+                            "VarietalName": "Merlot"
+                        },
+                        {
+                            "VarietalId": 6,
+                            "VarietalName": "Syrah / Shiraz"
+                        },
+                        {
+                            "VarietalId": 7,
+                            "VarietalName": "Tempranillo"
+                        },
+                        {
+                            "VarietalId": 8,
+                            "VarietalName": "Zinfandel"
+                        },
+                        {
+                            "VarietalId": 9,
+                            "VarietalName": "Grenache"
+                        }
+                    ]
+                },
+                {
+                    "TypeId": 3,
+                    "TypeName": "Sparkling",
+                    "ListVarietal": [
+                        {
+                            "VarietalId": 15,
+                            "VarietalName": "Sparkling Rose"
+                        },
+                        {
+                            "VarietalId": 16,
+                            "VarietalName": "Prosecco"
+                        },
+                        {
+                            "VarietalId": 17,
+                            "VarietalName": "Brut"
+                        },
+                        {
+                            "VarietalId": 18,
+                            "VarietalName": "Blanc de Blancs"
+                        },
+                        {
+                            "VarietalId": 19,
+                            "VarietalName": "Blanc de Noirs"
+                        },
+                        {
+                            "VarietalId": 20,
+                            "VarietalName": "Sparkling Red"
+                        },
+                        {
+                            "VarietalId": 21,
+                            "VarietalName": "Demi Sec"
+                        },
+                        {
+                            "VarietalId": 22,
+                            "VarietalName": "Extra Dry"
+                        },
+                        {
+                            "VarietalId": 23,
+                            "VarietalName": "Sparkling Blend"
+                        }
+                    ]
+                },
+                {
+                    "TypeId": 4,
+                    "TypeName": "Dessert",
+                    "ListVarietal": [
+                        {
+                            "VarietalId": 24,
+                            "VarietalName": "Ice Wine"
+                        },
+                        {
+                            "VarietalId": 25,
+                            "VarietalName": "Fruit Wine"
+                        },
+                        {
+                            "VarietalId": 26,
+                            "VarietalName": "Sweet Red Dessert Wine"
+                        },
+                        {
+                            "VarietalId": 27,
+                            "VarietalName": "Sweet White Dessert Wine"
+                        },
+                        {
+                            "VarietalId": 28,
+                            "VarietalName": "Mead"
+                        },
+                        {
+                            "VarietalId": 29,
+                            "VarietalName": "Dessert Wines - Other"
+                        }
+                    ]
+                },
+                {
+                    "TypeId": 5,
+                    "TypeName": "Rose",
+                    "ListVarietal": [
+                        {
+                            "VarietalId": 36,
+                            "VarietalName": "White Zinfandel"
+                        }
+                    ]
+                },
+                {
+                    "TypeId": 6,
+                    "TypeName": "Port / Sherry",
+                    "ListVarietal": [
+                        {
+                            "VarietalId": 32,
+                            "VarietalName": "Port"
+                        },
+                        {
+                            "VarietalId": 33,
+                            "VarietalName": "Marsala"
+                        },
+                        {
+                            "VarietalId": 34,
+                            "VarietalName": "Sherry"
+                        },
+                        {
+                            "VarietalId": 35,
+                            "VarietalName": "Madeira"
+                        }
+                    ]
+                },
+                {
+                    "TypeId": 7,
+                    "TypeName": "Non-alcoholic",
+                    "ListVarietal": [
+                        {
+                            "VarietalId": 30,
+                            "VarietalName": "Non-Alcoholic Sparkling"
+                        },
+                        {
+                            "VarietalId": 31,
+                            "VarietalName": "Non-Alcoholic Red"
+                        }
+                    ]
+                },
+                {
+                    "TypeId": 23,
+                    "TypeName": "Others",
+                    "ListVarietal": [
+                        {
+                            "VarietalId": 37,
+                            "VarietalName": "Other Wines"
+                        }
+                    ]
+                }
+            ],
+            "IsInstock": true,
+            "IsClubPrice": true,
+            "ListCountries": [
+                {
+                    "CountryId": 1,
+                    "CountryName": "Australia/New Zealand",
+                    "ListRegions": [
+                        {
+                            "RegionId": 4,
+                            "RegionName": "Australia"
+                        },
+                        {
+                            "RegionId": 6,
+                            "RegionName": "New Zealand"
+                        }
+                    ]
+                },
+                {
+                    "CountryId": 2,
+                    "CountryName": "France",
+                    "ListRegions": [
+                        {
+                            "RegionId": 2,
+                            "RegionName": "Burgundy"
+                        },
+                        {
+                            "RegionId": 3,
+                            "RegionName": "The Loire"
+                        },
+                        {
+                            "RegionId": 5,
+                            "RegionName": "Champagne"
+                        },
+                        {
+                            "RegionId": 11,
+                            "RegionName": "Bordeaux"
+                        },
+                        {
+                            "RegionId": 15,
+                            "RegionName": "Languedoc-Roussillon"
+                        },
+                        {
+                            "RegionId": 18,
+                            "RegionName": "Rhone"
+                        },
+                        {
+                            "RegionId": 19,
+                            "RegionName": "Alsace"
+                        },
+                        {
+                            "RegionId": 24,
+                            "RegionName": "The Southwest"
+                        },
+                        {
+                            "RegionId": 33,
+                            "RegionName": "Other"
+                        },
+                        {
+                            "RegionId": 45,
+                            "RegionName": "Provence"
+                        },
+                        {
+                            "RegionId": 57,
+                            "RegionName": "Southern France"
+                        }
+                    ]
+                },
+                {
+                    "CountryId": 3,
+                    "CountryName": "Germany",
+                    "ListRegions": [
+                        {
+                            "RegionId": 20,
+                            "RegionName": "Mosel-Saar-Ruwer"
+                        },
+                        {
+                            "RegionId": 36,
+                            "RegionName": "Baden"
+                        },
+                        {
+                            "RegionId": 38,
+                            "RegionName": "Nahe"
+                        },
+                        {
+                            "RegionId": 40,
+                            "RegionName": "WÃ¼rttemberg"
+                        },
+                        {
+                            "RegionId": 44,
+                            "RegionName": "Rheingau"
+                        },
+                        {
+                            "RegionId": 46,
+                            "RegionName": "Rheinhessen"
+                        },
+                        {
+                            "RegionId": 49,
+                            "RegionName": "Pfalz"
+                        },
+                        {
+                            "RegionId": 53,
+                            "RegionName": "Franken"
+                        },
+                        {
+                            "RegionId": 59,
+                            "RegionName": "Mittle Rhein"
+                        }
+                    ]
+                },
+                {
+                    "CountryId": 4,
+                    "CountryName": "Italy",
+                    "ListRegions": [
+                        {
+                            "RegionId": 7,
+                            "RegionName": "Other"
+                        },
+                        {
+                            "RegionId": 9,
+                            "RegionName": "Sicily"
+                        },
+                        {
+                            "RegionId": 12,
+                            "RegionName": "Veneto"
+                        },
+                        {
+                            "RegionId": 16,
+                            "RegionName": "Piedmont"
+                        },
+                        {
+                            "RegionId": 21,
+                            "RegionName": "Umbria"
+                        },
+                        {
+                            "RegionId": 22,
+                            "RegionName": "Friuli-Venezia Giulia"
+                        },
+                        {
+                            "RegionId": 26,
+                            "RegionName": "Tuscany"
+                        },
+                        {
+                            "RegionId": 30,
+                            "RegionName": "Trentino-Alto Adige"
+                        },
+                        {
+                            "RegionId": 51,
+                            "RegionName": "Sardinia"
+                        },
+                        {
+                            "RegionId": 54,
+                            "RegionName": "Vino da Tavola Rosso"
+                        },
+                        {
+                            "RegionId": 58,
+                            "RegionName": "Vino da Tavola Bianco Dolce"
+                        }
+                    ]
+                },
+                {
+                    "CountryId": 5,
+                    "CountryName": "Spain",
+                    "ListRegions": [
+                        {
+                            "RegionId": 14,
+                            "RegionName": "Other"
+                        },
+                        {
+                            "RegionId": 17,
+                            "RegionName": "Ribera del Duero"
+                        },
+                        {
+                            "RegionId": 25,
+                            "RegionName": "Castilla y Leon"
+                        },
+                        {
+                            "RegionId": 31,
+                            "RegionName": "Cava"
+                        },
+                        {
+                            "RegionId": 34,
+                            "RegionName": "Ribeiro"
+                        },
+                        {
+                            "RegionId": 35,
+                            "RegionName": "Jerez/XÃ©rÃ¨s/Sherry"
+                        },
+                        {
+                            "RegionId": 39,
+                            "RegionName": "Rioja"
+                        },
+                        {
+                            "RegionId": 41,
+                            "RegionName": "Priorato"
+                        },
+                        {
+                            "RegionId": 42,
+                            "RegionName": "PenedÃ¨s"
+                        },
+                        {
+                            "RegionId": 43,
+                            "RegionName": "RÃ­as Baixas"
+                        },
+                        {
+                            "RegionId": 47,
+                            "RegionName": "Montsant"
+                        },
+                        {
+                            "RegionId": 50,
+                            "RegionName": "Catalunya"
+                        },
+                        {
+                            "RegionId": 55,
+                            "RegionName": "Bullas"
+                        },
+                        {
+                            "RegionId": 56,
+                            "RegionName": "Madrid"
+                        }
+                    ]
+                },
+                {
+                    "CountryId": 6,
+                    "CountryName": "United States",
+                    "ListRegions": [
+                        {
+                            "RegionId": 1,
+                            "RegionName": "California"
+                        },
+                        {
+                            "RegionId": 8,
+                            "RegionName": "Other"
+                        },
+                        {
+                            "RegionId": 10,
+                            "RegionName": "Oregon"
+                        },
+                        {
+                            "RegionId": 27,
+                            "RegionName": "Washington"
+                        }
+                    ]
+                },
+                {
+                    "CountryId": 7,
+                    "CountryName": "Other",
+                    "ListRegions": [
+                        {
+                            "RegionId": 13,
+                            "RegionName": "Argentina"
+                        },
+                        {
+                            "RegionId": 23,
+                            "RegionName": "South Africa"
+                        },
+                        {
+                            "RegionId": 28,
+                            "RegionName": "Portugal"
+                        },
+                        {
+                            "RegionId": 29,
+                            "RegionName": "Chile"
+                        },
+                        {
+                            "RegionId": 32,
+                            "RegionName": "Other"
+                        },
+                        {
+                            "RegionId": 37,
+                            "RegionName": "Greece"
+                        },
+                        {
+                            "RegionId": 48,
+                            "RegionName": "Madeira"
+                        },
+                        {
+                            "RegionId": 52,
+                            "RegionName": "Canada"
+                        }
+                    ]
+                },
+                {
+                    "CountryId": 8,
+                    "CountryName": "India",
+                    "ListRegions": []
+                }
+            ]
+        },
+        {
+            "CategoryId": 4,
+            "CategoryName": "Mixers & More",
+            "ProductImageDefault": "http://liquorapps.com/Images/category_def/mixers.png",
+            "CategoryBanner": "http://liquorapps.com/images/appmenu/mixers.jpg",
+            "CategoryIcon": "http://liquorapps.com/images/appmenu/mixer_icon.png",
+            "CategoryWebIcon": "http://liquorapps.com/images/appmenu/mixers_web.png",
+            "ListSize": [
+                {
+                    "SizeId": 30,
+                    "UnitSize": "375 ML"
+                },
+                {
+                    "SizeId": 31,
+                    "UnitSize": "500 ML"
+                },
+                {
+                    "SizeId": 32,
+                    "UnitSize": "750 ML"
+                },
+                {
+                    "SizeId": 33,
+                    "UnitSize": "1 L"
+                },
+                {
+                    "SizeId": 34,
+                    "UnitSize": "1.75 L"
+                },
+                {
+                    "SizeId": 35,
+                    "UnitSize": "2 L"
+                },
+                {
+                    "SizeId": 36,
+                    "UnitSize": "4-Pack "
+                },
+                {
+                    "SizeId": 37,
+                    "UnitSize": "6-Pack "
+                },
+                {
+                    "SizeId": 38,
+                    "UnitSize": "12-Pack "
+                },
+                {
+                    "SizeId": 39,
+                    "UnitSize": "18-Pack "
+                },
+                {
+                    "SizeId": 40,
+                    "UnitSize": "24-Pack "
+                },
+                {
+                    "SizeId": 41,
+                    "UnitSize": "30-Pack "
+                },
+                {
+                    "SizeId": 42,
+                    "UnitSize": "Other "
+                }
+            ],
+            "ListType": [
+                {
+                    "TypeId": 27,
+                    "TypeName": "Accessories",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 28,
+                    "TypeName": "Mixers/Soda/Juices",
+                    "ListVarietal": []
+                },
+                {
+                    "TypeId": 29,
+                    "TypeName": "Water/Ice",
+                    "ListVarietal": []
+                }
+            ],
+            "IsInstock": true,
+            "IsClubPrice": true,
+            "ListCountries": []
+        }
+    ]
+}

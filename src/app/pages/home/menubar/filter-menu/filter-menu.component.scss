@@ -1,0 +1,35 @@
+label {
+    color: #000000;
+    font-weight: normal;
+    margin-left: 8px;
+}
+
+.btn_right button.btn {
+	margin-right: 10px;
+}
+
+.btn_right button.clear, .btn_right button.filer_go {
+	padding: 10px;
+	width: auto;
+	height: 35px;
+    line-height: normal;
+}
+
+ul.nav.flex-column {
+	display: table;
+	width: 100%;
+	span.text-white {
+		margin-bottom: 5px;
+	}
+}
+
+.wid2 {
+	width: 200px;
+	margin: 0;
+    padding: 0;
+    float: left;
+}
+
+.wid4 {
+	width: 400px;
+}

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="bottom">
+      <div class=" col-lg-5 col-md-5 col-sm-5 col-xs-12 Searchrelated_noborder slideInUP wow delay-05s  animated">
+        <h4>Featured Products</h4>
+      </div>
+      <div class="button_feature col-lg-7 col-md-7 col-sm-7 hidden-xs visible-sm visible-md visible-lg">
+        <button class="btn btn-default" [ngClass]="{'active' : (currentCategoryId === '0' || currentCategoryId === '1,2,3,4')}"
+          (click)="onCategoryChange()" *ngIf="storeGetHomeData?.StoreFilters">All</button>
+        <button class="btn btn-default" [ngClass]="{'active' : (currentCategoryId === fitem.CategoryId)}" (click)="onCategoryChange(fitem.CategoryId)" *ngFor="let fitem of storeGetHomeData?.StoreFilters">{{fitem.CategoryName}}</button>
+      </div>
+    </div>
+    <div *ngIf="productsList?.length > 0">
+      <div class="row">
+        <div class="col-md-12">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 margin-bottom-20" *ngFor="let product of productsList">
+        <app-product [item]="product"></app-product>
+      </div>
+    </div>
+    </div>
+      <div class="col-md-12 col-sm-12 btn-container" *ngIf="isFeatureProductsPage">
+        <div class="row margin-bottom-20">
+          <div class="col-md-6 col-sm-6">
+            <button class="btn btn-default pull-left" (click)="showPreviousProducts()" *ngIf="isPrevious">Previous Page</button>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <button class="btn btn-default pull-right" *ngIf="isNext" (click)="showMoreProducts()">Next Page</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="productsList?.length === 0 && isFeatureProductsPage" class="no-products-available">
+      <img class="no_products img-responsive" src='../../../../assets/Images/no-productss.png'>
+    </div>
+  </div>
+</div>

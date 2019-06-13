@@ -1,0 +1,131 @@
+@import "~src/variable.scss";
+
+span.img_class{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    -moz-border-radius: 50%;
+    float: left;
+    margin-right: 30px;
+    border: solid 1px #ccc;
+    color: #222;
+    font-size: 24px;
+    text-align: center;
+    background-color: #777;
+    img {
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -o-border-radius: 50%;
+        -moz-border-radius: 50%;
+        float: left;
+        margin-right: 30px;
+        border: solid 1px #ccc;
+        color: #222;
+        font-size: 24px;
+        text-align: center;
+    }
+}
+
+.inputWrapper {
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    /*Using a background color, but you can use a background image to represent a button*/
+    background-color: $lukas-color;
+    border-radius: 50%;
+    color: #fff;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    left: -50px;
+    top: 30px;
+    box-shadow: 0px 10px 20px 0 rgba(236, 28, 36, 0.3);
+    span {
+        font-size: 14px;
+        padding: 0px 0px 0px 0px;
+        margin-top: -10px;
+        position: absolute;
+        left: 8px;
+        top: 18px;
+    }
+}
+.fileInput {
+    width: 30px;
+    height: 30px;
+    background-image: none;
+    opacity: 1;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0px;
+    opacity: 0;
+    z-index: 9;
+    position: absolute;
+}
+
+.profile-edit-section {
+        h4 {
+          font-family: $poppins-bold;
+        }
+        button.novalue{
+        background: #d7d7d7 !important;
+        color:#fff;
+        padding: 10px 25px;
+        box-shadow: 0px 10px 20px 0 rgba(135, 135, 135, 0.3);
+        font-family: $poppins-regular;
+        font-size: 11.2px;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ffffff;
+        opacity: 1;
+      }
+      
+      button.close{
+        background-color: $lukas-color !important;
+        box-shadow: 0px 10px 20px 0 rgba(236, 28, 36, 0.3);
+        font-family: $poppins-regular;
+        font-size: 11.2px;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ffffff;
+        padding:10px 30px;
+        opacity: 1;
+      }
+    .form-control {
+      border-radius: 0px;
+      height: 45px;
+      border: solid 1px #e6e6e6;
+    }
+    form label {
+    font-family: $poppins-regular;
+      span {
+        color: $lukas-color;
+      }
+      width: 90%;
+    }
+    .button-container {
+      width: 90%;
+    }
+  }
+
+@media only screen and (max-width: 1024px) {
+  .btn_right {
+    text-align: left;
+    margin-top: 15px;
+  }
+}
+
+    .m-radio {
+      float: left;
+        .checkmark {
+              top: 0px !important;
+        }
+    }

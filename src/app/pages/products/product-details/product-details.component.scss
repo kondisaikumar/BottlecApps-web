@@ -1,0 +1,662 @@
+@import "~src/variable.scss";
+
+.product_img{
+    border-right: 1px solid #d0d0d0;
+    height: auto;
+    min-height: 325px;
+    position: relative;
+}
+/*.product_img img{
+    max-width:40vh;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-height: 40vh;
+}*/
+
+.limit-per-user {
+    color: #ff0000;
+    font-size: 10px;
+}
+.product_img img{
+    width: 50%;
+    height: auto;
+    /* position: relative; */
+    /* top: 0; */
+    margin: 0px;
+    /* bottom: 0; */
+    /* left: 25%; */
+    /* right: 0; */
+    padding: 0px 0px;
+    margin: 0 auto;
+    /* max-height: 100%; */
+}
+
+.product_content ul {
+padding-left: 0;
+}
+.product_content ul li{
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 0;
+}
+.product_content ul li a{
+    font-family: poppinsregular;
+    font-size: 10.6px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    /* line-height: 5.17; */
+    letter-spacing: 0.3px;
+    margin-left: 3px;
+    text-align: left;
+    color: #222222;
+    text-decoration: none;
+    cursor: pointer;
+}
+.customers_review span {
+    font-family: $poppins-bold !important;
+    font-size: 18px;
+    font-stretch: normal;
+    /* line-height: 3.03; */
+    letter-spacing: normal;
+    text-align: left;
+    color: $lukas-color;
+}
+.customers_review {
+    border-bottom: 1px solid #d0d0d0;
+    padding: 10px 0 15px 0;
+    margin-bottom: 15px;
+   
+}
+ ul.float_right,span.float_right {
+    float: right;
+}
+ul.float_right li i{
+    color: #d4d6da;
+}
+customers_review ul.float_right li a{
+    font-family: $poppins-bold;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  /* line-height: 5.17; */
+  letter-spacing: normal;
+  text-align: left;
+  color: #777777;  
+}
+
+.padding_bottom{
+    padding-bottom: 15px;
+}
+.padding_bottom span.size_bottle{
+    font-family: $poppins-bold !important;
+    font-stretch: normal;
+    line-height: 2.11;
+    letter-spacing: 0.3px;
+    text-align: left;
+    color: #777777;
+    font-weight: bold;
+    font-size: 12px;
+}
+.padding_bottom span.float_right{
+    font-family: $poppins-bold !important;
+    font-stretch: normal;
+    line-height: 2.11;
+    letter-spacing: 0.3px;
+    text-align: left;
+    color: #777777;
+    font-size: 10px;
+}
+p.font_size{
+    font-family: $poppins-regular !important;
+    font-size: 12.3px;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #777777;
+}
+.size{
+    margin-bottom: 15px;
+    float: left;
+    width: 100%;
+}
+h4.size1{
+
+    font-family:'Raleway' , sans-serif;
+    font-size: 10.6px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 5.17;
+    letter-spacing: 0.3px;
+    text-align: left;
+    color: #222222;
+}
+select {
+    padding: 10px 0px 10px 15px;
+    border-radius: 3px;
+}
+.margin_top{
+    margin-top: 7px;
+}
+button.dec_circle,button.dec_circle:focus{
+    border-radius: 50%;
+    background-color: #d0d0d0;
+    border: 1px solid #d0d0d0;
+    outline: none;
+}
+.sizelabel{
+font-size: 12px;
+font-weight: normal;
+font-family: $montserrat-regular;
+text-transform: uppercase;
+}
+.selectsize {
+    border: 1px solid transparent;
+    font-size: 15px;
+    padding: 0 0 0 3px;
+    margin: 0px 0px;
+    margin-left: 0px;
+    border-radius: 0px !important;
+    outline: none;
+    background: transparent;
+    font-family: montserratregular;
+    box-shadow: none;
+}
+.selectsize:focus{ border: none !important; outline: none;}
+
+.size .select-bg {
+    background-color: #fff;
+    border-radius: 0px;
+    border: solid 1px #d7d7d7;
+    display: block;
+    color: #999;
+    font-weight: normal;
+    width: 120px;
+    padding: 5px 0px 5px 0px;
+    float: left;
+}
+
+.size .sizelabel {
+
+}
+
+.value{
+    margin: 0 10px 0 10px;
+}
+button.addtocart{
+    background-color: $lukas-color;
+    padding: 15px 25px;
+    font-family: $montserrat-bold !important;
+    font-size: 11.2px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+    box-shadow: 0 10px 40px 0 $lukas-color;
+    border-color: #A61455;
+    border-radius: 0;
+}
+button.addtocart:focus,button.addtocart:active{
+    outline: none;
+    border-color:none;
+}
+button.addtocart:hover{
+    border-color:none;
+    background-color: $lukas-color;
+}
+
+span.arrow_right{
+    color: $lukas-color;
+    margin-left: 10px;
+}
+.related_product{
+    float: left;
+    width: 100%;
+    margin-top: 25px;
+    margin: 25px 0px 40px 0;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+.Main_bottlesection img{
+    /* height: 40px; */
+    width: 55px;
+}
+.img_div{
+    margin-bottom: 20px;
+    text-align: center;
+  
+}
+.margin_bottom{
+    border: 2px solid #d7d7d7;
+    min-height: 60%;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    height: 60%;
+}
+margin_bottom img{
+    max-width: 352px;
+    display: block;
+    margin: auto;
+    height: 140px;
+    width: 100%;
+}
+
+
+.margin_bottom img.second_img {    
+    width: auto;
+     max-width: 35%; 
+    height: 110px;
+}
+.margin_bottom img.firimg{
+    width: 30px;
+    margin-right: 20px;
+}
+.margin_bottom img.third_img{
+        width: 30px;
+        margin-left: 20px;
+}
+.red_color{
+    color: #ff0000;
+}
+.total_border{
+    float: left;
+    width: 100%;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    padding: 35px;
+    margin-top:40px;
+}
+.total_border h4.review_title{
+    font-family: $poppins-bold !important;
+    font-size: 15.8px !important;
+    font-stretch: normal;
+    line-height: 3.44;
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #222222;
+    text-transform: uppercase;
+}
+.total_border .reviews{
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
+}
+.total_border .reviews img{
+ height: 50px;
+ width: 50px;
+    border-radius:25px;
+}
+.circle_bg{
+    background-color: #d0d0d0;
+    height: 35px;
+    width: 35px;
+    border-radius: 25px;
+}
+.border{
+    float: left;
+    width: 100%;
+    border: 1px solid #d0d0d0;
+    padding: 10px;
+}
+.border span.username{
+    font-family: $poppins-regular !important;
+    font-size: 12.3px;
+    font-stretch: normal;
+    /* line-height: 4.43; */
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #222222;
+}
+.border span.review_date{
+    color: #999999;
+}
+.border p.word_break{
+    word-break: break-all;  
+    font-family: 'Roboto', sans-serif;
+  font-size: 12.3px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.71;
+  letter-spacing: 0.4px;
+  text-align: left;
+  color: #777777;
+}
+.border .star_right{
+ float: right;
+}
+/* .border .star_right i{
+    color: #d4d6da !important;
+} */
+.star_right i{
+    color: #d4d6da !important;
+}
+
+.common_width{
+    float: left;
+    width: 100%;
+}
+.checked,.star_right i:active,.star_right i:focus {
+    color: $lukas-color!important;
+}
+.add_review h4{
+    font-family:ralewayheavy;
+    font-size: 15.8px;
+    font-stretch: normal;
+    /* line-height: 3.44; */
+    letter-spacing: 0.5px;
+    text-align: left;
+    color: #222222;
+    text-transform: uppercase;
+}
+.your_rating {
+    color: #777;
+}
+.your_rating h5,form.common_width label{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12.3px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #777777 ;
+}
+.add_review p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 13.2px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.6;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #777777;
+}
+.add_review .mandatory{
+    color: $lukas-color;
+}
+.add_review form{
+    margin-top: 25px;
+}
+.view_more {
+    opacity: 0.8;
+    font-family: $poppins-bold;
+    font-size: 14px;
+    font-stretch: normal;
+    line-height: 3.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.8);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form button.btn{
+    background-color: #333;
+    color: #fff;
+}
+
+.customers_review span{
+    color: $lukas-color;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.customers_review ul li a{
+    font-size: 11px;
+    font-weight: bolder;
+    color: #d0d0d0;
+}
+
+.customers_review {
+    ul.float_right {
+        margin-top: 0px;
+    }
+    small.review-caption {
+        margin-left: 5px;
+        color: #777777;
+    }
+}
+
+.write-review {
+    padding: 20px 50px !important;
+    margin: 0px !important;
+    margin-bottom: 20px !important;
+    p {
+        font-size: 16px !important;
+    }
+    .review_title {
+        font-size: 28px !important;
+        line-height: normal !important;
+        padding-top: 10px;
+    }
+    .add_review  {
+        padding: 10px 0px;
+        h4 {
+            font-size: 22px !important;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            }
+        p {
+            font-size: 16px !important;
+        }
+    }
+    .review-form-right {
+            margin-top: 20px !important;
+            padding-left: 0 !important;
+        }
+}
+
+p{
+    font-size: 12px;
+    color: #8d8d8d;
+}
+form label{
+    color: #777777;
+}
+
+
+@media screen and (min-width:320px) and (max-width:767px){
+ 
+    .border{
+        margin-top: 15px;
+    }
+    .border .name_date{
+        font-size: 10px !important;
+    }
+    .border p.word_break{
+        word-break: break-all;  
+        font-size: 9px !important;
+    }
+    
+    .product_content h3{
+        font-family: $poppins-bold !important;
+        font-size: 20.4px;
+        font-stretch: normal;
+        /*line-height: 2.07;*/
+        letter-spacing: -0.5px;
+        text-align: left;
+        color: #232323;
+    }
+    .write-review {
+        padding: 10px 30px !important;
+        margin: 0px !important;
+        margin-bottom: 20px !important;
+    }
+   
+}
+
+@media screen and (min-width:320px) and (max-width:530px){
+    .item_img{
+        width: 100%;
+    }
+}
+
+.no-reviews {
+    margin-bottom: 40px;
+}
+
+.no-b-border {
+    border-bottom: 0px solid transparent;
+}
+
+.Search_div {
+    margin: 15px 0px 40px 0;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.Search_div h4{
+    width: 50%;
+    height: 27px;
+    padding-left: 12px;
+    border: none;
+    float: left;
+    border-left: 5px solid $lukas-color;
+    font-size: 15px;
+    font-weight: bold;
+    font-size: 21px;
+    color: #333;
+}
+
+.strike_text{
+    text-decoration: line-through;
+    font-family:$montserrat-bold;
+    font-size: 18px !important;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #c2c4ca;
+    float: left;
+    padding-right: 35px;
+   
+}
+
+.related_product {
+    margin: 45px 0px 40px 0;
+    .Searchrelated_div{
+        margin: 0;
+        padding-bottom: 10px;
+        border-radius: 0px;
+        overflow: hidden; 
+        
+    h4{
+        width: 50%;
+        height: 21px;
+        padding-left: 12px;
+        border: none;
+        float: left;
+        border-left: 5px solid $lukas-color;
+        font-family: $poppins-bold;
+        font-size: 20px !important;
+        font-stretch: normal;
+        /*line-height: 1.7;*/
+        letter-spacing: normal;
+        text-align: left;
+        color: #191919;
+        line-height: 25px;
+    }
+     }
+}
+
+.favorite-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 0px;
+    padding: 0px;
+    float: right;
+    .favorite-selection {
+        position: absolute;
+        top: 10px;
+        right: 10px
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:768px){
+    .product_img {
+        border-right: 0px solid transparent !important;
+    }
+
+    .customers_review {
+        display: inline-block !important;
+        ul {
+            float: left !important;
+            li {
+                width: 100%;
+                small.review-caption {
+                    float: right;
+                }
+            }
+        }
+    }
+    .related_product {
+        h4{
+            width: 100% !important;
+        }
+    }
+    .Main_bottlesection .circle .img_div {
+        margin-right: 0px !important;
+    }
+}
+
+/*all review*/
+
+.more-reviews {
+    display: block;
+    border: solid 1px #ccc;
+    width: 45px;
+    height: 45px;
+    margin: 0px auto;
+    text-align: center;
+    padding: 5px 12px 5px 11px;
+    border-radius: 50%;
+    font-size: 32px;
+    color: #ccc;
+    background-color: #fff;
+    position: absolute;
+    top: -58px;
+    left: 40%;
+    text-decoration: none;
+}
+
+.more-reviews:hover {
+    color: $lukas-color;
+}
+
+.all-reviews-block {
+    display: block;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.arotate {
+    -moz-transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+}
+.arotate.down {
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+}
+
+.reviews .user-review-dp img {
+  height: 54px;  
+}

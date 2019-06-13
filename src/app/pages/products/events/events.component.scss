@@ -1,0 +1,237 @@
+@import "~src/variable.scss";
+
+.details_content ul h4.ingredients{
+    border-left: 5px solid $lukas-color;
+    padding-left: 10px;
+    font-family: Montserrat !important;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    text-align: left;
+    color: #c2c4ca;
+}
+.instruction_text{
+    font-family: $poppins-regular !important;
+    font-size: 14px;
+    font-stretch: normal;
+    line-height: 2.14;
+    letter-spacing: 0.4px;
+    text-align: justify;
+    color: #444444;
+}
+.details_content ul li.IngredientText ul li{
+    font-family:$montserrat-bold !important;
+    font-size: 14.4px;
+    font-stretch: normal;
+    line-height: 1.67;
+    letter-spacing: 0.4px;
+    text-align: justify;
+    color: #262628 !important;
+}
+
+.details_img{
+    border-right: 1px solid #d7d7d7;
+    /*padding: 0px 0;*/
+}
+.details_img img{
+    margin: 0 auto;
+    display: block;
+}
+.details_content ul {
+    padding-left: 0;
+}
+.details_content ul li{
+    list-style-type: none;
+    padding: 10px 5px 10px 5px;
+}
+.details_content ul li ul li::before{
+    content: '\f061';
+  font-family: 'FontAwesome';
+  float: left;
+  margin-left: -1.5em;
+    color: $lukas-color;
+}
+.details_content h4.recipe_name{
+    font-family: $poppins-bold;
+    font-size: 26.4px;
+    font-stretch: normal;
+    line-height: 2.07;
+    letter-spacing: -0.5px;
+    text-align: left;
+    color: #232323;
+}
+    @media screen and (max-width: 767px) {
+    .details_content h4.recipe_name,.details_content ul li h4.recipe_name,.Searchrelated_div h4 
+    {
+        font-size: 12px !important;
+    }
+   
+
+}
+
+.bottle-caps-red {
+    color: $lukas-color;
+}
+
+.event-details-section {
+    display: inline-block;
+    position: relative;
+    padding-top: 30px;
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+.event-details-date {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-family: $poppins-regular;
+}
+
+.event-details-date strong {
+    text-align: center;
+    font-size: 28px;
+    color: #232323;
+    margin: 0px;
+    padding: 0px;
+    line-height: normal;
+    display: inline-block;
+    margin-top: -3px;
+    font-family: $poppins-regular;
+}
+
+.event-details-date .date-style {
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    text-align: center;
+    float: left;
+    font-family: $poppins-regular;
+}
+
+.event-details-heading {
+    position: absolute;
+    left: 60px;
+    top: -5px;
+    font-size: 20px;
+    font-family: $montserrat-bold !important;
+}
+
+.detailed-events-section {
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.event-icon {
+    font-size: 30px;
+    width: 20px;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.event-para {
+    font-size: 14px;
+    vertical-align: middle;
+    margin-left: 20px;
+    display: inline-block;
+    margin-top: -10px;
+    font-family: $poppins-regular;
+}
+
+.btn-container button.btn {
+    margin-top: 25px;
+    width: 130px;
+    text-align: center;
+    outline: none;
+    background-color: $lukas-color;
+    color: #fff;
+    border-color: $lukas-color;
+    margin-right: 8px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 20px 0 rgba(236, 28, 36, 0.3);
+    &:hover, &:focus {
+        width: 130px;
+        text-align: center;
+        outline: none;
+        background-color: $lukas-color;
+        color: #fff;
+        border-color: $lukas-color;
+        border-radius: 5px;
+        box-shadow: 0px 10px 20px 0 rgba(236, 28, 36, 0.3);
+    }
+}
+
+.event-tiles {
+    background-color: #fff;
+    border: solid 1px #ccc;
+    padding: 20px 10px;
+    margin-bottom: 20px;
+    display: flex;
+    a {
+        color: #ccc;
+        font-family: $poppins-bold;
+        font-size: 26px;
+    &:hover {
+        color: $lukas-color;
+    }
+    }
+}
+
+.Search_div {
+        padding-bottom: 10px;
+}
+
+.Search_div h4 {
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.no-b-border {
+    border-bottom: 0px solid transparent;
+}
+
+/*M Events*/
+
+@media only screen and (max-width: 1024px) {
+    .event-tiles {
+        background-color: #fff;
+        border: solid 1px #ccc;
+        padding: 20px 10px;
+        margin-bottom: 20px;
+        display: inline-block;
+        a {
+            color: #ccc;
+            font-family: $poppins-bold;
+            font-size: 24px;
+        &:hover {
+            color: $lukas-color;
+        }
+        }
+        .details_img {
+            border-right: 0px solid transparent;
+            padding: 0px 5px;
+            margin-bottom: 30px;
+        }
+        .details_content {
+            padding: 0px;
+        }
+        .event-icon {
+            font-size: 26px;
+        }
+    }
+    .event-details-date strong {
+            font-size: 24px;
+        }
+    .instruction_text {
+        p {
+            text-align: left;
+        }
+    }
+}

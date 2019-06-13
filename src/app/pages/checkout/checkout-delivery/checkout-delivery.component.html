@@ -1,0 +1,85 @@
+<div class="checkout-section">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <div class="row">
+              <form>
+                <div class="delivery-options">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h5 class="text-muted">Schedule Delivery</h5>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-container">
+                        <select id="dateList" name="dateList" class="form-control dateinput" [(ngModel)]="selectedDeliveryDate" (ngModelChange)="getDeliveryTimings()">
+                          <option value="" disabled selected>Select Date</option>
+                          <option [value]="ddate" *ngFor="let ddate of deliveryDatesList">
+                            {{ddate}}
+                          </option>
+                        </select>
+                        <i class="fa fa-calendar input-icon"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="input-container">
+                          <select id="timeList" name="timeList" class="form-control dateinput" [(ngModel)]="selectedDeliveryTime" (ngModelChange)="updateDeliveryTime()">
+                            <option value="" disabled selected>Select time</option>  
+                            <option [value]="dtime" *ngFor="let dtime of deliveryTimingsList">
+                                {{dtime}}
+                              </option>
+                            </select>
+                        <i class="fa fa-clock-o input-icon"></i>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                    <p class="bottles-brand" *ngIf=" cartDetails?.CartDeliverySolution?.DeliverySolutionRemark !== ''">Remarks: {{cartDetails?.CartDeliverySolution?.DeliverySolutionRemark}}</p>
+                  </div>
+                  <div class="col-md-12">
+                      <br>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="row">
+              <h4>Address</h4>
+              <div class="checkout-tile" *ngFor="let address of addressList" (click)="onSelectAddress(address)">
+                <div class="dropdown dropdown-favorite">
+                  <a class="text-muted" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fa fa-ellipsis-v more-icon"></span>
+                  </a>
+                
+                  <ul class="dropdown-menu dropdown-favorite-open" aria-labelledby="dLabel">
+                    <li><a (click)="onEditAddress(address.AddressId)">Edit</a></li>
+                  </ul>
+                </div>
+                <div class="checkout-icon-style">
+                  <span [ngClass]="{'fa fa-check-circle' : cartService?.cartdetails?.AddressId===address.AddressId}"></span>
+                </div>
+                <div class="checkout-content">
+                  <small class="text-uppercase" *ngIf="address?.IsDefault">Favorite</small>
+                  <h4>{{address?.AddressName}}</h4>
+                  <p class="text-muted">{{address?.Address1}} {{address?.Address2}} {{address?.City}}, {{address?.State}} {{address?.Zip}}</p>
+                  <p class="bottles-brand" *ngIf="cartService?.cartdetails?.AddressId===address.AddressId && cartDetails?.DeliveryAddress?.Remark !== ''">Remarks: {{cartDetails?.DeliveryAddress?.Remark}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="add-address-new">
+                <a (click)="onAddAddress()" class="btn btn-block checkout-dotted-btn">Add New Address</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

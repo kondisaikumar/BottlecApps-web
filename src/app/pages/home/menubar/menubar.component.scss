@@ -1,0 +1,28 @@
+@import "~src/variable.scss";
+
+.nav-block {
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+nav.lu-menu {
+      border: solid #d7d7d7;
+      border-width: 0px 0;
+      background-color: transparent !important;
+      border-radius: 0;
+      .nav-item {
+      	margin: 0px 0px;
+      }
+    }
+.mid-nav {
+	display: block;
+  ul.nav.navbar.navbar-nav {
+    position: absolute;
+    left: 225px;
+      a:hover, a.active {
+          color: $lukas-color !important;
+          background-color: transparent!important;
+        }
+  }
+}
