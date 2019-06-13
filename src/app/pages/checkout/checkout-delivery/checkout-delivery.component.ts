@@ -19,6 +19,7 @@ export class CheckoutDeliveryComponent implements OnInit {
   deliveryTimingsList: any;
   selectedDeliveryDate: any;
   selectedDeliveryTime: any;
+  utcitem: any;
   constructor(private customerService: CustomerService,
     // private spinnerService: Ng4LoadingSpinnerService,
     private cartService: CartService,
@@ -75,13 +76,10 @@ export class CheckoutDeliveryComponent implements OnInit {
   }
 
   updateDeliveryTime() {
-    for (let i = 0; i < this.cartDetails.ListDoPTimeSlot.length; i++) {
-      // tslint:disable-next-line:max-line-length
-      if ((this.cartDetails.ListDoPTimeSlot[i].DoPDate === this.selectedDeliveryDate) && (this.cartDetails.ListDoPTimeSlot[i].DoPSlot === this.selectedDeliveryTime)) {
-        this.cartDetails.DopUtcStartDate = this.cartDetails.ListDoPTimeSlot[i].DSDopStartDate;
-        this.cartDetails.DopUtcEndDate = this.cartDetails.ListDoPTimeSlot[i].DSDopEndDate;
-      }
-    }
+    // tslint:disable-next-line:max-line-length
+    this.utcitem = this.cartDetails.ListDoPTimeSlot.filter(item => item.DoPDate === this.selectedDeliveryDate && item.DoPSlot === this.selectedDeliveryTime);
+    this.cartDetails.DopUtcStartDate = this.utcitem[0].DSDopStartDate;
+    this.cartDetails.DopUtcEndDate = this.utcitem[0].DSDopEndDate;
     this.cartService.cartdetails.DoPTimeSlot = this.selectedDeliveryTime;
     this.updateCart();
   }
