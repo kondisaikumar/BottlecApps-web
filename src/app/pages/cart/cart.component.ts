@@ -24,6 +24,7 @@ export class CartComponent implements OnInit {
   storeGetHomeData: any;
   type: string;
   delcheckout = 'n';
+  cartGetDetails: any;
   constructor(private store: Store<CustomerLoginSession>,
     private cartService: CartService,
     private customerService: CustomerService,
@@ -149,9 +150,8 @@ console.log(this.cartDetails);
       this.cartDetails.TipForDriver = -1;
     }
 
-    this.navigateURL();
+    this.navigateDelURL();
   }
-
   navigateURL() {
     this.progressBarService.show();
     this.cartDetails.CartDsp = 'Y';
@@ -165,17 +165,54 @@ console.log(this.cartDetails);
           this.toastr.error(data.Remark);
           return;
         } else {
-          if (this.type === 'pickup') {
-            this.router.navigate(['/checkout']);
-          } else {
-            this.doStockAvailabilityCheck();
-            if (this.delcheckout === 'y') {
-              this.router.navigate(['/checkout']);
-            }
-          }
+          this.router.navigate(['/checkout']);
         }
 
       });
+  }
+  navigateDelURL() {
+    this.progressBarService.show();
+    let cartbody: any;
+    cartbody = {
+      IsFromCheckOut: false,
+      IsToCallDSP: true
+    };
+    this.cartService.getCartDetails(cartbody).subscribe(
+
+      (data: any) => {
+        this.cartGetDetails = data;
+        this.progressBarService.hide();
+
+        if ( data && data.Remark !== '') {
+          this.toastr.error(data.Remark);
+          return;
+        }
+        if (!(this.cartGetDetails && this.cartGetDetails.ListCartItem)) {
+          return;
+        }
+        this.reviewItems = this.cartGetDetails.ListCartItem.filter(item => item.Quantity !== item.QuantityOrdered);
+        if (this.reviewItems && this.reviewItems.length > 0) {
+          this.openModal.nativeElement.click();
+        } else if (this.reviewItems.length === 0) {
+          this.progressBarService.show();
+          this.cartDetails.CartDsp = 'Y';
+          this.cartDetails.IsFromCheckOut = false;
+          this.cartDetails.IsToCallDSP = true;
+          this.cartService.updateCart(this.cartDetails).subscribe(
+            (response: any) => {
+              this.progressBarService.hide();
+
+              if ( response && response.Remark !== '') {
+                this.toastr.error(response.Remark);
+                return;
+              } else {
+                    this.router.navigate(['/checkout']);
+                  }
+            });
+        }
+      }
+    );
+
   }
 
   getQty (item: any) {
