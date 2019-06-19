@@ -22,6 +22,8 @@ export class CartComponent implements OnInit {
   quantity = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
   reviewItems: any;
   storeGetHomeData: any;
+  type: string;
+  delcheckout = 'n';
 
   constructor(private store: Store<CustomerLoginSession>,
     private cartService: CartService,
@@ -47,10 +49,15 @@ export class CartComponent implements OnInit {
 
   getCartDetails() {
     this.progressBarService.show();
-    this.cartService.getCartDetails().subscribe(
+    let cartbody: any;
+    cartbody = {
+      IsFromCheckOut: false,
+      IsToCallDSP: false
+    };
+    this.cartService.getCartDetails(cartbody).subscribe(
       (data: any) => {
         this.cartDetails = data;
-console.log(this.cartDetails);
+        console.log(this.cartDetails);
         if (this.cartDetails && this.cartDetails.ListCartItem) {
           this.cartService.cartItemCount.next(this.cartDetails.ListCartItem.length);
         }
@@ -65,11 +72,13 @@ console.log(this.cartDetails);
     if (!(this.cartDetails && this.cartDetails.ListCartItem)) {
       return;
     }
-
     this.reviewItems = this.cartDetails.ListCartItem.filter(item => item.Quantity !== item.QuantityOrdered);
 
     if (this.reviewItems && this.reviewItems.length > 0) {
+      this.delcheckout = 'n';
       this.openModal.nativeElement.click();
+    } else if (this.reviewItems.length === 0) {
+      this.delcheckout = 'y';
     }
 
   }
@@ -78,7 +87,6 @@ console.log(this.cartDetails);
 
     this.cartDetails.ListCartItem = this.cartDetails.ListCartItem.filter(item => item.Quantity !== 0);
     this.cartDetails.ListCartItem.map(item => item.QuantityOrdered = item.Quantity);
-
     this.updateCart();
   }
 
@@ -145,18 +153,28 @@ console.log(this.cartDetails);
 
   navigateURL() {
     this.progressBarService.show();
-    this.cartDetails.CartDsp = 'Y';
-    this.cartDetails.IsFromCheckOut = false;
-    this.cartDetails.IsToCallDSP = true;
-    this.cartService.updateCart(this.cartDetails).subscribe(
+    let cartbody: any;
+    cartbody  = {
+      IsFromCheckOut: false,
+      IsToCallDSP: true
+    };
+    this.cartService.getCartDetails(cartbody).subscribe(
       (data: any) => {
+        this.cartDetails = data;
         this.progressBarService.hide();
 
         if ( data && data.Remark !== '') {
           this.toastr.error(data.Remark);
           return;
         } else {
-          this.router.navigate(['/checkout']);
+          if (this.type === 'pickup') {
+            this.router.navigate(['/checkout']);
+          } else {
+            this.doStockAvailabilityCheck();
+            if (this.delcheckout === 'y') {
+              this.router.navigate(['/checkout']);
+            }
+          }
         }
 
       });

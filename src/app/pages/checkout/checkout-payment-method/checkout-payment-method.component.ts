@@ -183,14 +183,7 @@ export class CheckoutPaymentMethodComponent implements OnInit {
   }
 
   saveRemarks() {
-    this.cartService.cartdetails.DeliveryInstruction = this.remarks;
-    this.cartService.cartdetails.CartDsp = 'Y';
-    this.cartService.cartdetails.IsFromCheckOut = true;
-    this.cartService.cartdetails.IsToCallDSP = true;
-    this.cartService.updateCart(this.cartService.cartdetails).subscribe(
-      (data: any) => {
-        this.cartDetails = data;
-      });
+      this.cartService.DeliveryInstruction = this.remarks;
     this.cartService.userRemarks = this.remarks;
   }
 

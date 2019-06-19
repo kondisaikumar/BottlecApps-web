@@ -137,7 +137,13 @@
   </div>
   <div class="btn_right buttons-container">
     <button type="cancel" class="btn btn-default novalue" (click)="onCancelOrder()" >Cancel</button>
-    <button type="checkout" [disabled]="(cartDetails?.OrderTypeId === 2 && cartDetails?.DeliveryAddress?.Remark !== '' ) || (cartDetails?.CartDeliverySolution?.DeliverySolutionRemark !== '') || isCheckoutSubmitted" class="btn btn-default" 
-    [ngClass]= "(cartDetails?.OrderTypeId === 2 && cartDetails?.DeliveryAddress?.Remark !== '') || (cartDetails?.CartDeliverySolution?.DeliverySolutionRemark !== '') ? 'novalue' : 'close'" (click)="onCheckout()">Checkout</button>
+    <button type="checkout" [disabled]="(cartDetails?.OrderTypeId === 2 && cartDetails?.DeliveryAddress?.Remark !== '' ) || (cartDetails?.IsDeliverySolution === true && cartDetails?.CartDeliverySolution?.DeliverySolutionRemark !== '') || isCheckoutSubmitted" class="btn btn-default" 
+    [ngClass]= "(cartDetails?.OrderTypeId === 2 && cartDetails?.DeliveryAddress?.Remark !== '') || (cartDetails?.IsDeliverySolution === true && cartDetails?.CartDeliverySolution?.DeliverySolutionRemark !== '') ? 'novalue' : 'close'" (click)="onCheckout()">Checkout</button>
   </div>
 </div>
+<button id="openCartReviewModal" #openCartReviewModal [hidden]="true" data-toggle="modal" data-target="#gridSystemModal">Review
+  Cart</button>
+<app-cart-review [cartItems]="reviewItems" (close)="onPopupClose()"></app-cart-review>
+
+<button id="openPriceModal" #openPriceModal [hidden]="true" data-toggle="modal" data-target="#gridSystempriceModal">Change in price</button>
+<app-checkout-price-change [cartPrice]="reviewPrice" (closeprice)="onPricePopupClose()"></app-checkout-price-change>

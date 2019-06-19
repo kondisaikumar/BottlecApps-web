@@ -10,4 +10,5 @@ export class CartGetDetailsRequestPayload {
     CartDsp: 'Y';
     IsFromCheckOut: boolean;
     IsToCallDSP: boolean;
+    DeliveryInstruction: string;
 }

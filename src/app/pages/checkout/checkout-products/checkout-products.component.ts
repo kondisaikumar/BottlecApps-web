@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { CartService } from '../../../services/cart.service';
 import { PaymentService } from '../../../services/payment.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { CustomerLoginSession } from '../../../models/customer-login-session';
 import { StoreGetHome } from '../../../state/product-store/product-store.action';
 import { VantivPaymentServerSideApiService } from '../../../services/vantiv-payment-serverside-api.service';
 import { CommonService } from '../../../shared/services/common.service';
+import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 
 @Component({
   selector: 'app-checkout-products',
@@ -18,6 +19,8 @@ import { CommonService } from '../../../shared/services/common.service';
 })
 export class CheckoutProductsComponent implements OnInit {
   @Output() orderplace = new EventEmitter();
+  @ViewChild('openCartReviewModal') openModal: ElementRef;
+  @ViewChild('openPriceModal') openPriceModal: ElementRef;
   cartDetails: any;
   isCouponError = false;
   isExpand = false;
@@ -27,11 +30,18 @@ export class CheckoutProductsComponent implements OnInit {
   listCharges: any;
   isCouponApplied: boolean;
   isCheckoutSubmitted: boolean;
+  reviewItems: any;
+  oldCharge: any;
+  oldSubTotal: any;
+  reviewPrice: string;
+  newCharge: any;
+  hikecharge: any;
 
   constructor(private cartService: CartService, private router: Router,
     private paymentService: PaymentService,
     private toastr: ToastrService,
     private customerService: CustomerService,
+    private progressBarService: ProgressBarService,
     private vantivPaymentService: VantivPaymentServerSideApiService,
     private store: Store<CustomerLoginSession>,
     private commonService: CommonService) {
@@ -66,8 +76,46 @@ export class CheckoutProductsComponent implements OnInit {
         this.cartDetails.ListTipForDriver.push(otherTip);
       }
     }
+    this.oldSubTotal = this.cartDetails.SubTotal;
+    const oldCharge = this.cartDetails.ListCharge.filter(charge => charge.ChargeTitle === 'Delivery')[0];
+    if (oldCharge) {
+      this.oldCharge = oldCharge.ChargeAmount;
+    }
+    console.log('old details', this.oldSubTotal, this.oldCharge);
+
   }
 
+  doStockAvailabilityCheck() {
+    if (!(this.cartDetails && this.cartDetails.ListCartItem)) {
+      return;
+    }
+    this.reviewItems = this.cartDetails.ListCartItem.filter(item => item.Quantity !== item.QuantityOrdered);
+
+    if (this.reviewItems && this.reviewItems.length > 0) {
+      this.openModal.nativeElement.click();
+    } else if (this.reviewItems && this.reviewItems.length === 0) {
+      this.doCheckchangeinSubTotal();
+    }
+
+  }
+  doCheckchangeinSubTotal() {
+    if (this.cartDetails.SubTotal !== this.oldSubTotal) {
+      this.reviewPrice = 'There was a price change for some of the items in your cart please review before placing the order';
+      this.openPriceModal.nativeElement.click();
+    } else {
+      this.doCheckHikeinDeliverycharge();
+    }
+  }
+  doCheckHikeinDeliverycharge() {
+    this.newCharge = this.cartDetails.ListCharge.filter(charge => charge.ChargeTitle === 'Delivery')[0].ChargeAmount;
+    this.hikecharge = ((this.oldCharge / 100) * 10) + this.oldCharge;
+    if (this.newCharge > this.hikecharge) {
+      this.reviewPrice = 'There was a price change for some of the items in your cart please review before placing the order';
+      this.openPriceModal.nativeElement.click();
+    } else {
+      this.afterDoCheck();
+    }
+  }
   onCancelOrder() {
     this.clearPaymentCache();
     this.isCheckoutSubmitted = false;
@@ -81,71 +129,89 @@ export class CheckoutProductsComponent implements OnInit {
     this.cartDetails.PaymentTypeId = 0; */
 
     // if (this.cartDetails.PaymentTypeId === 0) {
-    if (
-      !this.cartDetails.Profile ||
-      this.cartDetails.Profile.ContactNo === '' ||
-      this.cartDetails.Profile.FirstName === '' ||
-      this.cartDetails.Profile.LastName === '') {
-      this.toastr.error('Please complete your profile');
-      return;
-    }
-    // }
-
-    if (this.cartDetails.OrderTypeId === 2 && this.cartDetails.AddressId === 0) {
-      this.toastr.error('Please Select Address');
-      return;
-    }
-    if (this.cartDetails.PaymentTypeId === 1 &&
-      this.paymentService.createTransaction.customerPaymentProfileId === '') {
-      this.toastr.error('Please Select Payment Method');
-      return;
-    }
-
-    if (this.cartDetails.PaymentTypeId === 7 &&
-      this.vantivPaymentService.vUserSelectedPaymentAccountID === '') {
-      this.toastr.error('Please Select Payment Method');
-      return;
-    }
-
-    if ((this.cartDetails.PaymentTypeId === 1) &&
-      this.paymentService.createTransaction.cvv === 0 || this.paymentService.createTransaction.cvv.toString() === '') {
-      this.toastr.error('Please Enter CVV');
-      return;
-    }
-
-    const data = {
-      amount: this.cartDetails.TotalValue,
-      taxAmount: this.cartDetails.ListCharge.filter(item => item.ChargeTitle === 'Tax')[0].ChargeAmount,
-      taxType: 'Sales Tax'
+    this.progressBarService.show();
+    let cartbody: any;
+    cartbody = {
+      IsFromCheckOut: true,
+      IsToCallDSP: true
     };
+    this.cartService.getCartDetails(cartbody).subscribe(
+      // tslint:disable-next-line:no-shadowed-variable
+      (response: any) => {
+        this.cartDetails = response;
+        this.progressBarService.hide();
 
-    this.isCheckoutSubmitted = true;
-
-    this.commonService.onOrderPlaced(true);
-    if (this.cartDetails.PaymentTypeId === 0) {
-      this.placeOrder();
-    } else if (this.cartDetails.PaymentTypeId === 1) {
-      this.paymentService.createTransactionRequest(data).subscribe(paymentResponse => {
-        if (paymentResponse.transactionResponse && paymentResponse.transactionResponse.responseCode === '1') {
-          this.placeOrderForOnlinePayment(paymentResponse);
-        } else if (paymentResponse.transactionResponse && paymentResponse.transactionResponse.responseCode === '2') {
-          this.orderplace.emit();
+        if (response && response.Remark !== '') {
+          this.toastr.error(response.Remark);
+          return;
         }
+        if (
+          !this.cartDetails.Profile ||
+          this.cartDetails.Profile.ContactNo === '' ||
+          this.cartDetails.Profile.FirstName === '' ||
+          this.cartDetails.Profile.LastName === '') {
+          this.toastr.error('Please complete your profile');
+          return;
+        }
+        // }
+
+        if (this.cartDetails.OrderTypeId === 2 && this.cartDetails.AddressId === 0) {
+          this.toastr.error('Please Select Address');
+          return;
+        }
+        if (this.cartDetails.PaymentTypeId === 1 &&
+          this.paymentService.createTransaction.customerPaymentProfileId === '') {
+          this.toastr.error('Please Select Payment Method');
+          return;
+        }
+
+        if (this.cartDetails.PaymentTypeId === 7 &&
+          this.vantivPaymentService.vUserSelectedPaymentAccountID === '') {
+          this.toastr.error('Please Select Payment Method');
+          return;
+        }
+
+        if ((this.cartDetails.PaymentTypeId === 1) &&
+          this.paymentService.createTransaction.cvv === 0 || this.paymentService.createTransaction.cvv.toString() === '') {
+          this.toastr.error('Please Enter CVV');
+          return;
+        }
+         this.doStockAvailabilityCheck();
       });
-    } else if (this.cartDetails.PaymentTypeId === 7) {
-
-      if (this.vantivPaymentService.vantiveProfile) {
-        this.vantivPaymentService.CreditCardPayment(data.amount).subscribe((paymentResponse: any) => {
-          if (this.vantivPaymentService.vExpressResponseCode === '0') {
-            this.placeOrderForOnlinePayment(this.parseVantivResponse(paymentResponse));
-          } else {
-            this.orderplace.emit();
-          }
-        });
-      }
-    }
   }
+ afterDoCheck() {
+   const data = {
+          amount: this.cartDetails.TotalValue,
+          taxAmount: this.cartDetails.ListCharge.filter(item => item.ChargeTitle === 'Tax')[0].ChargeAmount,
+          taxType: 'Sales Tax'
+        };
 
+        this.isCheckoutSubmitted = true;
+
+        this.commonService.onOrderPlaced(true);
+        if (this.cartDetails.PaymentTypeId === 0) {
+          this.placeOrder();
+        } else if (this.cartDetails.PaymentTypeId === 1) {
+          this.paymentService.createTransactionRequest(data).subscribe(paymentResponse => {
+            if (paymentResponse.transactionResponse && paymentResponse.transactionResponse.responseCode === '1') {
+              this.placeOrderForOnlinePayment(paymentResponse);
+            } else if (paymentResponse.transactionResponse && paymentResponse.transactionResponse.responseCode === '2') {
+              this.orderplace.emit();
+            }
+          });
+        } else if (this.cartDetails.PaymentTypeId === 7) {
+
+          if (this.vantivPaymentService.vantiveProfile) {
+            this.vantivPaymentService.CreditCardPayment(data.amount).subscribe((paymentResponse: any) => {
+              if (this.vantivPaymentService.vExpressResponseCode === '0') {
+                this.placeOrderForOnlinePayment(this.parseVantivResponse(paymentResponse));
+              } else {
+                this.orderplace.emit();
+              }
+            });
+          }
+        }
+ }
   parseVantivResponse(response) {
 
     let req;
@@ -287,11 +353,10 @@ export class CheckoutProductsComponent implements OnInit {
       this.cartDetails.CouponCode = this.couponCode;
       this.cartDetails.CartDsp = 'Y';
       this.cartDetails.IsFromCheckOut = true;
-        this.cartDetails.IsToCallDSP = true;
+      this.cartDetails.IsToCallDSP = true;
       this.cartService.updateCart(this.cartDetails).subscribe(
         (data: any) => {
           this.cartDetails = data;
-          console.log('checkoutproductcomponent', this.cartDetails);
           if (data.Remark === '') {
             this.isCouponApplied = true;
             this.toastr.success('Coupon Applied Successfully.');
@@ -304,11 +369,10 @@ export class CheckoutProductsComponent implements OnInit {
   updateCart() {
     this.cartDetails.CartDsp = 'Y';
     this.cartDetails.IsFromCheckOut = true;
-      this.cartDetails.IsToCallDSP = true;
+    this.cartDetails.IsToCallDSP = true;
     this.cartService.updateCart(this.cartDetails).subscribe(
       (data: any) => {
         this.cartDetails = data;
-        console.log('checkoutproductcomponent', this.cartDetails);
         this.filterCartDetails();
       });
   }
@@ -324,7 +388,6 @@ export class CheckoutProductsComponent implements OnInit {
       this.cartService.updateCart(this.cartDetails).subscribe(
         (data: any) => {
           this.cartDetails = data;
-          console.log('checkoutproductcomponent', this.cartDetails);
           this.filterCartDetails();
         });
     }
@@ -343,5 +406,12 @@ export class CheckoutProductsComponent implements OnInit {
         item.IsDeafault = false;
       }
     });
+  }
+
+  onPopupClose() {
+    this.router.navigate(['/cart']);
+  }
+  onPricePopupClose() {
+    this.updateCart();
   }
 }

@@ -42,7 +42,7 @@ export class ErrorHandlerService {
       } else if (error.status === 400) {
         if (error.error && error.error.ErrorMessage && error.error.ErrorMessage !== 'Invalid Request.') {
           this.toastr.error(error.error.ErrorMessage);
-        } else if (error.error && error.error.ErrorMessage && error.error.ErrorMessage === 'Invalid Request.') { 
+        } else if (error.error && error.error.ErrorMessage && error.error.ErrorMessage === 'Invalid Request.') {
           // console.log(error.error.ErrorMessage);
           // this.route.navigate(['/home']);
         } else {

@@ -25,6 +25,7 @@ export class CartService {
   cartItemCount = new Subject<number>();
   cartUpdated = new Subject<any>();
   userRemarks: string;
+  DeliveryInstruction: string;
   isItemRemovedFromCart = false;
 
 
@@ -108,11 +109,12 @@ export class CartService {
     };
   }
 
-  getCartDetails(): Observable<any> {
+  getCartDetails(data: any): Observable<any> {
     return this.http.post<any>(baseUrl + UrlNames.CartGetDetail,
-      this.getCartDetailsRequestParams(), { headers: this.headers }).pipe(
+      this.getCartDetailsRequestParams(data), { headers: this.headers }).pipe(
         switchMap((res: any) => {
           this.cartdetails = res;
+          this.cartUpdated.next();
           return of(res);
         }),
         catchError((error: any, caught: Observable<any>) => {
@@ -121,7 +123,7 @@ export class CartService {
       );
   }
 
-  private getCartDetailsRequestParams(): CartGetDetailsRequestPayload {
+  private getCartDetailsRequestParams(data): CartGetDetailsRequestPayload {
     if (!this.customerSession) {
       return null;
     }
@@ -136,8 +138,9 @@ export class CartService {
       DeviceType: this.customerSession.DeviceType,
       IsCredentialOff: true,
       CartDsp: 'Y',
-      IsFromCheckOut: false,
-      IsToCallDSP: false
+      IsFromCheckOut: data.IsFromCheckOut,
+      IsToCallDSP: data.IsToCallDSP,
+      DeliveryInstruction: this.DeliveryInstruction
     };
   }
 
