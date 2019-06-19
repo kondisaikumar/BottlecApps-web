@@ -11,4 +11,7 @@ export class CartGetDetailsRequestPayload {
     IsFromCheckOut: boolean;
     IsToCallDSP: boolean;
     DeliveryInstruction: string;
+    PaymentTypeId: number;
+    AddressId: number;
+    OrderTypeId: number;
 }

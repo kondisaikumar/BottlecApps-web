@@ -114,7 +114,6 @@ export class CartService {
       this.getCartDetailsRequestParams(data), { headers: this.headers }).pipe(
         switchMap((res: any) => {
           this.cartdetails = res;
-          this.cartUpdated.next();
           return of(res);
         }),
         catchError((error: any, caught: Observable<any>) => {
@@ -140,7 +139,10 @@ export class CartService {
       CartDsp: 'Y',
       IsFromCheckOut: data.IsFromCheckOut,
       IsToCallDSP: data.IsToCallDSP,
-      DeliveryInstruction: this.DeliveryInstruction
+      DeliveryInstruction: this.DeliveryInstruction,
+      PaymentTypeId: data.PaymentTypeId,
+      AddressId: data.AddressId,
+      OrderTypeId: data.OrderTypeId
     };
   }
 

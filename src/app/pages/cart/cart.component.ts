@@ -24,7 +24,6 @@ export class CartComponent implements OnInit {
   storeGetHomeData: any;
   type: string;
   delcheckout = 'n';
-
   constructor(private store: Store<CustomerLoginSession>,
     private cartService: CartService,
     private customerService: CustomerService,
@@ -55,9 +54,10 @@ export class CartComponent implements OnInit {
       IsToCallDSP: false
     };
     this.cartService.getCartDetails(cartbody).subscribe(
+
       (data: any) => {
         this.cartDetails = data;
-        console.log(this.cartDetails);
+console.log(this.cartDetails);
         if (this.cartDetails && this.cartDetails.ListCartItem) {
           this.cartService.cartItemCount.next(this.cartDetails.ListCartItem.length);
         }
@@ -72,6 +72,7 @@ export class CartComponent implements OnInit {
     if (!(this.cartDetails && this.cartDetails.ListCartItem)) {
       return;
     }
+
     this.reviewItems = this.cartDetails.ListCartItem.filter(item => item.Quantity !== item.QuantityOrdered);
 
     if (this.reviewItems && this.reviewItems.length > 0) {
@@ -80,13 +81,13 @@ export class CartComponent implements OnInit {
     } else if (this.reviewItems.length === 0) {
       this.delcheckout = 'y';
     }
-
   }
 
   onPopupClose() {
 
     this.cartDetails.ListCartItem = this.cartDetails.ListCartItem.filter(item => item.Quantity !== 0);
     this.cartDetails.ListCartItem.map(item => item.QuantityOrdered = item.Quantity);
+
     this.updateCart();
   }
 
@@ -153,14 +154,11 @@ export class CartComponent implements OnInit {
 
   navigateURL() {
     this.progressBarService.show();
-    let cartbody: any;
-    cartbody  = {
-      IsFromCheckOut: false,
-      IsToCallDSP: true
-    };
-    this.cartService.getCartDetails(cartbody).subscribe(
+    this.cartDetails.CartDsp = 'Y';
+    this.cartDetails.IsFromCheckOut = false;
+    this.cartDetails.IsToCallDSP = true;
+    this.cartService.updateCart(this.cartDetails).subscribe(
       (data: any) => {
-        this.cartDetails = data;
         this.progressBarService.hide();
 
         if ( data && data.Remark !== '') {
