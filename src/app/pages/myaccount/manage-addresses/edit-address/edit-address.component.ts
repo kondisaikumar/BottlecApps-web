@@ -5,19 +5,38 @@ import { CustomerService } from '../../../../services/customer.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ProgressBarService } from '../../../../shared/services/progress-bar.service';
-
+import { ElementRef, NgZone, ViewChild } from '@angular/core';
+import { } from 'googlemaps';
+import { MapsAPILoader } from '@agm/core';
 @Component({
   selector: 'app-edit-address',
   templateUrl: './edit-address.component.html',
   styleUrls: ['./edit-address.component.scss']
 })
 export class EditAddressComponent implements OnInit {
+  public latitude: number;
+  public longitude: number;
+  public searchControl: FormControl;
+  public zoom: number;
   editAddress: any;
   formEditAddress: FormGroup;
   submitted = false;
   returnUrl: string;
+  @ViewChild('search')
+  public searchElementRef: ElementRef;
+  street_number = '';
+  address_route = '';
+  locality = '';
+  administrative_area_level_1 = '';
+  country = '';
+  postal_code = '';
+  streetAddress = '';
+
+
   constructor(private route: ActivatedRoute,
     private customerService: CustomerService,
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone,
     private router: Router,
     private toastr: ToastrService,
     private progressBarService: ProgressBarService,
@@ -61,7 +80,70 @@ export class EditAddressComponent implements OnInit {
           }
         });
     }
+
+    this.searchControl = new FormControl();
+    // load Places Autocomplete
+    this.mapsAPILoader.load().then(() => {
+      this.formEditAddress.controls['aAddress1'].setValue(this.editAddress.Address1);
+      const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: []
+      });
+      autocomplete.addListener('place_changed', () => {
+        this.ngZone.run(() => {
+          // get the place result
+          const place: google.maps.places.PlaceResult = autocomplete.getPlace();
+          console.log(place);
+          let componentForm: any;
+          componentForm = {
+            street_number: 'short_name',
+            route: 'long_name',
+            locality: 'long_name',
+            administrative_area_level_1: 'short_name',
+            country: 'long_name',
+            postal_code: 'short_name'
+          };
+
+          // Get each component of the address from the place details,
+          // and then fill-in the corresponding field on the form.
+          for (let i = 0; i < place.address_components.length; i++) {
+            const addressType = place.address_components[i].types[0];
+            if (componentForm[addressType]) {
+              const val = place.address_components[i][componentForm[addressType]];
+              console.log(val);
+              if (addressType === 'street_number') {
+                this.street_number = val;
+              }
+              if (addressType === 'route') {
+                this.address_route = val;
+              }
+              if (addressType === 'locality') {
+                this.locality = val;
+              }
+              if (addressType === 'administrative_area_level_1') {
+                this.administrative_area_level_1 = val;
+              }
+              if (addressType === 'country') {
+                this.country = val;
+              }
+              if (addressType === 'postal_code') {
+                this.postal_code = val;
+              }
+            }
+          }
+          this.streetAddress = this.street_number + ' ' + this.address_route;
+          this.formEditAddress.controls['aAddress1'].setValue(this.streetAddress);
+          this.formEditAddress.controls['aCity'].setValue(this.locality);
+          this.formEditAddress.controls['aState'].setValue(this.administrative_area_level_1);
+          this.formEditAddress.controls['aZip'].setValue(this.postal_code);
+          });
+          // tslint:disable-next-line:max-line-length
+          console.log(this.street_number, this.address_route, this.locality, this.administrative_area_level_1, this.country, this.postal_code);
+          // verify result
+        });
+      });
   }
+
+
 
   initializeAddress() {
 

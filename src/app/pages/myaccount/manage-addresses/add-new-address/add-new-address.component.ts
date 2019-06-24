@@ -4,16 +4,30 @@ import { AddressInsert } from '../../../../models/address-insert';
 import { CustomerService } from '../../../../services/customer.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ElementRef, NgZone, ViewChild } from '@angular/core';
+import { } from 'googlemaps';
+import { MapsAPILoader } from '@agm/core';
 @Component({
   selector: 'app-add-new-address',
   templateUrl: './add-new-address.component.html',
   styleUrls: ['./add-new-address.component.scss']
 })
 export class AddNewAddressComponent implements OnInit {
+  public searchControl: FormControl;
+  @ViewChild('search') public searchElementRef: ElementRef;
   formAddNewAddress: FormGroup;
   submitted = false;
   returnUrl: string;
+  street_number: any;
+  address_route: any;
+  locality: any;
+  administrative_area_level_1: any;
+  country: any;
+  postal_code: any;
+  streetAddress: string;
   constructor(private customerService: CustomerService,
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone,
     private router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService,
@@ -35,6 +49,66 @@ export class AddNewAddressComponent implements OnInit {
       aIsDefault: [false, []],
     });
 
+    this.searchControl = new FormControl();
+    // load Places Autocomplete
+    this.mapsAPILoader.load().then(() => {
+      const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: []
+      });
+      autocomplete.addListener('place_changed', () => {
+        this.ngZone.run(() => {
+          // get the place result
+          const place: google.maps.places.PlaceResult = autocomplete.getPlace();
+          console.log(place);
+          let componentForm: any;
+          componentForm = {
+            street_number: 'short_name',
+            route: 'long_name',
+            locality: 'long_name',
+            administrative_area_level_1: 'short_name',
+            country: 'long_name',
+            postal_code: 'short_name'
+          };
+
+          // Get each component of the address from the place details,
+          // and then fill-in the corresponding field on the form.
+          for (let i = 0; i < place.address_components.length; i++) {
+            const addressType = place.address_components[i].types[0];
+            if (componentForm[addressType]) {
+              const val = place.address_components[i][componentForm[addressType]];
+              console.log(val);
+              if (addressType === 'street_number') {
+                this.street_number = val;
+              }
+              if (addressType === 'route') {
+                this.address_route = val;
+              }
+              if (addressType === 'locality') {
+                this.locality = val;
+              }
+              if (addressType === 'administrative_area_level_1') {
+                this.administrative_area_level_1 = val;
+              }
+              if (addressType === 'country') {
+                this.country = val;
+              }
+              if (addressType === 'postal_code') {
+                this.postal_code = val;
+              }
+            }
+          }
+          this.streetAddress = this.street_number + ' ' + this.address_route;
+          this.formAddNewAddress.controls['aAddress1'].setValue(this.streetAddress);
+          this.formAddNewAddress.controls['aCity'].setValue(this.locality);
+          this.formAddNewAddress.controls['aState'].setValue(this.administrative_area_level_1);
+          this.formAddNewAddress.controls['aZip'].setValue(this.postal_code);
+          // tslint:disable-next-line:max-line-length
+          console.log(this.street_number, this.address_route, this.locality, this.administrative_area_level_1, this.country, this.postal_code);
+          // verify result
+        });
+      });
+    });
+
     /* this.formAddNewAddress = new FormGroup({
       aFirstName: new FormControl(''),
       aLastName: new FormControl(''),
@@ -49,7 +123,7 @@ export class AddNewAddressComponent implements OnInit {
     }); */
   }
 
-    // convenience getter for easy access to form fields
+  // convenience getter for easy access to form fields
   get f() { return this.formAddNewAddress.controls; }
 
   onAddressSave() {
@@ -61,9 +135,11 @@ export class AddNewAddressComponent implements OnInit {
       return;
     }
 
-    const address = {FirstName: '', LastName: '', AddressName: '',
-    Address1: '', Address2: '', City: '', State: '', Zip: '', Country: '', IsDefault: 0,
-    StoreId: 0, SessionId: '', UserId: 0, AppId: 0, DeviceId: '', DeviceType: ''};
+    const address = {
+      FirstName: '', LastName: '', AddressName: '',
+      Address1: '', Address2: '', City: '', State: '', Zip: '', Country: '', IsDefault: 0,
+      StoreId: 0, SessionId: '', UserId: 0, AppId: 0, DeviceId: '', DeviceType: ''
+    };
 
     address.FirstName = this.formAddNewAddress.get('aFirstName').value;
     address.LastName = this.formAddNewAddress.get('aLastName').value;

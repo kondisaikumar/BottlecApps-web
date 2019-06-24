@@ -8,6 +8,7 @@ import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from 'angularx-social-login';
 import {  SharedModule } from './shared/shared.module';
 import { DeviceDetectorModule } from 'ngx-device-detector';
+import { AgmCoreModule } from '@agm/core';
 
 import { customerReducer  } from './state/customer/customer.reducer';
 import { CustomerEffects } from './state/customer/customer.effects';
@@ -147,6 +148,10 @@ export function getAuthServiceConfigs() {
     CheckoutPriceChangeComponent
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAa97lor1SkpYf-AAsp7EJBHNccO0ox1wI',
+      libraries: ['places', 'geometry']
+    }),
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

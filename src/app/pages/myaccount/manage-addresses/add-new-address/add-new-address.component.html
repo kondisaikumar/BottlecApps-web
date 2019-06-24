@@ -34,7 +34,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label class="text-uppercase">Address 1 <span>*</span>
-                      <input type="name" formControlName="aAddress1" class="form-control" placeholder="">
+                      <input type="name" formControlName="aAddress1" class="form-control" placeholder="" autocorrect="off" autocapitalize="off" spellcheck="off" #search [formControl]="searchControl">
                       <div *ngIf="submitted && f.aAddress1.errors" class="alert alert-danger">
                         <div *ngIf="f.aAddress1.errors.required">Address 1 is required.</div>
                       </div>

@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.6",
     "@angular/animations": "^6.1.10",
     "@angular/cdk": "^7.1.1",
     "@angular/common": "^6.1.10",
@@ -39,14 +40,15 @@
     "ngx-xml2json": "^1.0.2",
     "rxjs": "~6.2.0",
     "smart-app-banner": "^2.0.0",
-    "zone.js": "~0.8.26",
-    "webpack-dev-server": ">=3.1.11"
+    "webpack-dev-server": ">=3.1.11",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.8.5",
     "@angular/cli": "^6.2.5",
     "@angular/compiler-cli": "^6.1.10",
     "@angular/language-service": "^6.1.10",
+    "@types/googlemaps": "^3.36.5",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
