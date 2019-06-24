@@ -18,13 +18,13 @@ export class AddNewAddressComponent implements OnInit {
   formAddNewAddress: FormGroup;
   submitted = false;
   returnUrl: string;
-  street_number: any;
-  address_route: any;
-  locality: any;
-  administrative_area_level_1: any;
-  country: any;
-  postal_code: any;
-  streetAddress: string;
+  street_number = '';
+  address_route = '';
+  locality = '';
+  administrative_area_level_1 = '';
+  country = '';
+  postal_code = '';
+  streetAddress = '';
   constructor(private customerService: CustomerService,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,

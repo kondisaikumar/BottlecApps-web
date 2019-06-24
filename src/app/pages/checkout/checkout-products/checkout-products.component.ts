@@ -110,7 +110,7 @@ export class CheckoutProductsComponent implements OnInit {
     this.newCharge = this.cartDetails.ListCharge.filter(charge => charge.ChargeTitle === 'Delivery')[0].ChargeAmount;
     this.hikecharge = ((this.oldCharge / 100) * 10) + this.oldCharge;
     if (this.newCharge > this.hikecharge) {
-      this.reviewPrice = 'There was a price change for some of the items in your cart please review before placing the order';
+      this.reviewPrice = 'There is a change in your delivery charge, please review before placing the order';
       this.openPriceModal.nativeElement.click();
     } else {
       this.afterDoCheck();
@@ -192,20 +192,26 @@ export class CheckoutProductsComponent implements OnInit {
         if (this.cartDetails.PaymentTypeId === 0) {
           this.placeOrder();
         } else if (this.cartDetails.PaymentTypeId === 1) {
+          this.progressBarService.show();
           this.paymentService.createTransactionRequest(data).subscribe(paymentResponse => {
             if (paymentResponse.transactionResponse && paymentResponse.transactionResponse.responseCode === '1') {
               this.placeOrderForOnlinePayment(paymentResponse);
+              this.progressBarService.hide();
             } else if (paymentResponse.transactionResponse && paymentResponse.transactionResponse.responseCode === '2') {
               this.orderplace.emit();
+              this.progressBarService.hide();
             }
           });
         } else if (this.cartDetails.PaymentTypeId === 7) {
 
           if (this.vantivPaymentService.vantiveProfile) {
+            this.progressBarService.show();
             this.vantivPaymentService.CreditCardPayment(data.amount).subscribe((paymentResponse: any) => {
               if (this.vantivPaymentService.vExpressResponseCode === '0') {
                 this.placeOrderForOnlinePayment(this.parseVantivResponse(paymentResponse));
+                this.progressBarService.hide();
               } else {
+                this.progressBarService.hide();
                 this.orderplace.emit();
               }
             });
@@ -278,15 +284,18 @@ export class CheckoutProductsComponent implements OnInit {
   }
 
   placeOrder() {
+    this.progressBarService.show();
     this.cartService.placeOrder(this.cartDetails).subscribe(
       (orderResponse: any) => {
         this.cartDetails = orderResponse;
         if (this.cartDetails.OrderId !== 0) {
           this.commonService.onOrderPlaced(false);
           this.toastr.success('Order Placed Successfully.');
+          this.progressBarService.hide();
           this.store.dispatch(new StoreGetHome());
         }
         this.isCheckoutSubmitted = false;
+        this.progressBarService.hide();
         this.clearPaymentCache();
         this.orderplace.emit(this.cartDetails);
 
