@@ -77,7 +77,7 @@ export class CheckoutProductsComponent implements OnInit {
       }
     }
     this.oldSubTotal = this.cartDetails.SubTotal;
-    const oldCharge = this.cartDetails.ListCharge.filter(charge => charge.ChargeTitle === 'Delivery')[0];
+    const oldCharge = this.cartDetails.ListCharge.filter(charge => charge.ChargeId === 3)[0];
     if (oldCharge) {
       this.oldCharge = oldCharge.ChargeAmount;
     }
@@ -107,7 +107,8 @@ export class CheckoutProductsComponent implements OnInit {
     }
   }
   doCheckHikeinDeliverycharge() {
-    this.newCharge = this.cartDetails.ListCharge.filter(charge => charge.ChargeTitle === 'Delivery')[0].ChargeAmount;
+    this.newCharge = this.cartDetails.ListCharge.filter(charge => charge.ChargeId === 3)[0].ChargeAmount;
+    console.log(this.newCharge);
     this.hikecharge = ((this.oldCharge / 100) * 10) + this.oldCharge;
     if (this.newCharge > this.hikecharge) {
       this.reviewPrice = 'There is a change in your delivery charge, please review before placing the order';
