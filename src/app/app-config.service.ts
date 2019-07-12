@@ -2,7 +2,7 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 // import { truncateSync } from 'fs';
 
-export const baseURL = 'https://staging.liquorapps.com/Bcapi/api/';
+export const baseURL = 'https://liquorapps.com/Bcapi/api/';
 export const facebookProviderID = '502181350180492';
 
 export enum SmartBannerInfo {
@@ -35,7 +35,7 @@ export class AppConfigService {
 
   deviceID = '';
   storeID = 0;
-  appID = 10155;
+  appID = 10041;
   URL = '';
 
   merchantAuthentication = {
