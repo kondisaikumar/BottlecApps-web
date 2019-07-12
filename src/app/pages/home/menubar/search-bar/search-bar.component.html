@@ -1,13 +1,34 @@
 <ul class="nav navbar-nav mobile_none search-block">
   <li>
       <div class="input-group searchby">
-        <input type="text" class="form-control" (keyup.enter)="searchByText()" name="search" [(ngModel)]="searchText" placeholder="Find Your Drink...">
+        <input type="text" class="form-control" (keyup.enter)="searchByText()" name="search" [(ngModel)]="searchText" (keyup)="saveSearch()"  placeholder="Find Your Drink..." [matAutocomplete]="auto">
 		    <div class="search-btn">
 		    	<button type="button" class="btn btn-primaray" (click)="searchByText()" >
-		        	<!-- <img src="assets/Images/search.png"> -->
+		        
 		        	<i class="icon icon-search"></i>
 		        </button>
 		    </div>
-      </div>
-  </li>
+			</div>
+			<mat-autocomplete #auto="matAutocomplete" >
+				<mat-option *ngFor="let result of PreSearchResults" [value]="option" [disabled]="result.pPrice === 0 ? true : false" [style.background-color]="result.pPrice === 0 ? '' : ''" (click)="productRoute(result.spid)" >
+						<table width="100%">
+								<tr>
+									<td width="15%" class="text-center"><img style="vertical-align:middle;" aria-hidden [src]="result.imagePath" height="20" />
+									</td>
+									<td width="85%">
+										<span ><small style="font-weight: bold">{{result.name}}</small></span><br>
+										<span ><small>{{result.size}}</small>
+										</span><br>
+										<span ><small>{{result.category}}/{{result.type}}/{{result.varietal}}</small><small class="red text-right">
+											<span *ngIf="result.pPrice !== 0; else na"><strong>${{result.pPrice}}</strong></span>
+											<ng-template #na><span>Not available</span></ng-template></small></span></td>
+									
+								</tr>
+							
+							</table>
+				
+				</mat-option>
+			</mat-autocomplete>
+		<!-- </mat-form-field> -->
+</li>
 </ul>

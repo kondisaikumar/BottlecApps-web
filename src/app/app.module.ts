@@ -19,6 +19,8 @@ import { ProductStoreActions } from './state/product-store/product-store.action'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
@@ -155,6 +157,7 @@ export function getAuthServiceConfigs() {
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

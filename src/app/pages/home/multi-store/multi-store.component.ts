@@ -1,6 +1,5 @@
 import { Component, OnChanges, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 
-
 @Component({
   selector: 'app-multi-store',
   templateUrl: './multi-store.component.html',
@@ -13,11 +12,7 @@ export class MultiStoreComponent implements OnChanges {
   @ViewChild('openModal') openModal: ElementRef;
   searchText: string;
   tempStores: any;
-
-  constructor() {
-
-  }
-
+  constructor( ) {}
   ngOnChanges() {
   }
 

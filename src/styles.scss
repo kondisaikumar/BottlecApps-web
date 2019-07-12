@@ -13,7 +13,12 @@ body {
     background-color: #fcfcfc;
     font-family: poppinsregular, poppinsbold, montserratregular, montserratbold;
 }
-
+.pac-container {
+    z-index: 1051 !important;
+}
+.cdk-overlay-pane{
+    width: 496px !important;
+}
    h1,h2,h3,h4,h5,h6{
     font-family: poppinsbold;
    }

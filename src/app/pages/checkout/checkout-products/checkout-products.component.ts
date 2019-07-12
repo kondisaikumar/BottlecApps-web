@@ -146,6 +146,10 @@ export class CheckoutProductsComponent implements OnInit {
           this.toastr.error(response.Remark);
           return;
         }
+        if (this.cartService.selectedDeliveryTime === '') {
+          this.toastr.error('Please Select Delivery Date & Time');
+          return;
+        }
         if (
           !this.cartDetails.Profile ||
           this.cartDetails.Profile.ContactNo === '' ||

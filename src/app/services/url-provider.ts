@@ -42,5 +42,6 @@ export enum UrlNames {
     VantivAddCard = 'Customer/VantivAddCard',
     VantivCardPayment = 'Customer/VantivCardPayment',
     VantivCardReversal = 'Customer/VantivCardReversal',
-    StoreContactUs = 'Store/StoreContactUs'
+    StoreContactUs = 'Store/StoreContactUs',
+    ElasticSearch = 'values/SerchTextValue'
 }

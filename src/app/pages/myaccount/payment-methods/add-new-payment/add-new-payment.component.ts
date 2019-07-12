@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 // import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { PaymentProfile } from '../../../../models/payment-profile';
 import { PaymentService } from '../../../../services/payment.service';
@@ -10,13 +10,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { CreditcardTypeService } from '../../../../shared/services/creditcard-type.service';
 import { ProgressBarService } from '../../../../shared/services/progress-bar.service';
 import { AppConfigService } from '../../../../app-config.service';
-
+import { ElementRef, NgZone, ViewChild } from '@angular/core';
+import { } from 'googlemaps';
+import { MapsAPILoader } from '@agm/core';
 @Component({
   selector: 'app-add-new-payment',
   templateUrl: './add-new-payment.component.html',
   styleUrls: ['./add-new-payment.component.scss']
 })
 export class AddNewPaymentComponent implements OnInit {
+  public searchControl: FormControl;
+  @ViewChild('search') public searchElementRef: ElementRef;
   formAddNewPayment: FormGroup;
   submitted = false;
   customerInfo: any;
@@ -28,10 +32,19 @@ export class AddNewPaymentComponent implements OnInit {
   years: any;
   isValidCard = false;
   returnUrl: string;
+  street_number: any;
+  address_route: any;
+  locality: any;
+  administrative_area_level_1: any;
+  country: any;
+  postal_code: any;
+  streetAddress: string;
 
   constructor(private formBuilder: FormBuilder,
     // private spinnerService: Ng4LoadingSpinnerService,
     private route: ActivatedRoute,
+    private mapsAPILoader: MapsAPILoader,
+    private ngZone: NgZone,
     private paymentService: PaymentService,
     private productService: ProductStoreService,
     private customerService: CustomerService,
@@ -70,6 +83,65 @@ export class AddNewPaymentComponent implements OnInit {
       phoneNumber: [this.customerInfo && this.customerInfo.ContactNo || '', [Validators.required]]
     });
     this.getAddressList();
+    // load Places Autocomplete
+    this.mapsAPILoader.load().then(() => {
+      const autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: []
+      });
+      autocomplete.addListener('place_changed', () => {
+        this.ngZone.run(() => {
+          // get the place result
+          const place: google.maps.places.PlaceResult = autocomplete.getPlace();
+          console.log(place);
+          let componentForm: any;
+          componentForm = {
+            street_number: 'short_name',
+            route: 'long_name',
+            locality: 'long_name',
+            administrative_area_level_1: 'short_name',
+            country: 'long_name',
+            postal_code: 'short_name'
+          };
+
+          // Get each component of the address from the place details,
+          // and then fill-in the corresponding field on the form.
+          for (let i = 0; i < place.address_components.length; i++) {
+            const addressType = place.address_components[i].types[0];
+            if (componentForm[addressType]) {
+              const val = place.address_components[i][componentForm[addressType]];
+              console.log(val);
+              if (addressType === 'street_number') {
+                this.street_number = val;
+              }
+              if (addressType === 'route') {
+                this.address_route = val;
+              }
+              if (addressType === 'locality') {
+                this.locality = val;
+              }
+              if (addressType === 'administrative_area_level_1') {
+                this.administrative_area_level_1 = val;
+              }
+              if (addressType === 'country') {
+                this.country = val;
+              }
+              if (addressType === 'postal_code') {
+                this.postal_code = val;
+              }
+            }
+          }
+          this.streetAddress = this.street_number + ' ' + this.address_route;
+          this.formAddNewPayment.controls['address'].setValue(this.streetAddress);
+          this.formAddNewPayment.controls['city'].setValue(this.locality);
+          this.formAddNewPayment.controls['state'].setValue(this.administrative_area_level_1);
+          this.formAddNewPayment.controls['zipCode'].setValue(this.postal_code);
+          // tslint:disable-next-line:max-line-length
+          console.log(this.street_number, this.address_route, this.locality, this.administrative_area_level_1, this.country, this.postal_code);
+          // verify result
+        });
+      });
+    });
+
   }
 
   getAddressList() {
@@ -173,7 +245,7 @@ export class AddNewPaymentComponent implements OnInit {
 
     return false;
   }
-  
+
   numericOnly(event): boolean {
     const patt = /^([0-9])$/;
     const result = patt.test(event.key);

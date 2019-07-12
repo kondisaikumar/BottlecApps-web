@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError, EMPTY, Subject } from 'rxjs';
 import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
-import { switchMap, catchError } from 'rxjs/operators';
+import { switchMap, catchError, debounceTime } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import { baseUrl, UrlNames } from './url-provider';
@@ -18,6 +18,7 @@ import { ReviewList } from '../models/review-list';
 import { ErrorHandlerService } from '../shared/services/error-handler.service';
 import { BaseRequest } from '../models/base-request';
 import { CartService } from '../services/cart.service';
+import { ElasticSearchRequestPayload } from '../models/elastic-search-request-payload';
 
 @Injectable()
 export class ProductStoreService {
@@ -28,6 +29,7 @@ export class ProductStoreService {
     storeList: any;
     customerInfo: any;
     isFavoritesUpdated = false;
+    elaticsearchText: any;
 
     constructor(private http: HttpClient,
         private store: Store<CustomerLoginSession>,
@@ -148,7 +150,26 @@ export class ProductStoreService {
             DeviceType: this.customerSession.DeviceType
         };
     }
+    getelastiSearch(): Observable<any> {
+        // tslint:disable-next-line:max-line-length
+        return this.http.post<any>(baseUrl + UrlNames.ElasticSearch, this.getElasticSearchRequestParams(), { headers: this.headers }).pipe(
+            debounceTime(300), switchMap((res: any) => {
+                return of(res);
+            }),
+            catchError((error: any, caught: Observable<any>) => {
+                return this.errorHandler.processError(error);
+            })
+        );
+    }  private getElasticSearchRequestParams(): ElasticSearchRequestPayload {
+        if (!this.customerSession) {
+            return null;
+        }
 
+        return {
+            StoreId: this.customerSession.StoreId,
+            SearchWord: this.elaticsearchText
+        };
+    }
     productGetDetails(reqParams: ProductGetDetailsRequestPayload): Observable<any> {
         return this.http.post<any>(baseUrl + UrlNames.ProductGetDetails, reqParams, { headers: this.headers }).pipe(
             switchMap((res: any) => {

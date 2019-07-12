@@ -52,7 +52,7 @@ export class CheckoutDeliveryComponent implements OnInit {
       if (this.deliveryDatesList.indexOf(this.cartDetails.DoPDate) >= 0) {
         this.selectedDeliveryDate = this.cartDetails.DoPDate;
       } else {
-        this.selectedDeliveryDate = this.deliveryDatesList[0];
+         this.selectedDeliveryDate = '';
       }
       this.getDeliveryTimings();
     }
@@ -69,19 +69,27 @@ export class CheckoutDeliveryComponent implements OnInit {
 
     if (this.deliveryTimingsList.indexOf(this.cartDetails.DoPTimeSlot) >= 0) {
       this.selectedDeliveryTime = this.cartDetails.DoPTimeSlot;
+      this.cartService.selectedDeliveryTime = this.selectedDeliveryTime;
     } else {
-      this.selectedDeliveryTime = this.deliveryTimingsList[0];
-      this.updateDeliveryTime();
+      this.selectedDeliveryTime = '';
+      this.cartService.selectedDeliveryTime = this.selectedDeliveryTime;
+      }
+      if (this.selectedDeliveryTime !== '') {
+        this.cartService.selectedDeliveryTime = this.selectedDeliveryTime;
+        this.updateDeliveryTime();
     }
   }
 
   updateDeliveryTime() {
     // tslint:disable-next-line:max-line-length
     this.utcitem = this.cartDetails.ListDoPTimeSlot.filter(item => item.DoPDate === this.selectedDeliveryDate && item.DoPSlot === this.selectedDeliveryTime);
-    this.cartDetails.DopUtcStartDate = this.utcitem[0].DSDopStartDate;
-    this.cartDetails.DopUtcEndDate = this.utcitem[0].DSDopEndDate;
-    this.cartService.cartdetails.DoPTimeSlot = this.selectedDeliveryTime;
-    this.updateCart();
+    if (this.selectedDeliveryTime !== '') {
+      this.cartService.selectedDeliveryTime = this.selectedDeliveryTime;
+      this.cartDetails.DopUtcStartDate = this.utcitem[0].DSDopStartDate;
+      this.cartDetails.DopUtcEndDate = this.utcitem[0].DSDopEndDate;
+      this.cartService.cartdetails.DoPTimeSlot = this.selectedDeliveryTime;
+      this.updateCart();
+    }
   }
   getAddressList() {
     if (this.customerService.customerAddressList && this.customerService.customerAddressList.ListAddress) {

@@ -1,8 +1,3 @@
-
-  <!-- <div class="form-group">
-    <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
-  </div> -->
- 
 <div class="container">
     <div class=" col-lg-8 col-md-8 col-sm-8 col-xs-12">
       <div class="row">
@@ -25,8 +20,11 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="text-uppercase">Last Name 
+                      <label class="text-uppercase">Last Name <span>*</span>
                         <input type="name" formControlName="aLastName" class="form-control" placeholder="">
+                        <div *ngIf="submitted && f.aLastName.errors" class="alert alert-danger">
+                          <div *ngIf="f.aLastName.errors.required">Last Name is required.</div>
+                        </div>
                       </label>
                     </div>
                   </div>
@@ -94,6 +92,20 @@
                       </label>
                     </div>
                   </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="text-uppercase">Phone Number <span>*</span>
+                            <input type="text" formControlName="aContactNo" class="form-control" placeholder="" />
+                            <div *ngIf="submitted && f.aContactNo.errors" class="alert alert-danger">
+                                <div *ngIf="f.aContactNo.errors.required">Phone Number is required.</div>
+                                <div *ngIf="f.aContactNo.errors.minlength">Phone Number should be minimum 10 numbers</div>
+                                <div *ngIf="f.aContactNo.errors.maxlength">Phone Number should be maximum 10 numbers</div>
+                              </div>
+                        </label>
+                    </div>
+                </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6">

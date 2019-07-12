@@ -51,6 +51,7 @@ export class EditAddressComponent implements OnInit {
       aCity: ['', [Validators.required]],
       aState: ['', [Validators.required, Validators.maxLength(2)]],
       aZip: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(6)]],
+      aContactNo: ['', [Validators.minLength(10), Validators.maxLength(10), Validators.required]],
       aIsDefault: [false, []],
     });
   }
@@ -156,6 +157,7 @@ export class EditAddressComponent implements OnInit {
       aCity: [this.editAddress.City, [Validators.required]],
       aState: [this.editAddress.State, [Validators.required, Validators.maxLength(2)]],
       aZip: [this.editAddress.Zip, [Validators.required, Validators.minLength(5), Validators.maxLength(6)]],
+      aContactNo: [this.editAddress.ContactNo, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       aIsDefault: [this.editAddress.IsDefault, []],
     });
   }
@@ -173,7 +175,7 @@ export class EditAddressComponent implements OnInit {
 
     const address = {
       AddressId: this.editAddress.AddressId, FirstName: '', LastName: '', AddressName: '',
-      Address1: '', Address2: '', City: '', State: '', Zip: '', Country: '', IsDefault: 0,
+      Address1: '', Address2: '', City: '', State: '', Zip: '', ContactNo: '', Country: '', IsDefault: 0,
       StoreId: 0, SessionId: '', UserId: 0, AppId: 0, DeviceId: '', DeviceType: ''
     };
 
@@ -185,6 +187,7 @@ export class EditAddressComponent implements OnInit {
     address.City = this.formEditAddress.get('aCity').value;
     address.State = this.formEditAddress.get('aState').value;
     address.Zip = this.formEditAddress.get('aZip').value;
+    address.ContactNo = this.formEditAddress.get('aContactNo').value;
     // address.Country = this.formAddNewAddress.get('aCountry').value;
     address.IsDefault = this.formEditAddress.get('aIsDefault').value === true ? 1 : 0;
 

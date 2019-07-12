@@ -104,7 +104,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label class="text-uppercase">Address<span>*</span>
-                        <input type="text" formControlName="address" class="form-control" placeholder="">
+                        <input type="text" formControlName="address" class="form-control" placeholder="" autocorrect="off" autocapitalize="off" spellcheck="off" #search [formControl]="searchControl">
                         <div *ngIf="submitted && f.address.errors" class="alert alert-danger">
                           <div *ngIf="f.address.errors.required">Address is required.</div>
                         </div>

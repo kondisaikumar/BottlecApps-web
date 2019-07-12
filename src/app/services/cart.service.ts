@@ -27,6 +27,7 @@ export class CartService {
   userRemarks: string;
   DeliveryInstruction: string;
   isItemRemovedFromCart = false;
+  selectedDeliveryTime: any;
 
 
   constructor(private http: HttpClient,

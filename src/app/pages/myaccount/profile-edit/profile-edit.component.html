@@ -58,6 +58,8 @@
                                             <input type="text" formControlName="pContactNo" class="form-control"
                                                 placeholder="Phone Number" />
                                             <div *ngIf="submitted && f.pContactNo.errors" class="alert alert-danger">
+                                                <div *ngIf="f.pContactNo.errors.minlength">Phone Number should be minimum 10 numbers</div>
+                                                <div *ngIf="f.pContactNo.errors.maxlength">Phone Number should be maximum 10 numbers</div>
                                                 <div *ngIf="f.pContactNo.errors.required">Phone Number is required.</div>
                                             </div>
                                         </label>

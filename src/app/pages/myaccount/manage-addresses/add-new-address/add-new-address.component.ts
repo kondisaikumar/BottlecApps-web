@@ -25,6 +25,10 @@ export class AddNewAddressComponent implements OnInit {
   country = '';
   postal_code = '';
   streetAddress = '';
+  profile: any;
+  FirstName: any;
+  LastName: any;
+  ContactNo: any;
   constructor(private customerService: CustomerService,
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
@@ -36,16 +40,32 @@ export class AddNewAddressComponent implements OnInit {
   ngOnInit() {
 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'myaccount/manage-addresses';
+    this.customerService.getProfileDetails().subscribe(
+      (data: any) => {
+        this.profile = data;
+
+        if (this.profile && this.profile.FirstName) {
+          this.FirstName = this.profile.FirstName;
+        }
+        if (this.profile && this.profile.LastName) {
+          this.LastName = this.profile.LastName;
+        }
+        if (this.profile && this.profile.ContactNo) {
+          this.ContactNo = this.profile.ContactNo;
+        }
+        console.log(this.FirstName, this.LastName, this.ContactNo);
+    });
 
     this.formAddNewAddress = this.formBuilder.group({
-      aFirstName: ['', [Validators.required, Validators.minLength(2)]],
-      aLastName: ['', [Validators.required]],
+      aFirstName: [this.FirstName, [Validators.required, Validators.minLength(2)]],
+      aLastName: [this.LastName, [Validators.required]],
       aAddressName: ['', []],
       aAddress1: ['', [Validators.required]],
       aAddress2: ['', []],
       aCity: ['', [Validators.required]],
       aState: ['', [Validators.required, Validators.maxLength(2)]],
       aZip: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(6)]],
+      aContactNo: [this.ContactNo, [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       aIsDefault: [false, []],
     });
 
@@ -137,7 +157,7 @@ export class AddNewAddressComponent implements OnInit {
 
     const address = {
       FirstName: '', LastName: '', AddressName: '',
-      Address1: '', Address2: '', City: '', State: '', Zip: '', Country: '', IsDefault: 0,
+      Address1: '', Address2: '', City: '', State: '', Zip: '', ContactNo: '', Country: '', IsDefault: 0,
       StoreId: 0, SessionId: '', UserId: 0, AppId: 0, DeviceId: '', DeviceType: ''
     };
 
@@ -149,6 +169,7 @@ export class AddNewAddressComponent implements OnInit {
     address.City = this.formAddNewAddress.get('aCity').value;
     address.State = this.formAddNewAddress.get('aState').value;
     address.Zip = this.formAddNewAddress.get('aZip').value;
+    address.ContactNo = this.formAddNewAddress.get('aContactNo').value;
     // address.Country = this.formAddNewAddress.get('aCountry').value;
     address.IsDefault = this.formAddNewAddress.get('aIsDefault').value === true ? 1 : 0;
 
