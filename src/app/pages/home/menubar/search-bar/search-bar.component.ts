@@ -156,7 +156,7 @@ export class SearchBarComponent implements OnInit {
     this.router.navigate(['/advance-filter']);
     this.searchText = '';
   }
-  productRlloute(spid) {
+  productRoute(spid) {
     if (spid !== 0) {
       this.routePath = '/product-details/' + spid;
       this.router.navigate([this.routePath]);
