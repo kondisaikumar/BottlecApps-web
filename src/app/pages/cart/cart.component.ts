@@ -201,7 +201,7 @@ console.log(this.cartDetails);
           this.cartService.updateCart(this.cartDetails).subscribe(
             (response: any) => {
               this.progressBarService.hide();
-
+console.log(response);
               if ( response && response.Remark !== '') {
                 this.toastr.error(response.Remark);
                 return;

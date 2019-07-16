@@ -152,7 +152,7 @@ export class ProductStoreService {
     }
     getelastiSearch(): Observable<any> {
         // tslint:disable-next-line:max-line-length
-        return this.http.post<any>('https://staging.liquorapps.com/Bcapi/api/' + UrlNames.ElasticSearch, this.getElasticSearchRequestParams(), { headers: this.headers }).pipe(
+        return this.http.post<any>(baseUrl + UrlNames.ElasticSearch, this.getElasticSearchRequestParams(), { headers: this.headers }).pipe(
             debounceTime(100), switchMap((res: any) => {
                 return of(res);
             }),

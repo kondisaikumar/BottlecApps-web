@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-md-6">
                       <div class="input-container">
-                        <select id="dateList" name="dateList" class="form-control dateinput" [(ngModel)]="selectedDeliveryDate" (ngModelChange)="getDeliveryTimings()">
+                        <select id="dateList" name="dateList" class="form-control dateinput" [(ngModel)]="selectedDeliveryDate" (ngModelChange)="getDeliveryTimings(true)">
                           <option value="" disabled selected>Select Date</option>
                           <option [value]="ddate" *ngFor="let ddate of deliveryDatesList">
                             {{ddate}}

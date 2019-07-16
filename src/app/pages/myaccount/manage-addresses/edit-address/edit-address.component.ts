@@ -14,10 +14,6 @@ import { MapsAPILoader } from '@agm/core';
   styleUrls: ['./edit-address.component.scss']
 })
 export class EditAddressComponent implements OnInit {
-  public latitude: number;
-  public longitude: number;
-  public searchControl: FormControl;
-  public zoom: number;
   editAddress: any;
   formEditAddress: FormGroup;
   submitted = false;
@@ -82,7 +78,6 @@ export class EditAddressComponent implements OnInit {
         });
     }
 
-    this.searchControl = new FormControl();
     // load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       this.formEditAddress.controls['aAddress1'].setValue(this.editAddress.Address1);
@@ -91,6 +86,13 @@ export class EditAddressComponent implements OnInit {
       });
       autocomplete.addListener('place_changed', () => {
         this.ngZone.run(() => {
+          this.street_number = '';
+          this.address_route = '';
+          this.locality = '';
+          this.administrative_area_level_1 = '';
+          this.country = '';
+          this.postal_code = '';
+          this.streetAddress = '';
           // get the place result
           const place: google.maps.places.PlaceResult = autocomplete.getPlace();
           console.log(place);
@@ -112,7 +114,7 @@ export class EditAddressComponent implements OnInit {
               const val = place.address_components[i][componentForm[addressType]];
               console.log(val);
               if (addressType === 'street_number') {
-                this.street_number = val;
+                this.street_number = val + '';
               }
               if (addressType === 'route') {
                 this.address_route = val;
@@ -131,7 +133,7 @@ export class EditAddressComponent implements OnInit {
               }
             }
           }
-          this.streetAddress = this.street_number + ' ' + this.address_route;
+          this.streetAddress = this.street_number + '' + this.address_route;
           this.formEditAddress.controls['aAddress1'].setValue(this.streetAddress);
           this.formEditAddress.controls['aCity'].setValue(this.locality);
           this.formEditAddress.controls['aState'].setValue(this.administrative_area_level_1);

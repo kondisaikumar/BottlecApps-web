@@ -35,7 +35,7 @@ export class AppConfigService {
 
   deviceID = '';
   storeID = 0;
-  appID = 10041;
+  appID = 10002;
   URL = '';
 
   merchantAuthentication = {

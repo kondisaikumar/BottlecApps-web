@@ -77,6 +77,13 @@ export class AddNewAddressComponent implements OnInit {
       });
       autocomplete.addListener('place_changed', () => {
         this.ngZone.run(() => {
+          this.street_number = '';
+          this.address_route = '';
+          this.locality = '';
+          this.administrative_area_level_1 = '';
+          this.country = '';
+          this.postal_code = '';
+          this.streetAddress = '';
           // get the place result
           const place: google.maps.places.PlaceResult = autocomplete.getPlace();
           console.log(place);
@@ -98,7 +105,7 @@ export class AddNewAddressComponent implements OnInit {
               const val = place.address_components[i][componentForm[addressType]];
               console.log(val);
               if (addressType === 'street_number') {
-                this.street_number = val;
+                this.street_number = val + '';
               }
               if (addressType === 'route') {
                 this.address_route = val;
@@ -117,7 +124,7 @@ export class AddNewAddressComponent implements OnInit {
               }
             }
           }
-          this.streetAddress = this.street_number + ' ' + this.address_route;
+          this.streetAddress = this.street_number + '' + this.address_route;
           this.formAddNewAddress.controls['aAddress1'].setValue(this.streetAddress);
           this.formAddNewAddress.controls['aCity'].setValue(this.locality);
           this.formAddNewAddress.controls['aState'].setValue(this.administrative_area_level_1);

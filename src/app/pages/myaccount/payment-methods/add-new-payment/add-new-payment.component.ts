@@ -32,13 +32,13 @@ export class AddNewPaymentComponent implements OnInit {
   years: any;
   isValidCard = false;
   returnUrl: string;
-  street_number: any;
-  address_route: any;
-  locality: any;
-  administrative_area_level_1: any;
-  country: any;
-  postal_code: any;
-  streetAddress: string;
+  street_number = '';
+  address_route = '';
+  locality = '';
+  administrative_area_level_1 = '';
+  country = '';
+  postal_code = '';
+  streetAddress = '';
 
   constructor(private formBuilder: FormBuilder,
     // private spinnerService: Ng4LoadingSpinnerService,
@@ -90,6 +90,13 @@ export class AddNewPaymentComponent implements OnInit {
       });
       autocomplete.addListener('place_changed', () => {
         this.ngZone.run(() => {
+          this.street_number = '';
+          this.address_route = '';
+          this.locality = '';
+          this.administrative_area_level_1 = '';
+          this.country = '';
+          this.postal_code = '';
+          this.streetAddress = '';
           // get the place result
           const place: google.maps.places.PlaceResult = autocomplete.getPlace();
           console.log(place);
@@ -111,7 +118,7 @@ export class AddNewPaymentComponent implements OnInit {
               const val = place.address_components[i][componentForm[addressType]];
               console.log(val);
               if (addressType === 'street_number') {
-                this.street_number = val;
+                this.street_number = val + '';
               }
               if (addressType === 'route') {
                 this.address_route = val;
@@ -130,7 +137,7 @@ export class AddNewPaymentComponent implements OnInit {
               }
             }
           }
-          this.streetAddress = this.street_number + ' ' + this.address_route;
+          this.streetAddress = this.street_number + '' + this.address_route;
           this.formAddNewPayment.controls['address'].setValue(this.streetAddress);
           this.formAddNewPayment.controls['city'].setValue(this.locality);
           this.formAddNewPayment.controls['state'].setValue(this.administrative_area_level_1);

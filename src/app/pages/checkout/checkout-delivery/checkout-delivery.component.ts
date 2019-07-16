@@ -31,7 +31,6 @@ export class CheckoutDeliveryComponent implements OnInit {
     this.cartDetails = this.cartService.cartdetails;
     if (this.cartDetails) {
       this.getDeliveryDates();
-      this.getDeliveryTimings();
     }
     this.getAddressList();
   }
@@ -45,20 +44,19 @@ export class CheckoutDeliveryComponent implements OnInit {
         }
       });
 
-      if (this.cartDetails.DoPDate !== '') {
-        this.cartDetails.DoPDate = new Date(this.cartDetails.DoPDate).toLocaleDateString();
-      }
-
+      // if (this.cartDetails.DoPDate !== '') {
+      //   this.cartDetails.DoPDate = new Date(this.cartDetails.DoPDate).toLocaleDateString();
+      // }
       if (this.deliveryDatesList.indexOf(this.cartDetails.DoPDate) >= 0) {
         this.selectedDeliveryDate = this.cartDetails.DoPDate;
       } else {
          this.selectedDeliveryDate = '';
       }
-      this.getDeliveryTimings();
+      this.getDeliveryTimings(false);
     }
   }
 
-  getDeliveryTimings() {
+  getDeliveryTimings(isClicked) {
 
     this.cartService.cartdetails.DoPDate = this.selectedDeliveryDate;
     this.deliveryTimingsList = [];
@@ -67,7 +65,7 @@ export class CheckoutDeliveryComponent implements OnInit {
         .map(item => item.DoPSlot);
     }
 
-    if (this.deliveryTimingsList.indexOf(this.cartDetails.DoPTimeSlot) >= 0) {
+    if (!isClicked && this.deliveryTimingsList.indexOf(this.cartDetails.DoPTimeSlot) >= 0) {
       this.selectedDeliveryTime = this.cartDetails.DoPTimeSlot;
       this.cartService.selectedDeliveryTime = this.selectedDeliveryTime;
     } else {

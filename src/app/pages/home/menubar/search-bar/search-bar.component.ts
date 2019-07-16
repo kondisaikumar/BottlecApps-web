@@ -24,6 +24,7 @@ export class SearchBarComponent implements OnInit {
   saveSearch() {
     this.productStoreService.elaticsearchText = this.searchText;
     this.productStoreService.getelastiSearch().subscribe(data => {
+      console.log(data);
       this.PreSearchResults = [];
       if (data && data.hits.hits.length > 0) {
         this.hitsArray = data.hits.hits;
